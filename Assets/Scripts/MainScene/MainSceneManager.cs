@@ -44,6 +44,7 @@ public class MainSceneManager : MonoBehaviour
 
     async UniTask ShowNextDialogueAsync()
     {
+        await UniTask.WaitUntil(()=> dialogueList !=  null);
         if (currentIndex < dialogueList.Count)
         {
             LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
@@ -123,29 +124,28 @@ public class MainSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)||Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                if (isTyping)
-                {
+        // if (Input.GetKeyDown(KeyCode.Space)||Input.touchCount > 0)
+        // {
+            // Touch touch = Input.GetTouch(0);
+           
+                // if (isTyping)
+                // {
                     // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
-                    StopTypingEffect();
-                }
-                else if (isFadingOutInProgress)
-                {
+                    // StopTypingEffect();
+                // }
+                // else if (isFadingOutInProgress)
+                // {
                     // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
-                    StopFadeOutEffect();
-                    ContinueToNextDialogue();
-                }
-                else
-                {
+                    // StopFadeOutEffect();
+                    // ContinueToNextDialogue();
+                // }
+                // else
+                // {
                     // 타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
-                    StartTypingEffect();
-                }
-            }
-        }
+                    // StartTypingEffect();
+                // }
+            
+        // }
     }
 
     // 타이핑 효과 시작 메서드
