@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 
 public class MainSceneManager : MonoBehaviour
@@ -35,6 +36,9 @@ public class MainSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject attanacePopUp;
 
+    
+
+    private bool _isMoved = false;
     void Start()
     {
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
@@ -124,28 +128,30 @@ public class MainSceneManager : MonoBehaviour
 
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Space)||Input.touchCount > 0)
-        // {
-            // Touch touch = Input.GetTouch(0);
-           
-                // if (isTyping)
-                // {
+        if (Input.GetKeyDown(KeyCode.Space)||Input.touchCount > 0)
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (isTyping)
+                {
                     // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
-                    // StopTypingEffect();
-                // }
-                // else if (isFadingOutInProgress)
-                // {
+                    StopTypingEffect();
+                }
+                else if (isFadingOutInProgress)
+                {
                     // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
-                    // StopFadeOutEffect();
-                    // ContinueToNextDialogue();
-                // }
-                // else
-                // {
-                    // 타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
-                    // StartTypingEffect();
-                // }
-            
-        // }
+                    StopFadeOutEffect();
+                    ContinueToNextDialogue();
+                }
+                else
+                {
+                    //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
+                    StartTypingEffect();
+                }
+            }
+        }
     }
 
     // 타이핑 효과 시작 메서드
@@ -188,4 +194,38 @@ public class MainSceneManager : MonoBehaviour
             TweenEffect.OpenPopup(attanacePopUp);
         }
     }
+    
+    
+    public void OnToggleValueChanged(bool isOn, GameObject targetObject)
+    {
+        // 토글이 클릭되면 DOTween을 사용하여 게임 오브젝트를 움직입니다.
+        if (targetObject != null)
+        {
+            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                if (isOn && !_isMoved)
+                {
+                    // 아래로 -320만큼 움직이도록 DOTween을 사용합니다.
+                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - 320f, 0.5f)
+                        .SetEase(Ease.OutQuad) // 이징(Easing) 설정
+                        .OnComplete(() => _isMoved = true); // 이동이 완료되면 상태 변경
+                }
+                else if (!isOn && _isMoved)
+                {
+                    // 원래 위치로 되돌아오도록 DOTween을 사용합니다.
+                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + 320f, 0.5f)
+                        .SetEase(Ease.OutQuad) // 이징(Easing) 설정
+                        .OnComplete(() => _isMoved = false); // 이동이 완료되면 상태 변경
+                }
+            }
+        }
+    }
+
 }
+
+
+
+
+
+
