@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,8 @@ public class MainSceneManager : MonoBehaviour
     public float TypingSpeed = 0.05f; // 타이핑 속도 조절
     public float FadeOutSpeed = 1.0f; // 페이드 아웃 속도
 
+    private bool cancelFadeOut = false; // 페이드 아웃 취소 플래그
+    
     [Header("메인 캔버스")] 
     [SerializeField]
     private GameObject mainCanvas;
@@ -128,7 +131,47 @@ public class MainSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)||Input.touchCount > 0)
+#if UNITY_EDITOR
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("press Space");
+            if (isTyping)
+            {
+                // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
+                StopTypingEffect();
+            }
+            else if (isFadingOutInProgress)
+            {
+                // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
+                if (cancelFadeOut)
+                {
+                    cancelFadeOut = false; // 페이드 아웃 취소
+                    topTextMeshPro.alpha = 1.0f;
+                    middleTextMeshPro.alpha = 1.0f;
+                    lowTextMeshProUGUI.alpha = 1.0f;
+                    topTextMeshPro.gameObject.SetActive(false);
+                    middleTextMeshPro.gameObject.SetActive(false);
+                    lowTextMeshProUGUI.gameObject.SetActive(false);
+                    currentIndex++; // 넘어감
+                    ShowNextDialogueAsync().Forget(); // 대사 표시
+                }
+                else
+                {
+                    StopFadeOutEffect();
+                    ContinueToNextDialogue();
+                }
+            }
+            else
+            {
+                //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
+                StartTypingEffect();
+            }
+        }
+        
+#elif UNITY_ANDROID
+
+        if (Input.touchCount > 0)
         {
             if (Input.touchCount > 0)
             {
@@ -152,12 +195,20 @@ public class MainSceneManager : MonoBehaviour
                 }
             }
         }
+      #endif
     }
+    
 
     // 타이핑 효과 시작 메서드
     void StartTypingEffect()
     {
         isTyping = true;
+        if (currentIndex < dialogueList.Count)
+        {
+            // 현재 대사를 전부 출력
+            LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+            currentText = currentDialogue.text;
+        }
     }
 
     // 타이핑 효과 정지 메서드
@@ -165,8 +216,17 @@ public class MainSceneManager : MonoBehaviour
     {
         isTyping = false;
         // 현재 대사를 전부 출력
-        LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
-        currentText = currentDialogue.text;
+        try
+        {
+
+            LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+            
+            currentText = currentDialogue.text;
+        }
+        catch 
+        {
+          
+        }
     }
 
     // 페이드 아웃 효과 정지 메서드
@@ -222,6 +282,11 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
+    public void EnableAttendpPopup()
+    {
+        TweenEffect.OpenPopup(attanacePopUp);
+    }
+ 
 }
 
 

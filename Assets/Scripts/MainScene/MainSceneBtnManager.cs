@@ -14,8 +14,9 @@ public class MainSceneBtnManager : MonoBehaviour
     [SerializeField] private Text diamondText;
     [SerializeField] private Text datText;
     [SerializeField] private Toggle topButtonGroupToggle;
-    
-    
+
+    [Header("오른쪽 ui")]
+    [SerializeField] private Button attendBtn;
     
     
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class MainSceneBtnManager : MonoBehaviour
         
         
         topButtonGroupToggle.onValueChanged.AddListener((isOn) => _manager.OnToggleValueChanged(isOn, topButtonGroupToggle.gameObject));
+        attendBtn.onClick.AddListener(_manager.EnableAttendpPopup);
     }
 
     // Update is called once per frame

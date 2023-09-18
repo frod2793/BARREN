@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.BARREN",
-        "processId": 15607,
+        "processId": 11549,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
             "processId": 15607,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 11549,
             "exited": false
         }
     ],
