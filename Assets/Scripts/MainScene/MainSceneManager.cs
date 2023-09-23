@@ -256,7 +256,7 @@ public class MainSceneManager : MonoBehaviour
     }
     
     
-    public void OnToggleValueChanged(bool isOn, GameObject targetObject)
+    public void OnToggleValueChanged(bool isOn, GameObject targetObject,float move)
     {
         // 토글이 클릭되면 DOTween을 사용하여 게임 오브젝트를 움직입니다.
         if (targetObject != null)
@@ -267,14 +267,14 @@ public class MainSceneManager : MonoBehaviour
                 if (isOn && !_isMoved)
                 {
                     // 아래로 -320만큼 움직이도록 DOTween을 사용합니다.
-                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - 320f, 0.5f)
+                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - move, 0.5f)
                         .SetEase(Ease.OutQuad) // 이징(Easing) 설정
                         .OnComplete(() => _isMoved = true); // 이동이 완료되면 상태 변경
                 }
                 else if (!isOn && _isMoved)
                 {
                     // 원래 위치로 되돌아오도록 DOTween을 사용합니다.
-                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + 320f, 0.5f)
+                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + move, 0.5f)
                         .SetEase(Ease.OutQuad) // 이징(Easing) 설정
                         .OnComplete(() => _isMoved = false); // 이동이 완료되면 상태 변경
                 }
