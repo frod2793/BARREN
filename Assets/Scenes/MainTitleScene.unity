@@ -1810,12 +1810,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4a565162ed264425bb0530a2067a2d5b, type: 3}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -1864,6 +1864,8 @@ MonoBehaviour:
   nameInputField: {fileID: 55598319}
   rejected_nickname: {fileID: 1068073900}
   available_nickname: {fileID: 551903354}
+  maleToggle: {fileID: 0}
+  fmaleToggle: {fileID: 0}
   comFromBtn: {fileID: 1007968264}
 --- !u!4 &1544580467
 Transform:

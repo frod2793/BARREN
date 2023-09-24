@@ -14,6 +14,9 @@ public class MainTItle_UI_Manager : MonoBehaviour
 
     [SerializeField] private GameObject rejected_nickname;
     [SerializeField] private GameObject available_nickname;
+
+    [SerializeField] private Toggle maleToggle;
+    [SerializeField] private Toggle fmaleToggle;
     
     [Header("결정 버튼")] 
     [SerializeField] private Button comFromBtn;
@@ -34,6 +37,17 @@ public class MainTItle_UI_Manager : MonoBehaviour
 
     private void Func_ComfromBtn()
     {
+        PlayerData.Instance.PlayerName = nameInputField.text;
+        
+        if (maleToggle)
+        {
+            PlayerData.Instance.Gender = "male";
+        }
+        else
+        { 
+            PlayerData.Instance.Gender = "fmale";
+        }
+   
         
         SceneLoader.Instace.LoadScene("MainScene");
         //todo: 추후 인풋 필드 데이터를 json 이던 싱글턴 이던 저장 후 사용 성별정보도 포함
@@ -48,7 +62,7 @@ public class MainTItle_UI_Manager : MonoBehaviour
             comFromBtn.interactable = false;
 
         }
-        else  if (newValue.Length > 1 && newValue.Length < 8)
+        else  if (newValue.Length > 1 && newValue.Length <= 8)
         {
             // 글자 수가 8을 넘지 않으면 특정 게임 오브젝트 비활성화
             rejected_nickname.SetActive(false);

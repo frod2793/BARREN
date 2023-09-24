@@ -26,6 +26,7 @@ public class TweenEffect : MonoBehaviour
             .OnComplete(() => popUoObj.SetActive(false));
     }
 
+    
     public static async UniTask FadeOutPrologueCanvas(CanvasGroup canvasGroup)
     {
         if (isFadingOutInProgress)

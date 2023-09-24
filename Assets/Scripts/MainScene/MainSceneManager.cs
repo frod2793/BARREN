@@ -6,17 +6,19 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 
+public class ToggleInfo
+{
+    public bool IsMoved { get; set; }
+}
+
 public class MainSceneManager : MonoBehaviour
 {
-    [Header("프롤로그 캔버스 부분 ")] 
-    [SerializeField]
+    [Header("프롤로그 캔버스 부분 ")] [SerializeField]
     private CanvasGroup prologueCanvas;
-    [SerializeField] 
-    private TextMeshProUGUI topTextMeshPro;
-    [SerializeField] 
-    private TextMeshProUGUI middleTextMeshPro;
-    [SerializeField] 
-    private TextMeshProUGUI lowTextMeshProUGUI;
+
+    [SerializeField] private TextMeshProUGUI topTextMeshPro;
+    [SerializeField] private TextMeshProUGUI middleTextMeshPro;
+    [SerializeField] private TextMeshProUGUI lowTextMeshProUGUI;
 
     private List<LoadJson.Dialogue> dialogueList = new List<LoadJson.Dialogue>();
     private int currentIndex = 0;
@@ -30,18 +32,16 @@ public class MainSceneManager : MonoBehaviour
     public float FadeOutSpeed = 1.0f; // 페이드 아웃 속도
 
     private bool cancelFadeOut = false; // 페이드 아웃 취소 플래그
-    
-    [Header("메인 캔버스")] 
-    [SerializeField]
-    private GameObject mainCanvas;
-    
-    [Header("출석 팝업")] 
-    [SerializeField]
-    private GameObject attanacePopUp;
 
-    
+    [Header("메인 캔버스")] [SerializeField] private GameObject mainCanvas;
+
+    [Header("출석 팝업")] [SerializeField] private GameObject attanacePopUp;
+
 
     private bool _isMoved = false;
+    private bool _isEventMoved = false;
+    private bool _isContinueMoved = false;
+
     void Start()
     {
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
@@ -51,7 +51,7 @@ public class MainSceneManager : MonoBehaviour
 
     async UniTask ShowNextDialogueAsync()
     {
-        await UniTask.WaitUntil(()=> dialogueList !=  null);
+        await UniTask.WaitUntil(() => dialogueList != null);
         if (currentIndex < dialogueList.Count)
         {
             LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
@@ -168,9 +168,8 @@ public class MainSceneManager : MonoBehaviour
                 StartTypingEffect();
             }
         }
-        
-#elif UNITY_ANDROID
 
+#elif UNITY_ANDROID
         if (Input.touchCount > 0)
         {
             if (Input.touchCount > 0)
@@ -195,9 +194,9 @@ public class MainSceneManager : MonoBehaviour
                 }
             }
         }
-      #endif
+#endif
     }
-    
+
 
     // 타이핑 효과 시작 메서드
     void StartTypingEffect()
@@ -218,14 +217,12 @@ public class MainSceneManager : MonoBehaviour
         // 현재 대사를 전부 출력
         try
         {
-
             LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
-            
+
             currentText = currentDialogue.text;
         }
-        catch 
+        catch
         {
-          
         }
     }
 
@@ -250,13 +247,13 @@ public class MainSceneManager : MonoBehaviour
             // 대사 끝
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
-            
+
             TweenEffect.OpenPopup(attanacePopUp);
         }
     }
-    
-    
-    public void OnToggleValueChanged(bool isOn, GameObject targetObject,float move)
+
+
+    public void OnToggleValueChangedY(bool isOn, GameObject targetObject, float move)
     {
         // 토글이 클릭되면 DOTween을 사용하여 게임 오브젝트를 움직입니다.
         if (targetObject != null)
@@ -266,7 +263,7 @@ public class MainSceneManager : MonoBehaviour
             {
                 if (isOn && !_isMoved)
                 {
-                    // 아래로 -320만큼 움직이도록 DOTween을 사용합니다.
+                    // 아래로 move만큼 움직이도록 DOTween을 사용합니다.
                     rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - move, 0.5f)
                         .SetEase(Ease.OutQuad) // 이징(Easing) 설정
                         .OnComplete(() => _isMoved = true); // 이동이 완료되면 상태 변경
@@ -282,15 +279,40 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
+    public void OnToggleValueChangedX(bool isOn, GameObject targetObject, float originalPoint,float movepoint, ToggleInfo toggleInfo)
+    {
+      
+
+        if (targetObject != null)
+        {
+            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                float targetX = isOn ? originalPoint : movepoint;
+
+                // OnComplete에 Action 사용
+                Action onCompleteAction = () =>
+                {
+                    ToggleMoveComplete(isOn, targetObject, toggleInfo);
+
+                };
+
+                rectTransform.DOAnchorPosX(targetX, 0.5f)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() => onCompleteAction());
+            }
+        }
+    }
+
+    private void ToggleMoveComplete(bool isOn, GameObject targetObject, ToggleInfo toggleInfo)
+    {
+        // 여기서 toggleInfo를 통해 toggleMoved에 대한 작업을 수행
+        toggleInfo.IsMoved = isOn;
+    }
+    
+   
     public void EnableAttendpPopup()
     {
         TweenEffect.OpenPopup(attanacePopUp);
     }
- 
 }
-
-
-
-
-
-
