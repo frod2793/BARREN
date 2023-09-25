@@ -1,17 +1,10 @@
-using System;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using TMPro;
+using UnityEngine;
 
-public class ToggleInfo
-{
-    public bool IsMoved { get; set; }
-}
-
-public class MainSceneManager : MonoBehaviour
+public class Game_PrologManager : MonoBehaviour
 {
     [Header("프롤로그 캔버스 부분 ")] [SerializeField]
     private CanvasGroup prologueCanvas;
@@ -33,19 +26,11 @@ public class MainSceneManager : MonoBehaviour
 
     private bool cancelFadeOut = false; // 페이드 아웃 취소 플래그
 
-    [Header("메인 캔버스")] [SerializeField] private GameObject mainCanvas;
-
-    [Header("출석 팝업")] [SerializeField] private GameObject attanacePopUp;
-
-    [Header("탐색 지도 팝업")] [SerializeField] private GameObject map_PopUp; 
-
-    private bool _isMoved = false;
-    private bool _isEventMoved = false;
-    private bool _isContinueMoved = false;
-
+    public string jsonFileName;
+    
     void Start()
     {
-        dialogueList = LoadJson.LoadScriptFromJSON("prolog");
+        dialogueList = LoadJson.LoadScriptFromJSON(jsonFileName);
 
         ShowNextDialogueAsync().Forget();
     }
@@ -105,7 +90,6 @@ public class MainSceneManager : MonoBehaviour
         {
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
-            TweenEffect.OpenPopup(attanacePopUp);
         }
     }
 
@@ -197,8 +181,8 @@ public class MainSceneManager : MonoBehaviour
         }
 #endif
     }
-
-
+    
+    
     // 타이핑 효과 시작 메서드
     void StartTypingEffect()
     {
@@ -249,77 +233,6 @@ public class MainSceneManager : MonoBehaviour
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
 
-            TweenEffect.OpenPopup(attanacePopUp);
         }
     }
-
-
-    public void OnToggleValueChangedY(bool isOn, GameObject targetObject, float move)
-    {
-        // 토글이 클릭되면 DOTween을 사용하여 게임 오브젝트를 움직입니다.
-        if (targetObject != null)
-        {
-            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
-            if (rectTransform != null)
-            {
-                if (isOn && !_isMoved)
-                {
-                    // 아래로 move만큼 움직이도록 DOTween을 사용합니다.
-                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - move, 0.5f)
-                        .SetEase(Ease.OutQuad) // 이징(Easing) 설정
-                        .OnComplete(() => _isMoved = true); // 이동이 완료되면 상태 변경
-                }
-                else if (!isOn && _isMoved)
-                {
-                    // 원래 위치로 되돌아오도록 DOTween을 사용합니다.
-                    rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + move, 0.5f)
-                        .SetEase(Ease.OutQuad) // 이징(Easing) 설정
-                        .OnComplete(() => _isMoved = false); // 이동이 완료되면 상태 변경
-                }
-            }
-        }
-    }
-
-    public void OnToggleValueChangedX(bool isOn, GameObject targetObject, float originalPoint,float movepoint, ToggleInfo toggleInfo)
-    {
-      
-
-        if (targetObject != null)
-        {
-            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
-            if (rectTransform != null)
-            {
-                float targetX = isOn ? originalPoint : movepoint;
-
-                // OnComplete에 Action 사용
-                Action onCompleteAction = () =>
-                {
-                    ToggleMoveComplete(isOn, targetObject, toggleInfo);
-
-                };
-
-                rectTransform.DOAnchorPosX(targetX, 0.5f)
-                    .SetEase(Ease.OutQuad)
-                    .OnComplete(() => onCompleteAction());
-            }
-        }
-    }
-
-    private void ToggleMoveComplete(bool isOn, GameObject targetObject, ToggleInfo toggleInfo)
-    {
-        // 여기서 toggleInfo를 통해 toggleMoved에 대한 작업을 수행
-        toggleInfo.IsMoved = isOn;
-    }
-    
-   
-    public void EnableAttendpPopup()
-    {
-        TweenEffect.OpenPopup(attanacePopUp);
-    }
-    
-    public void EnableMap_Popup()
-    {
-        TweenEffect.OpenPopup(map_PopUp);
-    }
-    
 }

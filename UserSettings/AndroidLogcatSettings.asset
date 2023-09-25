@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.BARREN",
-        "processId": 7161,
+        "processId": 13176,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,42 @@
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
             "processId": 7161,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 7609,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 4806,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 12770,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 13176,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5556",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 7290,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5556",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 7605,
             "exited": false
         }
     ],
