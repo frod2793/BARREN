@@ -5,6 +5,7 @@ using System.IO;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 public class ToggleInfo
 {
@@ -13,9 +14,24 @@ public class ToggleInfo
 
 public class MainSceneManager : MonoBehaviour
 {
+    
+    //이미지와 이미지의 이름을 갖고있는 구조체생성
+    [Serializable]
+    public struct BackGround
+    {
+        public string name;
+        public Sprite image;
+    }
+ 
+    //BackGround 리스트 생성
+    public List<BackGround> backGroundList = new List<BackGround>();
+
+    
+    
     [Header("프롤로그 캔버스 부분 ")] [SerializeField]
     private CanvasGroup prologueCanvas;
 
+    [SerializeField] private Image Background;
     [SerializeField] private TextMeshProUGUI topTextMeshPro;
     [SerializeField] private TextMeshProUGUI middleTextMeshPro;
     [SerializeField] private TextMeshProUGUI lowTextMeshProUGUI;
@@ -47,6 +63,7 @@ public class MainSceneManager : MonoBehaviour
     private bool _isEventMoved = false;
     private bool _isContinueMoved = false;
 
+    [Header("게임씬")] [SerializeField] private GameObject gamescene;
     void Start()
     {
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
@@ -65,6 +82,11 @@ public class MainSceneManager : MonoBehaviour
             currentText =
                 currentDialogue.text.Substring(0, Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
 
+            if (currentDialogue.BackGorund != null)
+            {
+                Background.sprite = backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
+            }
+            
             if (currentDialogue.Pos.ToLower() == "top" && !string.IsNullOrEmpty(topTextMeshPro.text))
             {
                 topTextMeshPro.gameObject.SetActive(true);
@@ -109,7 +131,9 @@ public class MainSceneManager : MonoBehaviour
         {
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
-            TweenEffect.OpenPopup(attanacePopUp);
+            //TweenEffect.OpenPopup(attanacePopUp);
+            gamescene.SetActive(true);
+        //    SceneLoader.Instace.LoadScene("GameScene");
         }
     }
 
@@ -325,7 +349,10 @@ public class MainSceneManager : MonoBehaviour
     {
         TweenEffect.OpenPopup(map_PopUp);
     }
-
+    public void DisableMap_Popup()
+    {
+        TweenEffect.ClosePopup(map_PopUp);
+    }
     public void EnableStageSelect_PopUp()
     {
         TweenEffect.OpenPopup(SageSelect_PopUp);
@@ -337,6 +364,13 @@ public class MainSceneManager : MonoBehaviour
     }
     public void disnbleStageSelect_PopUp()
     {
+        TweenEffect.ClosePopup(CharacterProsessPopUp);
+    }
+    public void CloseEveryPopup()
+    {
+        TweenEffect.ClosePopup(attanacePopUp);
+        TweenEffect.ClosePopup(map_PopUp);
+        TweenEffect.ClosePopup(SageSelect_PopUp);
         TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
     

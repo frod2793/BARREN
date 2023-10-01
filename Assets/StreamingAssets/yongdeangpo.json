@@ -1,229 +1,536 @@
 [
-    {
-        "character": "prolog",
-        "text": "괴물들이 나타난 이후로 6개월 정도가 흘렀다.",
-        "Pos": "Middle",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "prolog",
-        "text": "거리를 돌아다니는 이상한 생명체로 인해 집으로 돌아가지 못하고 이곳저곳에 숨어 있던 나는 어느 편의점에서 생존자를 만나고, 그들이 피신해 있다는 어느 교회의 지하 쉘터로 갈 수 있었다.",
-        "Pos": "Middle",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "prolog",
-        "text": "이 쉘터의 지도자라는 사람은 어째서 이런 사태가 발생했는지 나에게 말해 주었고, 쉴 장소와 식량을 나누어 주었다.",
-        "Pos": "Middle",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "prolog",
-        "text": "도움에 보답을 하기 위해 쉘터 주변을 돌아다니며 자원을 모으는 ‘탐색꾼’역할에 자원했고, 사람이 많아지면서 자연스럽게 리더의 역할 또한 받게 되었다.",
-        "Pos": "Middle",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "prolog",
-        "text": "오늘은 영등포역 내부로 탐사를 오게 되었는데...",
-        "Pos": "Low",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "Player",
-        "text": "역시... 길을 잃은 것 같군...",
-        "Pos": "PlayerText",
-        "Sound": "OneBreath",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "Player",
-        "text": "‘이전에는 대부분 자가용을 타고 다녔으니까... 괜히 더 깊은 곳까지 오지 말고 평소 다니던 루트로 갈 껄 그랬나...’",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "Player",
-        "text": "(내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "Player",
-        "text": "(눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때)“...?”",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },
-    {
-        "character": "Player",
-        "text": "(어느 가게 안에서 반짝이는 무언가를 본 것 같았다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn":"false",
-        "Selectnumber":"0"
-    },{
-        "character": "Player",
-        "text": "(반짝임이 보였던 곳으로 향하자 그곳에는 황금빛의 문양이 그려진 어떤 책이 매대 위에 놓여있었다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "Player",
-        "text": "“이런...!”",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "Player",
-        "text": "(처음 탐색을 나서던 날, 쉘터 지도자가 했던 말이 머릿속을 스쳤다)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "ShelterLeader",
-        "text": "(쉘터지도자 :‘이계의 존재’나 ‘사교도’들이 ‘아더갓’을 상징하는 것들을 곳곳에 놓아 두었을 수도 있습니다. 그것들은 절대로 그냥 봐서는 안 되며, 그 중 문양은 제일 위험한 것이니 주의해가며 탐사해주세요.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "Player",
-        "text": "(생각이 났을 때는 이미 늦어있었다. 그 문양을 본 직후, 나는 무언가에 홀린 사람처럼 그 책을 펼쳤다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "Player",
-        "text": "(그 책 안에는 내가 모르는 낯선 문자가 적혀있었으나, 내 입은 천천히 그 문자를 읽어 내렸다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
-        "character": "Player",
-        "text": "(그렇게 나는 의식을 잃었다.)",
-        "Pos": "PlayerText",
-        "Sound": "None",
-        "isButtonOn": "false",
-        "Selectnumber": "0"
-    },{
+  {
+    "character": "prolog",
+    "text": "괴물들이 나타난 이후로 6개월 정도가 흘렀다.",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "BackGorund": "Yongdungpo_In"
+  },
+  {
+    "character": "prolog",
+    "text": "거리를 돌아다니는 이상한 생명체로 인해 집으로 돌아가지 못하고 이곳저곳에 숨어 있던 나는 어느 편의점에서 생존자를 만나고, 그들이 피신해 있다는 어느 교회의 지하 쉘터로 갈 수 있었다.",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+  },
+  {
+    "character": "prolog",
+    "text": "이 쉘터의 지도자라는 사람은 어째서 이런 사태가 발생했는지 나에게 말해 주었고, 쉴 장소와 식량을 나누어 주었다.",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+  },
+  {
+    "character": "prolog",
+    "text": "도움에 보답을 하기 위해 쉘터 주변을 돌아다니며 자원을 모으는 ‘탐색꾼’역할에 자원했고, 사람이 많아지면서 자연스럽게 리더의 역할 또한 받게 되었다.",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+  },
+  {
+    "character": "prolog",
+    "text": "오늘은 영등포역 내부로 탐사를 오게 되었는데...",
+    "Pos": "Low",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+  },
+  {
+    "character": "Player",
+    "text": "역시... 길을 잃은 것 같군...",
+    "Pos": "PlayerText",
+    "Sound": "OneBreath",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "‘이전에는 대부분 자가용을 타고 다녔으니까... 괜히 더 깊은 곳까지 오지 말고 평소 다니던 루트로 갈 껄 그랬나...’",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때)“...?”",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(어느 가게 안에서 반짝이는 무언가를 본 것 같았다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(반짝임이 보였던 곳으로 향하자 그곳에는 황금빛의 문양이 그려진 어떤 책이 매대 위에 놓여있었다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "“이런...!”",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(처음 탐색을 나서던 날, 쉘터 지도자가 했던 말이 머릿속을 스쳤다)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "ShelterLeader",
+    "text": "(쉘터지도자 :‘이계의 존재’나 ‘사교도’들이 ‘아더갓’을 상징하는 것들을 곳곳에 놓아 두었을 수도 있습니다. 그것들은 절대로 그냥 봐서는 안 되며, 그 중 문양은 제일 위험한 것이니 주의해가며 탐사해주세요.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+  },
+  {
+    "character": "Player",
+    "text": "(생각이 났을 때는 이미 늦어있었다. 그 문양을 본 직후, 나는 무언가에 홀린 사람처럼 그 책을 펼쳤다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(그 책 안에는 내가 모르는 낯선 문자가 적혀있었으나, 내 입은 천천히 그 문자를 읽어 내렸다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
+    "character": "Player",
+    "text": "(그렇게 나는 의식을 잃었다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Panic"
+  },
+  {
     "character": "prolog2",
     "text": "(눈앞에 보이는 것은 끝없이 흘러내리는 푸른 액체)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그 액체에 닿자 느껴지는 끔찍한 고통이 느껴진다)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(액체 닿았던 손은 지독한 고통을 남기며 천천히 녹아내린다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그제서야 나는, 내가 지금 무언가의 발치에 엎드려 있다는 것을 알게 되었다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(고개를 들어 눈앞의 존재를 확인하자 보이는 것은 수십 개의 촉수들로 뒤덮인 얼굴...?)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(지금도 아까 그 푸른 액체가 나의 몸을 천천히 녹이고 있었지만, 눈앞의 존재를\n(마주한 두려움에, 공포심에, 역겨움에, 혐오스러움에 제대로 된 사고가\n이루어지지 않는다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그저 멍하니 바라보는 것 이외에 아무것도 할 수 없다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그 때 촉수가 서서히 열리기 시작한다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그리고 나는 보았다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그 아름다움을, 그 찬란함을)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(그 순간부터 내가 흘리는 눈물은 고통과 두려움의 눈물이 아닌, 환희와 감동의\n눈물이었다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(촉수 아래 감춰진 그 얼굴을 본 순간부터 이 존재 이외에는 그 어떤 생각을 할\n수 없었다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(더 이상 역겹지가 않다. 두렵지도 않다. 내가 느끼는 것은 이 위대한 존재에 대한 무한한 사랑 뿐 이었다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-},{
+  },
+  {
     "character": "prolog2",
     "text": "(천천히 녹아내려, 마침내 어느 신체부위의 말단까지 모두 녹아내렸을 때,)\n(나는 눈을 떴다.)",
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0"
-}
+  },
+  {
+    "character": "prolog2",
+    "text": "(다시 눈을 뜨자마자 든 생각은 ‘그녀를 다시 만나고 싶다’)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "prolog2",
+    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "prolog2",
+    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "prolog2",
+    "text": "(시작은 내가 있던 영등포 쉘터다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "안녕하세요. (이름)씨! 살아서 다시 만나게 되어서 기쁘네요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "shadow"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "일주일간 연락도, 소식도 없어서 다시는 못 만나게 되는 줄 알았어요...",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "이야기는 들었어요. ‘광신도’놈들이 있는 쪽으로 탐색을 나가셨다가 부상을 당한채로 발이 묶였었다고...",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "아...! 그러고 보니 도망치던 중 머리를 다쳐서 기억이 혼란스러운 상황이라고 하셨죠?",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "혹시 모르니 자기소개부터 해 드려야겠네요. 저는 (이름)씨가 리더로 계신 탐색꾼의 팀원인 ‘강유리’라고 합니다.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "기억이 혼란스러우신 (이름)씨를 보조해 주기위해 왔어요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "(이름)씨는 부상을 입기도 했고 고생도 하셨으니 오늘은 일없이 제 설명만 듣고 쉬시면 됩니다.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 당장 필요한 정도만 간단하게 설명해 드릴게요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "지금 있는 곳은 메인화면이예요. (이름)씨가 가장 많이 보게 될 장소 일거예요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "이곳에서 탐색지도 상점, 대화, 보관함 , 친구, 옷장, 캐릭터, 일일출석, 임무 등으로 갈 수 있지만, 지금은 당장 필요한 것들을 설명 드리도록 할게요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "(이름)씨가 현재 소속되어있는 장소는 ‘탐색꾼’이라는 곳이에요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "쉘터 밖으로 나가서 아더갓과 관련된 물품이나 식량 등을 구해오는 사람들이죠.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "탐색을 하기 위해서는 왼쪽 상단에 있는 탐색지도를 누르면 돼요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero",
+    "tutorial": "Map"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "그리고 이곳에서 탐색을 하고 싶은 장소를 선택하면 탐색이 시작됩니다.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "탐색을 하는 장소, 횟수에 따라 얻을 수 있는 아이템이 달라져요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "지금은 영등포 지하상가만 탐색이 가능하니까 기억해 주세요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "쉘터 지도자님이 (이름)씨는 잠시 쉬라고 하셨거든요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero",
+    "tutorial": "Close_Map"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "탐색을 해서 얻은 아이템들은 그냥 사용 할 수도 있지만, 쉘터 사람들에게 선물하는 것이 가능해요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "하단에 있는 대화를 누르면 쉘터 사람들을 만날 수 있어요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero",
+    "tutorial": "Open_Talk"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "그곳에서 한 장소를 선택하게 되면",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero",
+    "tutorial": "Open_Talk2"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "그곳에 있는 사람들을 볼 수 있어요. 여기서 대화하기를 누르면 대화를 하게 되죠. 당장 필요한 이야기는 이정도예요.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Player",
+    "text": "고마워 유리씨.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero"
+  },
+  {
+    "character": "Gangyuri",
+    "text": "네, 다음에 또 봐요 (이름)씨.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "BackGorund": "Alpahzero",
+    "tutorial": "Colse",
+    "IsEnd": "true"
+  },
+  {
+    "character": "SelectBtn",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  }
 ]

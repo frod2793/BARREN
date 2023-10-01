@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private Button skipTextBtn;
-
+    [Header("버튼 레이아웃")] [SerializeField] private GameObject ButtonLayout;
+    [SerializeField] private Button Chosebtn1;
+    [SerializeField] private Button Chosebtn2;
     private Game_PrologManager _gamePrologManager;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,7 @@ public class GameManager : MonoBehaviour
         
         skipTextBtn.onClick.AddListener((() =>
         {
-            _gamePrologManager.Func_skipText();
+          //  _gamePrologManager.Func_skipText();
         }));
         
     }
