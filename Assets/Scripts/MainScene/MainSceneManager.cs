@@ -37,8 +37,12 @@ public class MainSceneManager : MonoBehaviour
 
     [Header("출석 팝업")] [SerializeField] private GameObject attanacePopUp;
 
-    [Header("탐색 지도 팝업")] [SerializeField] private GameObject map_PopUp; 
+    [Header("탐색 지도 팝업")] [SerializeField] private GameObject map_PopUp;
 
+    [Header("스테이지 선택 팝업")] [SerializeField]
+    private GameObject SageSelect_PopUp;
+
+    [SerializeField] private GameObject CharacterProsessPopUp;
     private bool _isMoved = false;
     private bool _isEventMoved = false;
     private bool _isContinueMoved = false;
@@ -320,6 +324,20 @@ public class MainSceneManager : MonoBehaviour
     public void EnableMap_Popup()
     {
         TweenEffect.OpenPopup(map_PopUp);
+    }
+
+    public void EnableStageSelect_PopUp()
+    {
+        TweenEffect.OpenPopup(SageSelect_PopUp);
+    }
+
+    public void EnableCharacterProssePopUp()
+    {
+        TweenEffect.OpenPopup(CharacterProsessPopUp);
+    }
+    public void disnbleStageSelect_PopUp()
+    {
+        TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
     
 }

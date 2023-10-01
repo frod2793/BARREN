@@ -1,0 +1,229 @@
+[
+    {
+        "character": "prolog",
+        "text": "괴물들이 나타난 이후로 6개월 정도가 흘렀다.",
+        "Pos": "Middle",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "prolog",
+        "text": "거리를 돌아다니는 이상한 생명체로 인해 집으로 돌아가지 못하고 이곳저곳에 숨어 있던 나는 어느 편의점에서 생존자를 만나고, 그들이 피신해 있다는 어느 교회의 지하 쉘터로 갈 수 있었다.",
+        "Pos": "Middle",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "prolog",
+        "text": "이 쉘터의 지도자라는 사람은 어째서 이런 사태가 발생했는지 나에게 말해 주었고, 쉴 장소와 식량을 나누어 주었다.",
+        "Pos": "Middle",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "prolog",
+        "text": "도움에 보답을 하기 위해 쉘터 주변을 돌아다니며 자원을 모으는 ‘탐색꾼’역할에 자원했고, 사람이 많아지면서 자연스럽게 리더의 역할 또한 받게 되었다.",
+        "Pos": "Middle",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "prolog",
+        "text": "오늘은 영등포역 내부로 탐사를 오게 되었는데...",
+        "Pos": "Low",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "Player",
+        "text": "역시... 길을 잃은 것 같군...",
+        "Pos": "PlayerText",
+        "Sound": "OneBreath",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "Player",
+        "text": "‘이전에는 대부분 자가용을 타고 다녔으니까... 괜히 더 깊은 곳까지 오지 말고 평소 다니던 루트로 갈 껄 그랬나...’",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "Player",
+        "text": "(내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "Player",
+        "text": "(눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때)“...?”",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },
+    {
+        "character": "Player",
+        "text": "(어느 가게 안에서 반짝이는 무언가를 본 것 같았다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn":"false",
+        "Selectnumber":"0"
+    },{
+        "character": "Player",
+        "text": "(반짝임이 보였던 곳으로 향하자 그곳에는 황금빛의 문양이 그려진 어떤 책이 매대 위에 놓여있었다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "Player",
+        "text": "“이런...!”",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "Player",
+        "text": "(처음 탐색을 나서던 날, 쉘터 지도자가 했던 말이 머릿속을 스쳤다)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "ShelterLeader",
+        "text": "(쉘터지도자 :‘이계의 존재’나 ‘사교도’들이 ‘아더갓’을 상징하는 것들을 곳곳에 놓아 두었을 수도 있습니다. 그것들은 절대로 그냥 봐서는 안 되며, 그 중 문양은 제일 위험한 것이니 주의해가며 탐사해주세요.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "Player",
+        "text": "(생각이 났을 때는 이미 늦어있었다. 그 문양을 본 직후, 나는 무언가에 홀린 사람처럼 그 책을 펼쳤다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "Player",
+        "text": "(그 책 안에는 내가 모르는 낯선 문자가 적혀있었으나, 내 입은 천천히 그 문자를 읽어 내렸다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+        "character": "Player",
+        "text": "(그렇게 나는 의식을 잃었다.)",
+        "Pos": "PlayerText",
+        "Sound": "None",
+        "isButtonOn": "false",
+        "Selectnumber": "0"
+    },{
+    "character": "prolog2",
+    "text": "(눈앞에 보이는 것은 끝없이 흘러내리는 푸른 액체)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그 액체에 닿자 느껴지는 끔찍한 고통이 느껴진다)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(액체 닿았던 손은 지독한 고통을 남기며 천천히 녹아내린다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그제서야 나는, 내가 지금 무언가의 발치에 엎드려 있다는 것을 알게 되었다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(고개를 들어 눈앞의 존재를 확인하자 보이는 것은 수십 개의 촉수들로 뒤덮인 얼굴...?)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(지금도 아까 그 푸른 액체가 나의 몸을 천천히 녹이고 있었지만, 눈앞의 존재를\n(마주한 두려움에, 공포심에, 역겨움에, 혐오스러움에 제대로 된 사고가\n이루어지지 않는다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그저 멍하니 바라보는 것 이외에 아무것도 할 수 없다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그 때 촉수가 서서히 열리기 시작한다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그리고 나는 보았다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그 아름다움을, 그 찬란함을)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(그 순간부터 내가 흘리는 눈물은 고통과 두려움의 눈물이 아닌, 환희와 감동의\n눈물이었다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(촉수 아래 감춰진 그 얼굴을 본 순간부터 이 존재 이외에는 그 어떤 생각을 할\n수 없었다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(더 이상 역겹지가 않다. 두렵지도 않다. 내가 느끼는 것은 이 위대한 존재에 대한 무한한 사랑 뿐 이었다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+},{
+    "character": "prolog2",
+    "text": "(천천히 녹아내려, 마침내 어느 신체부위의 말단까지 모두 녹아내렸을 때,)\n(나는 눈을 떴다.)",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0"
+}
+]

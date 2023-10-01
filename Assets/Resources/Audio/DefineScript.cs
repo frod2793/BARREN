@@ -196,6 +196,7 @@
         // ******************************************************************************************************
         public const string Step_Bgm = "Stepping_BGM";
 
+        
         // ******************************************************************************************************
         // Effect
         // ******************************************************************************************************
@@ -205,7 +206,7 @@
         public const string Step_Falling = "Falling";
         public const string Step_Success = "Success";
         public const string Step_Failed = "Failed";
-
+        public const string OneBreath = "womanOneBreath";
         #endregion
 
         #region Chef

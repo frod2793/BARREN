@@ -1,0 +1,42 @@
+[
+    {
+        "MapName": "gangseo",
+        "Unlock": "true",
+        "Clear": "false",
+        "OpenStage": "0",
+        "ClearStage": "0",
+        "NextMap": "yangcheon"
+    },
+    {
+        "MapName": "yangcheon",
+        "Unlock": "true",
+        "Clear": "false",
+        "OpenStage": "0",
+        "ClearStage": "0",
+        "NextMap": "gurogu"
+    },
+    {
+        "MapName": "gurogu",
+        "Unlock": "true",
+        "Clear": "false",
+        "OpenStage": "0",
+        "ClearStage": "0",
+        "NextMap": "dongjack"
+    },
+    {
+        "MapName": "dongjack",
+        "Unlock": "true",
+        "Clear": "false",
+        "OpenStage": "0",
+        "ClearStage": "0",
+        "NextMap": "geumcheon"
+    },
+    {
+        "MapName": "geumcheon",
+        "Unlock": "true",
+        "Clear": "false",
+        "OpenStage": "0",
+        "ClearStage": "0",
+        "NextMap": "ganwak"
+    }
+]

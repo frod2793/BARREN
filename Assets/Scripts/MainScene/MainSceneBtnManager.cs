@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class MainSceneBtnManager : MonoBehaviour
 {
@@ -24,8 +25,24 @@ public class MainSceneBtnManager : MonoBehaviour
     [SerializeField] private Button misson_Btn;
     [SerializeField] private Button shope_Btn;
 
-    [Header("StageSelect")] private Button gangseo_Btn;
 
+
+    [Header("맵 팝업 내부 지역선택 버튼")] 
+    [SerializeField]
+    private Button gangseo_Btn;
+
+    [SerializeField] private Button yangcheon_Btn;
+    [SerializeField] private Button gurogButton;
+    [SerializeField] private Button YeongdeungpoBtn;
+
+    [Header("스테이지 선택 버튼")] 
+    [SerializeField]
+    private Button firstStageBtn;
+
+    [SerializeField] private Button sceondStageBtn;
+
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button shealterPopUpExit;
     private bool isEventToggleOn = false; // 상태 변수
 
     private bool isContinueToggleOn = false; // 상태 변수
@@ -74,8 +91,19 @@ public class MainSceneBtnManager : MonoBehaviour
             _manager.EnableMap_Popup();
         });
         
-        gangseo_Btn.onClick.AddListener(() => {
+        YeongdeungpoBtn.onClick.AddListener(() => {
             //todo: 추후 팝업네에 스테이지 목록 추가 될 예정
+            _manager.EnableStageSelect_PopUp();
+        });
+        firstStageBtn.onClick.AddListener((() =>
+        {
+            _manager.EnableCharacterProssePopUp();
+        }));
+        
+        shealterPopUpExit.onClick.AddListener(_manager.disnbleStageSelect_PopUp);
+        
+        startButton.onClick.AddListener(() =>
+        {
             SceneLoader.Instace.LoadScene("GameScene");
         });
     }

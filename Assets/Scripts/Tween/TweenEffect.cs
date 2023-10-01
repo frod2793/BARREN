@@ -42,4 +42,22 @@ public class TweenEffect : MonoBehaviour
             isFadingOutInProgress = false;
         });
     }
+    public static async UniTask FadeInPrologueCanvas(CanvasGroup canvasGroup)
+    {
+        if (isFadingOutInProgress)
+        {
+            return;
+        }
+
+        isFadingOutInProgress = true;
+
+        // Ensure the canvas is active and visible before starting the fade in
+        canvasGroup.gameObject.SetActive(true);
+        canvasGroup.alpha = 0.0f;
+
+        canvasGroup.DOFade(1.0f, FadeOutSpeed).OnComplete(() =>
+        {
+            isFadingOutInProgress = false;
+        });
+    }
 }
