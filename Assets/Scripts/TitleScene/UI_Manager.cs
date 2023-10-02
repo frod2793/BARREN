@@ -9,7 +9,7 @@ public class UI_Manager : MonoBehaviour
     {
         touchToStartBtn.onClick.AddListener(Func_MainTitleLoad);
         
-        SoundManager.Instance.Func_BGMLoop(AudioDefine.Step_Bgm);
+        SoundManager.Instance.Func_BGMLoop(AudioDefine.Main_Bgm);
     }
 
     // Update is called once per frame

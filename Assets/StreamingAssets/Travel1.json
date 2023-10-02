@@ -8,7 +8,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -20,7 +20,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -32,7 +32,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -44,7 +44,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -56,7 +56,7 @@
     "isButtonOn": "true",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    "tutorial": "EnableBtnGroup1",
     "IsEnd": "false"
   },
   {
@@ -68,7 +68,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -80,7 +80,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -92,7 +92,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -104,7 +104,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -116,7 +116,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -128,7 +128,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -140,31 +140,30 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
     "character": "Button",
     "text": "1. 잡담",
     "text2": "2. 선물",
-    "Pos": "PlayerText",
+    "Pos": "",
     "Sound": "None",
-    "isButtonOn": "false",
+    "isButtonOn": "true",
     "Selectnumber": "0",
     "State": "Normal",
-    "tutorial": "",
+    "tutorial": "EnableBtnPlayGroup1",
     "IsEnd": "false"
   },
   {
     "character": "Player",
     "text": "혹시 당신에 대해 물어봐도 괜찮겠습니까?",
-    "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -176,7 +175,7 @@
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -188,7 +187,7 @@
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -200,7 +199,7 @@
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    "tutorial": "",
+    
     "IsEnd": "false"
   },
   {
@@ -210,11 +209,188 @@
     "text3": "3. 15일인 이유는?",
     "Pos": "Button",
     "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "1",
+    "State": "Normal",
+    "tutorial": "EnableBtnPlayGroup2",
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "굳이 15일로 정한이유가 있는 겁니까?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    "tutorial": "",
+
     "IsEnd": "false"
+  },
+  {
+    "character": "Cure",
+    "text": " 보고 가야할게 있어.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Cure",
+    "text": "이 정도는 봐야지 안심이 될 것 같아서 말이야.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "보고 가야할 것...?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "(이단치료사에 대한 정보를 더 알았으면 하는데... ‘보고 가야할 것’이라는 것이 신경 쓰인다. 누구에게 물어봐야 할까.)",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "(역시 쉘터 내부를 지키는 ‘파수꾼’들이 쉘터 사정에 가장 밝겠지)",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "GangMin",
+    "text": "(이름)씨! 오랜만에 뵙네요. 건강해 보이셔서 안심입니다.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "GangMin",
+    "text": "강유리가 (이름)씨 걱정에 얼마나 절 갈구던지...",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "GangMin",
+    "text": "그나저나 무슨 일로 오셨나요?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Button",
+    "text": "1. 잡담",
+    "text2": "2. 최근 무슨 일이 없었는지 묻는다.",
+    "Pos": "",
+    "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "tutorial": "EnableBtnPlayGroup3",
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "최근 무슨 일이 있지는 않습니까? 도와드릴 일은 없습니까?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "GangMin",
+    "text": "일어난지 얼마되지 않은 사람에게 부탁하긴 좀 그렇지만.... 쉘터내의 식량이 빠르게 줄어들고 있다고 하던데 혹시 식량을 좀 구해다 주실 수는 있을까요?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "GangMin",
+    "text": "다른 수색꾼들도 열심히 돌아다니고는 있다고는 하는데 이상할 정도로 빠르게 줄어드는 터라...",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "알겠습니다. 구해오도록 하겠습니다.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "1",
+    "State": "Normal",
+
+    "IsEnd": "true"
+  },
+  {
+    "character": "prolog2",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
   },
   {
     "character": "SelectBtn",

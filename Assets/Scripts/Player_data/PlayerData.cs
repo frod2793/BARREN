@@ -9,12 +9,17 @@ public class PlayerData : MonoBehaviour
     private int experience;
     private string playerName;
     private string gender;
-
+    private bool isTutorial = false;
     // Public properties to access player data
     public int Experience { get { return experience; } set { experience = value; } }
     public string PlayerName { get { return playerName; } set { playerName = value; } }
     public string Gender { get { return gender; } set { gender = value; } }
 
+    public bool IsTutorial
+    {
+        get => isTutorial;
+        set => isTutorial = value;
+    }
     // Singleton instance property
     public static PlayerData Instance
     {

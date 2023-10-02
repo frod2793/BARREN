@@ -67,8 +67,15 @@ public class MainSceneManager : MonoBehaviour
     void Start()
     {
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
-
-        ShowNextDialogueAsync().Forget();
+        if (  PlayerData.Instance.IsTutorial)
+        {
+            prologueCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            
+            ShowNextDialogueAsync().Forget();
+        }
     }
 
     async UniTask ShowNextDialogueAsync()

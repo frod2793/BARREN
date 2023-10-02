@@ -14,6 +14,7 @@ public class LoadJson : MonoBehaviour
         public string character;
         public string text;
         public string text2;
+        public string text3;
         public string Pos; // 대사 위치 (Top, Middle, Bottom 등)
         public string Sound;
         public string isButtonOn;
