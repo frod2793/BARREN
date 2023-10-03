@@ -158,7 +158,10 @@ public string SceneName;
         
         YeongdeungpoBtn.onClick.AddListener(() => {
             //todo: 추후 팝업네에 스테이지 목록 추가 될 예정
-            _manager.EnableStageSelect_PopUp();
+            _manager.yeongDeungPoBtn();
+            _manager.player.SetActive(false);
+            _manager.CloseEveryPopup();
+
         });
         firstStageBtn.onClick.AddListener((() =>
         {

@@ -5,8 +5,8 @@
         "Pos": "Middle",
         "Sound": "None",
         "isButtonOn":"false",
-        "Selectnumber":"0"
-    
+        "Selectnumber":"0",
+        "BackGorund": "prolog1"
     },
     {
         "character": "prolog",
@@ -35,18 +35,20 @@
     {
         "character": "prolog",
         "text": "그리고, 거리에 이상한 생물체가 돌아다니기 시작했다.\n \n 그것들은 다 다른 모습을 가지고 있었지만, 불쾌함, 역겨움, 두려움, 기괴함 등 온갖 부정적인 생각을 들게 하는 외향과 분위기라는 공통점을 가지고 있었다.",
-        "Pos": "Low",
+        "Pos": "Middle",
         "Sound": "None",
         "isButtonOn":"false",
-        "Selectnumber":"0"
+        "Selectnumber":"0",
+        "BackGorund": "prolog2"
     },
     {
         "character": "prolog",
         "text": "심약한 사람들은 그것들을 보고 곧바로 정신이 나가버렸고, 대부분의 사람들은 구토를 하거나 눈물을 흘리고 두려움에 떨었으며 몸이 굳어 움직이지 못했다. \n \n 소수의 몇몇 사람들만 도망칠 수 있었고, 나도 그 중 한명 이었다.",
-        "Pos": "Low",
+        "Pos": "Middle",
         "Sound": "None",
         "isButtonOn":"false",
-        "Selectnumber":"0"
+        "Selectnumber":"0",   
+        "BackGorund": "prolog3"
     },
     {
         "character": "prolog",

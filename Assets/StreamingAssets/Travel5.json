@@ -683,7 +683,17 @@
     "Selectnumber": "0",
     "State": "phsyconic",
     "IsEnd": "false"
-  },
+  },{
+  "character": "Player",
+  "text": "",
+  "text2": "",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "phsyconic",
+  "BackGorund": "MindControl",
+  "IsEnd": "false"
+},
   {
     "character": "Player",
     "text": "(드디어 이단치료사를 세뇌하는 데 성공했다.)",
@@ -693,6 +703,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "smile",
+    "BackGorund": "Yongdungpo_In",
     "IsEnd": "false"
   },
   {

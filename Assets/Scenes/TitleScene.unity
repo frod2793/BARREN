@@ -928,6 +928,7 @@ MonoBehaviour:
   settingPopUp: {fileID: 2877568889150040616, guid: 9662c517ca2e143b6a9609ff9e6cca26, type: 3}
   newsPopUp: {fileID: 0}
   uiCanvas: {fileID: 35753813}
+  _gameObject: {fileID: 811283612}
 --- !u!4 &811283614
 Transform:
   m_ObjectHideFlags: 0

@@ -199,7 +199,6 @@
     "isButtonOn": "false",
     "Selectnumber": "1",
     "State": "Normal",
-    
     "IsEnd": "false"
   },
   {
@@ -368,7 +367,7 @@
     "Selectnumber": "1",
     "State": "Normal",
 
-    "IsEnd": "false"
+    "IsEnd": "true"
   },
   {
     "character": "Player",

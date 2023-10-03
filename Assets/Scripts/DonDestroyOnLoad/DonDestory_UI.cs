@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class DonDestory_UI : MonoBehaviour
     [SerializeField] private GameObject newsPopUp;
 
     [Header("- 캔버스")] [SerializeField] private GameObject uiCanvas;
-
+    [SerializeField] private GameObject _gameObject;
     void Awake()
     {
         // 이미 인스턴스가 있는 경우, 새 인스턴스를 파괴하고 기존 인스턴스를 유지합니다.
@@ -53,7 +54,15 @@ public class DonDestory_UI : MonoBehaviour
         // 현재 씬이 Main 씬인 경우, 현재 게임 오브젝트 파괴
         if (scene.name == "MainScene")
         {
-            Destroy(gameObject);
+            try
+            {
+                Destroy(_gameObject);
+            }
+            catch 
+            {
+               
+            }
+           
         }
     }
 

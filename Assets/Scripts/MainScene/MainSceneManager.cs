@@ -64,6 +64,7 @@ public class MainSceneManager : MonoBehaviour
     private bool _isContinueMoved = false;
 
     [Header("게임씬")] [SerializeField] private GameObject gamescene;
+    [Header("플레이어")] public GameObject player;
     void Start()
     {
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
@@ -138,8 +139,8 @@ public class MainSceneManager : MonoBehaviour
         {
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
-            //TweenEffect.OpenPopup(attanacePopUp);
-            gamescene.SetActive(true);
+            TweenEffect.OpenPopup(map_PopUp);
+           // gamescene.SetActive(true);
         //    SceneLoader.Instace.LoadScene("GameScene");
         }
     }
@@ -160,7 +161,11 @@ public class MainSceneManager : MonoBehaviour
             if (!isFadingOutInProgress) // 페이드 아웃이 진행 중이 아닌 경우에만 처리
             {
                 textMeshPro.alpha = 0; // 완전히 사라지도록 설정
-                textMeshPro.gameObject.SetActive(false);
+                if (textMeshPro.gameObject != null)
+                {
+                    textMeshPro.gameObject.SetActive(false);
+                }
+     
             }
         }
     }
@@ -354,15 +359,15 @@ public class MainSceneManager : MonoBehaviour
     
     public void EnableMap_Popup()
     {
-        TweenEffect.OpenPopup(map_PopUp);
+        TweenEffect.OpenPopup(SageSelect_PopUp);
     }
     public void DisableMap_Popup()
     {
-        TweenEffect.ClosePopup(map_PopUp);
+        TweenEffect.ClosePopup(SageSelect_PopUp);
     }
     public void EnableStageSelect_PopUp()
     {
-        TweenEffect.OpenPopup(SageSelect_PopUp);
+        //TweenEffect.OpenPopup(SageSelect_PopUp);
     }
 
     public void EnableCharacterProssePopUp()
@@ -381,4 +386,8 @@ public class MainSceneManager : MonoBehaviour
         TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
     
+    public void yeongDeungPoBtn()
+    {
+        gamescene.SetActive(true);
+    }
 }
