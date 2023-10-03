@@ -43,9 +43,9 @@ public class MainSceneManager : MonoBehaviour
 
     private string currentText = "";
 
-    public float WaitTimeInSeconds = 2.0f; // 첫 번째 대사 표시 후 대기 시간(초)
+    public float WaitTimeInSeconds = 1.0f; // 첫 번째 대사 표시 후 대기 시간(초)
     public float TypingSpeed = 0.05f; // 타이핑 속도 조절
-    public float FadeOutSpeed = 1.0f; // 페이드 아웃 속도
+    public float FadeOutSpeed = 0.5f; // 페이드 아웃 속도
 
     private bool cancelFadeOut = false; // 페이드 아웃 취소 플래그
 

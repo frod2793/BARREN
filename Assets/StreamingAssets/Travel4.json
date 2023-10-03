@@ -1,0 +1,236 @@
+[
+  {
+    "character": "prolog",
+    "text": "이시간대의 이 지하상가는 늘 사람으로 북적이는 장소였을 것입니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "하지만 지금 이곳에는 아무도 없으며, 전등은 반이 나가있어 꽤나 어둡고, 대부분의 상가는 셔터가 내려와 있습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "길 곳곳에는 이계의 존재나 사교도들에게서 도망치지 못했던 사람들의 검붉은 핏자국이 아직 남아있고 무언가 부서진 파편으로 가득합니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "어느 곳을 조사할까요?",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "1. 편의점",
+    "text2": "",
+    "Pos": "BtnText",
+    "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "tutorial": "EnableBtnGroup1",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "도착한 편의점에는 아직 어느 정도 물자가 남아있습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "지금까지 신경쓰지 않았던 편의점 벽에는 이상한 전단지가 가득 붙어 있습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "내용을 읽어보니 조금 이상합니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "이 전단지는 사교도들이 배포한 전단지 인 것 같습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },{
+  "character": "prolog",
+  "text": "이상한 전단지(소모품_7 아이템), 이단치료사의 호감도 아이템(호감도 +20)(소모품_1 아이템) 을 획득합니다.",
+  "text2": "",
+  "Pos": "Middle",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+  "IsEnd": "false"
+}, {
+  "character": "Player",
+  "text": "이단치료사와 자주 함께 다니시던데, 그 사람과는 어떤 관계입니까?",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},
+  {
+    "character": "MinGi",
+    "text": "대신 아이를 맡아주는 관계죠. 상당히 귀여운 사람이라니까요.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
+    "IsEnd": "false"
+  },{
+  "character": "MinGi",
+  "text": "어제도 어떤 고민이 있었는지 찾아왔었죠.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},
+  {
+    "character": "Button",
+    "text": "1. 귀여운 사람이라면 설마...",
+    "text2": "2. 고민?",
+    "Pos": "",
+    "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "tutorial": "EnableBtnPlayGroup1",
+    "IsEnd": "false"
+  },
+  {
+    "character": "Player",
+    "text": "고민...?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },{
+  "character": "MinGi",
+  "text": "아이, 그러니까 그, 함께 왔던 파란머리 아이 이야기였는데...",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},{
+  "character": "MinGi",
+  "text": "그 애의 처우와 관련된 이야기였죠. 동생이 생각나서 많이 걱정되는 모양이더라고요",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},{
+  "character": "Player",
+  "text": "동생이 있었군요.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+  "IsEnd": "false"
+},{
+  "character": "MinGi",
+  "text": "네. 지금은 만날 수 없는 모양이지만요... 자세한 이야기는\n직접 듣는 편이 좋을 거예요.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},{
+  "character": "Player",
+  "text": "(내 감이 맞다면 이 이야기야 말로 이단치료사의 경계를 꺼뜨릴 수 있는 결정적인 기회인 것 같다. 충분한 준비 이후 말을 걸도록 하자.)",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+  "IsEnd": "true"
+},
+  {
+    "character": "prolog2",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  },
+  {
+    "character": "SelectBtn",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  }
+]

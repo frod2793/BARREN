@@ -36,17 +36,24 @@ public class MainSceneBtnManager : MonoBehaviour
     [SerializeField] private Button YeongdeungpoBtn;
 
     [Header("스테이지 선택 버튼")] 
-    [SerializeField]
-    private Button firstStageBtn;
-
+    
+    [SerializeField] private Button firstStageBtn;
     [SerializeField] private Button sceondStageBtn;
-
+    [SerializeField] private Button thirdStageBtn;
+    [SerializeField] private Button fourthStageBtn;
+    [SerializeField] private Button fifthStageBtn;
+    [Header("스테이지 선택 버튼 이미지")]
+    [SerializeField] private Sprite unlockStage;
+    [SerializeField] private Sprite lockStage;
+    [SerializeField] private Sprite clearStage;
+    
+    [Header("스테이지 팝업 내부 지역선택 버튼")]
     [SerializeField] private Button startButton;
     [SerializeField] private Button shealterPopUpExit;
     private bool isEventToggleOn = false; // 상태 변수
 
     private bool isContinueToggleOn = false; // 상태 변수
-
+public string SceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,15 +61,73 @@ public class MainSceneBtnManager : MonoBehaviour
 
         buttons_Init();
 
-        
-        
 
+        stageData();
+
+        PlayerData.Instance.SetUnlock(0,true);
         if (PlayerData.Instance.PlayerName != null)
         {
             playerName.text = PlayerData.Instance.PlayerName;
         }
     }
 
+    private void stageData()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            UpdateStageButton(i);
+        }
+    }
+    private void UpdateStageButton(int stageIndex)
+    {
+        Button stageButton = null;
+        Sprite unlockSprite = unlockStage;
+        Sprite clearSprite = clearStage;
+
+        switch (stageIndex)
+        {
+            case 0:
+                stageButton = firstStageBtn;
+                break;
+            case 1:
+                stageButton = sceondStageBtn;
+                if (PlayerData.Instance.IsUnlock(stageIndex))
+                {
+                    firstStageBtn.image.sprite = clearSprite;
+                }
+                break;
+            case 2:
+                stageButton = thirdStageBtn;
+                if (PlayerData.Instance.IsUnlock(stageIndex))
+                {
+                    sceondStageBtn.image.sprite = clearSprite;
+                }
+                break;
+            case 3:
+                stageButton = fourthStageBtn;
+                if (PlayerData.Instance.IsUnlock(stageIndex))
+                {
+                    thirdStageBtn.image.sprite = clearSprite;
+                }
+                break;
+            case 4:
+                stageButton = fifthStageBtn;
+                if (PlayerData.Instance.IsUnlock(stageIndex))
+                {
+                    fourthStageBtn.image.sprite = clearSprite;
+                }
+                break;
+            default:
+                Debug.LogWarning("Invalid stage index: " + stageIndex);
+                return;
+        }
+
+        if (PlayerData.Instance.IsUnlock(stageIndex))
+        {
+            stageButton.interactable = true;
+            stageButton.image.sprite = unlockSprite;
+        }
+    }
     private void buttons_Init()
     {
         
@@ -98,13 +163,38 @@ public class MainSceneBtnManager : MonoBehaviour
         firstStageBtn.onClick.AddListener((() =>
         {
             _manager.EnableCharacterProssePopUp();
+            SceneName= "Travel1";
+        }));
+        
+        sceondStageBtn.onClick.AddListener((() =>
+        {
+            _manager.EnableCharacterProssePopUp();
+            SceneName = "Travel2";
+        }));
+        
+        thirdStageBtn.onClick.AddListener((() =>
+        {
+            _manager.EnableCharacterProssePopUp();
+            SceneName = "Travel3";
+        }));
+        
+        fourthStageBtn.onClick.AddListener((() =>
+        {
+            _manager.EnableCharacterProssePopUp();
+            SceneName = "Travel4";
+        }));
+        
+        fifthStageBtn.onClick.AddListener((() =>
+        {
+            _manager.EnableCharacterProssePopUp();
+            SceneName = "Travel5";
         }));
         
         shealterPopUpExit.onClick.AddListener(_manager.disnbleStageSelect_PopUp);
-        
+     
         startButton.onClick.AddListener(() =>
         {
-            SceneLoader.Instace.LoadScene("GameScene");
+            SceneLoader.Instace.LoadScene(SceneName);
         });
     }
     

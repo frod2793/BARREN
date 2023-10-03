@@ -70,12 +70,32 @@ public class GameManager : MonoBehaviour
             ButtonGroupList[1].ButtonGroup1.SetActive(true);
             ButtonGroupList[1].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;
             ButtonGroupList[1].Chosebtn2Text.text = _gamePrologManager.Chosebtn2Text;
+if ( ButtonGroupList[1].Chosebtn3Text != null)
+            {
+                ButtonGroupList[1].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
+            }
             ButtonGroupList[1].Chosebtn1.onClick.AddListener((() =>
             {
                 _gamePrologManager.isButtonOn = false;
                 //todo: 선택한것 구분 짓기
                 ButtonGroupList[1].ButtonGroup1.SetActive(false);
             }));
+            ButtonGroupList[1].Chosebtn2.onClick.AddListener((() =>
+            {
+                _gamePrologManager.isButtonOn = false;
+                //todo: 선택한것 구분 짓기
+                ButtonGroupList[1].ButtonGroup1.SetActive(false);
+            }));
+            if ( ButtonGroupList[1].Chosebtn3!= null)
+            {
+                ButtonGroupList[1].Chosebtn3.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    //todo: 선택한것 구분 짓기
+                    ButtonGroupList[1].ButtonGroup1.SetActive(false);
+                }));
+            }
+           
         }
     }
 
@@ -87,13 +107,31 @@ public class GameManager : MonoBehaviour
             ButtonGroupList[2].ButtonGroup1.SetActive(true);
             ButtonGroupList[2].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;
             ButtonGroupList[2].Chosebtn2Text.text = _gamePrologManager.Chosebtn2Text;
-            ButtonGroupList[2].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
-            ButtonGroupList[2].Chosebtn3.onClick.AddListener((() =>
+            if (ButtonGroupList[2].Chosebtn3Text != null)
+            {
+                ButtonGroupList[2].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
+            }
+
+            ButtonGroupList[2].Chosebtn1.onClick.AddListener((() =>
             {
                 _gamePrologManager.isButtonOn = false;
                 //todo: 선택한것 구분 짓기
                 ButtonGroupList[2].ButtonGroup1.SetActive(false);
             }));
+            ButtonGroupList[2].Chosebtn2.onClick.AddListener((() =>
+            {
+                _gamePrologManager.isButtonOn = false;
+                //todo: 선택한것 구분 짓기
+                ButtonGroupList[2].ButtonGroup1.SetActive(false);
+            }));
+            if (ButtonGroupList[2].Chosebtn3 != null)
+            {
+                ButtonGroupList[2].Chosebtn3.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    ButtonGroupList[2].ButtonGroup1.SetActive(false);
+                }));
+            }
         }
     }
     
@@ -109,18 +147,102 @@ public class GameManager : MonoBehaviour
             {
                 ButtonGroupList[3].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
             }
-          
-            ButtonGroupList[3].Chosebtn2.onClick.AddListener((() =>
+            
+            ButtonGroupList[3].Chosebtn1.onClick.AddListener((() =>
             {
                 _gamePrologManager.isButtonOn = false;
                 //todo: 선택한것 구분 짓기
                 ButtonGroupList[3].ButtonGroup1.SetActive(false);
             }));
+            if (ButtonGroupList[3].Chosebtn2 != null)
+            {
+                ButtonGroupList[3].Chosebtn2.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    //todo: 선택한것 구분 짓기
+                    ButtonGroupList[3].ButtonGroup1.SetActive(false);
+                }));
+            }  if (ButtonGroupList[3].Chosebtn3 != null)
+            {
+                ButtonGroupList[3].Chosebtn3.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    //todo: 선택한것 구분 짓기
+                    ButtonGroupList[3].ButtonGroup1.SetActive(false);
+                }));
+            }
         }
     }
-    // Update is called once per frame
-    void Update()
+    
+    public void ActiveButtonGroup4Player()
     {
-        
+
+        if (ButtonGroupList[4].GroupName == "Group4Player")
+        {
+            ButtonGroupList[4].ButtonGroup1.SetActive(true);
+            ButtonGroupList[4].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;
+            ButtonGroupList[4].Chosebtn2Text.text = _gamePrologManager.Chosebtn2Text;
+            if ( ButtonGroupList[4].Chosebtn3Text != null)
+            {
+                ButtonGroupList[4].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
+            }
+            
+            ButtonGroupList[4].Chosebtn1.onClick.AddListener((() =>
+            {
+                _gamePrologManager.isButtonOn = false;
+                //todo: 선택한것 구분 짓기
+                ButtonGroupList[4].ButtonGroup1.SetActive(false);
+            }));
+            
+            ButtonGroupList[4].Chosebtn2.onClick.AddListener((() =>
+            {
+                _gamePrologManager.isButtonOn = false;
+                //todo: 선택한것 구분 짓기
+                ButtonGroupList[4].ButtonGroup1.SetActive(false);
+            }));
+            
+            if (ButtonGroupList[4].Chosebtn3 != null)
+            {
+                ButtonGroupList[4].Chosebtn2.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    //todo: 선택한것 구분 짓기
+                    ButtonGroupList[4].ButtonGroup1.SetActive(false);
+                }));
+            }
+        }
     }
+    
+    public void ActiveButtonGroup5Player()
+    {
+
+        if (ButtonGroupList[5].GroupName == "Group5Player")
+        {
+            ButtonGroupList[5].ButtonGroup1.SetActive(true);
+            ButtonGroupList[5].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;
+            ButtonGroupList[5].Chosebtn2Text.text = _gamePrologManager.Chosebtn2Text;
+            if ( ButtonGroupList[5].Chosebtn3Text != null)
+            {
+                ButtonGroupList[5].Chosebtn3Text.text = _gamePrologManager.Chosebtn3Text;
+            }
+            
+            ButtonGroupList[5].Chosebtn1.onClick.AddListener((() =>
+            {
+                _gamePrologManager.isButtonOn = false;
+                //todo: 선택한것 구분 짓기
+                ButtonGroupList[5].ButtonGroup1.SetActive(false);
+            }));
+            
+            if (ButtonGroupList[5].Chosebtn3 != null)
+            {
+                ButtonGroupList[5].Chosebtn2.onClick.AddListener((() =>
+                {
+                    _gamePrologManager.isButtonOn = false;
+                    //todo: 선택한것 구분 짓기
+                    ButtonGroupList[5].ButtonGroup1.SetActive(false);
+                }));
+            }
+        }
+    }
+
 }

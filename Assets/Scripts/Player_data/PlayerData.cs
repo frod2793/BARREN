@@ -5,20 +5,50 @@ public class PlayerData : MonoBehaviour
     // Singleton instance
     private static PlayerData instance;
 
-    // Player data
-    private int experience;
-    private string playerName;
-    private string gender;
+    private int experience = 0;
+    private string playerName = string.Empty;
+    private string gender = string.Empty;
     private bool isTutorial = false;
-    // Public properties to access player data
-    public int Experience { get { return experience; } set { experience = value; } }
-    public string PlayerName { get { return playerName; } set { playerName = value; } }
-    public string Gender { get { return gender; } set { gender = value; } }
+    private bool[] isUnlock = new bool[5];
+    public int Experience
+    {
+        get => experience;
+        set => experience = value;
+    }
+
+    public string PlayerName
+    {
+        get => playerName;
+        set => playerName = value;
+    }
+
+    public string Gender
+    {
+        get => gender;
+        set => gender = value;
+    }
 
     public bool IsTutorial
     {
         get => isTutorial;
         set => isTutorial = value;
+    }
+
+    public bool IsUnlock(int index)
+    {
+        if (index >= 0 && index < isUnlock.Length)
+        {
+            return isUnlock[index];
+        }
+        return false;
+    }
+
+    public void SetUnlock(int index, bool value)
+    {
+        if (index >= 0 && index < isUnlock.Length)
+        {
+            isUnlock[index] = value;
+        }
     }
     // Singleton instance property
     public static PlayerData Instance

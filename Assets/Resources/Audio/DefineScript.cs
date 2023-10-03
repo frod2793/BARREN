@@ -207,6 +207,8 @@
         public const string Step_Success = "Success";
         public const string Step_Failed = "Failed";
         public const string OneBreath = "womanOneBreath";
+        public const string WomanLaugh = "WomanLaugh";
+        public const string Walk = "Walk";
         #endregion
 
         #region Chef

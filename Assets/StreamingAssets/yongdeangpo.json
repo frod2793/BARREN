@@ -153,7 +153,8 @@
     "Pos": "Middle",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0"
+    "Selectnumber": "0",
+    "BackGorund": "Rufeless"
   },
   {
     "character": "prolog2",
