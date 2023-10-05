@@ -21,12 +21,18 @@ public class MainSceneBtnManager : MonoBehaviour
     [SerializeField] private Toggle eventToggle;
     [SerializeField] private Toggle continueToggle;
 
-    [Header("왼쪽 UI")] [SerializeField] private Button map_Btn;
+    [Header("왼쪽 UI")] 
+    [SerializeField] private Button map_Btn;
     [SerializeField] private Button misson_Btn;
     [SerializeField] private Button shope_Btn;
 
-
-
+    [Header("하단 UI")] 
+    [SerializeField] private Button friend_Btn;
+    [SerializeField] private Button talk_Btn;
+    [SerializeField] private Button character_Btn;
+    [SerializeField] private Button closet_Btn;
+    [SerializeField] private Button inventori_Btn;
+    
     [Header("맵 팝업 내부 지역선택 버튼")] 
     [SerializeField]
     private Button gangseo_Btn;
@@ -130,6 +136,11 @@ public string SceneName;
     }
     private void buttons_Init()
     {
+        
+        talk_Btn.onClick.AddListener(() =>
+        {
+            _manager.EnableTalk_Popup();
+        });
         
         topButtonGroupToggle.onValueChanged.AddListener((isOn) =>
         {

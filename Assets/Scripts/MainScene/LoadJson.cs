@@ -11,10 +11,16 @@ public class LoadJson : MonoBehaviour
     [System.Serializable]
     public class Dialogue
     {
+        public string TextName;
+        public string NextTextName;
         public string character;
+        public string characterName;
         public string text;
         public string text2;
         public string text3;
+        public string btnop1;
+        public string btnop2;
+        public string btnop3;
         public string Pos; // 대사 위치 (Top, Middle, Bottom 등)
         public string Sound;
         public string isButtonOn;

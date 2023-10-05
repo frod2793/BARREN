@@ -41,6 +41,9 @@
     "Selectnumber": "0"
   },
   {
+
+    "TextName": "Start",
+    "NextTextName": "P1",
     "character": "Player",
     "text": "역시... 길을 잃은 것 같군...",
     "Pos": "PlayerText",
@@ -50,6 +53,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P1",
+    "NextTextName": "P2",
     "character": "Player",
     "text": "‘이전에는 대부분 자가용을 타고 다녔으니까... 괜히 더 깊은 곳까지 오지 말고 평소 다니던 루트로 갈 껄 그랬나...’",
     "Pos": "PlayerText",
@@ -58,7 +63,9 @@
     "Selectnumber": "0",
     "State": "Panic"
   },
-  {
+  { 
+    "TextName": "P2",
+    "NextTextName": "P3",
     "character": "Player",
     "text": "(내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.)",
     "Pos": "PlayerText",
@@ -67,7 +74,9 @@
     "Selectnumber": "0",
     "State": "Panic"
   },
-  {
+  {    
+    "TextName": "P3",
+    "NextTextName": "P4",
     "character": "Player",
     "text": "(눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때)“...?”",
     "Pos": "PlayerText",
@@ -77,6 +86,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P4",
+    "NextTextName": "P5",
     "character": "Player",
     "text": "(어느 가게 안에서 반짝이는 무언가를 본 것 같았다.)",
     "Pos": "PlayerText",
@@ -86,6 +97,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P5",
+    "NextTextName": "P6",
     "character": "Player",
     "text": "(반짝임이 보였던 곳으로 향하자 그곳에는 황금빛의 문양이 그려진 어떤 책이 매대 위에 놓여있었다.)",
     "Pos": "PlayerText",
@@ -95,6 +108,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P6",
+    "NextTextName": "P7",
     "character": "Player",
     "text": "“이런...!”",
     "Pos": "PlayerText",
@@ -104,6 +119,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P7",
+    "NextTextName": "P8",
     "character": "Player",
     "text": "(처음 탐색을 나서던 날, 쉘터 지도자가 했던 말이 머릿속을 스쳤다)",
     "Pos": "PlayerText",
@@ -113,6 +130,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P8",
+    "NextTextName": "P9",
     "character": "ShelterLeader",
     "text": "(‘이계의 존재’나 ‘사교도’들이 ‘아더갓’을 상징하는 것들을 곳곳에 놓아 두었을 수도 있습니다. 그것들은 절대로 그냥 봐서는 안 되며, 그 중 문양은 제일 위험한 것이니 주의해가며 탐사해주세요.)",
     "Pos": "PlayerText",
@@ -120,7 +139,9 @@
     "isButtonOn": "false",
     "Selectnumber": "0"
   },
-  {
+  { 
+    "TextName": "P9",
+    "NextTextName": "P10",
     "character": "Player",
     "text": "(생각이 났을 때는 이미 늦어있었다. 그 문양을 본 직후, 나는 무언가에 홀린 사람처럼 그 책을 펼쳤다.)",
     "Pos": "PlayerText",
@@ -129,7 +150,9 @@
     "Selectnumber": "0",
     "State": "Panic"
   },
-  {
+  { 
+    "TextName": "P10",
+    "NextTextName": "P11",
     "character": "Player",
     "text": "(그 책 안에는 내가 모르는 낯선 문자가 적혀있었으나, 내 입은 천천히 그 문자를 읽어 내렸다.)",
     "Pos": "PlayerText",
@@ -139,6 +162,8 @@
     "State": "Panic"
   },
   {
+    "TextName": "P11",
+    "NextTextName": "Startprol",
     "character": "Player",
     "text": "(그렇게 나는 의식을 잃었다.)",
     "Pos": "PlayerText",
@@ -297,6 +322,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P12",
+    "NextTextName": "P13",
     "character": "Gangyuri",
     "text": "안녕하세요. (이름)씨! 살아서 다시 만나게 되어서 기쁘네요.",
     "Pos": "PlayerText",
@@ -306,6 +333,8 @@
     "State": "shadow"
   },
   {
+    "TextName": "P13",
+    "NextTextName": "P14",
     "character": "Gangyuri",
     "text": "일주일간 연락도, 소식도 없어서 다시는 못 만나게 되는 줄 알았어요...",
     "Pos": "PlayerText",
@@ -315,6 +344,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P14",
+    "NextTextName": "P15",
     "character": "Gangyuri",
     "text": "이야기는 들었어요. ‘광신도’놈들이 있는 쪽으로 탐색을 나가셨다가 부상을 당한채로 발이 묶였었다고...",
     "Pos": "PlayerText",
@@ -324,6 +355,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P15",
+    "NextTextName": "P16",
     "character": "Gangyuri",
     "text": "아...! 그러고 보니 도망치던 중 머리를 다쳐서 기억이 혼란스러운 상황이라고 하셨죠?",
     "Pos": "PlayerText",
@@ -333,6 +366,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P16",
+    "NextTextName": "P17",
     "character": "Gangyuri",
     "text": "혹시 모르니 자기소개부터 해 드려야겠네요. 저는 (이름)씨가 리더로 계신 탐색꾼의 팀원인 ‘강유리’라고 합니다.",
     "Pos": "PlayerText",
@@ -342,6 +377,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P17",
+    "NextTextName": "P18",
     "character": "Gangyuri",
     "text": "기억이 혼란스러우신 (이름)씨를 보조해 주기위해 왔어요.",
     "Pos": "PlayerText",
@@ -351,6 +388,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P18",
+    "NextTextName": "P19",
     "character": "Gangyuri",
     "text": "(이름)씨는 부상을 입기도 했고 고생도 하셨으니 오늘은 일없이 제 설명만 듣고 쉬시면 됩니다.",
     "Pos": "PlayerText",
@@ -360,6 +399,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P19",
+    "NextTextName": "P20",
     "character": "Gangyuri",
     "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 당장 필요한 정도만 간단하게 설명해 드릴게요.",
     "Pos": "PlayerText",
@@ -369,6 +410,8 @@
     "State": "Normal"
   },
   {
+    "TextName": "P20",
+    "NextTextName": "P21",
     "character": "Gangyuri",
     "text": "지금 있는 곳은 메인화면이예요. (이름)씨가 가장 많이 보게 될 장소 일거예요.",
     "Pos": "PlayerText",
@@ -379,6 +422,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P21",
+    "NextTextName": "P22",
     "character": "Gangyuri",
     "text": "이곳에서 탐색지도 상점, 대화, 보관함 , 친구, 옷장, 캐릭터, 일일출석, 임무 등으로 갈 수 있지만, 지금은 당장 필요한 것들을 설명 드리도록 할게요.",
     "Pos": "PlayerText",
@@ -389,6 +434,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P22",
+    "NextTextName": "P23",
     "character": "Gangyuri",
     "text": "(이름)씨가 현재 소속되어있는 장소는 ‘탐색꾼’이라는 곳이에요.",
     "Pos": "PlayerText",
@@ -399,6 +446,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P23",
+    "NextTextName": "P24",
     "character": "Gangyuri",
     "text": "쉘터 밖으로 나가서 아더갓과 관련된 물품이나 식량 등을 구해오는 사람들이죠.",
     "Pos": "PlayerText",
@@ -409,6 +458,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P24",
+    "NextTextName": "P25",
     "character": "Gangyuri",
     "text": "탐색을 하기 위해서는 왼쪽 상단에 있는 탐색지도를 누르면 돼요.",
     "Pos": "PlayerText",
@@ -420,6 +471,8 @@
     "tutorial": "Map"
   },
   {
+    "TextName": "P25",
+    "NextTextName": "P26",
     "character": "Gangyuri",
     "text": "그리고 이곳에서 탐색을 하고 싶은 장소를 선택하면 탐색이 시작됩니다.",
     "Pos": "PlayerText",
@@ -430,6 +483,9 @@
     "BackGorund": "Alpahzero"
   },
   {
+
+    "TextName": "P26",
+    "NextTextName": "P27",
     "character": "Gangyuri",
     "text": "탐색을 하는 장소, 횟수에 따라 얻을 수 있는 아이템이 달라져요.",
     "Pos": "PlayerText",
@@ -440,6 +496,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P27",
+    "NextTextName": "P28",
     "character": "Gangyuri",
     "text": "지금은 영등포 지하상가만 탐색이 가능하니까 기억해 주세요.",
     "Pos": "PlayerText",
@@ -450,6 +508,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P28",
+    "NextTextName": "P29",
     "character": "Gangyuri",
     "text": "쉘터 지도자님이 (이름)씨는 잠시 쉬라고 하셨거든요.",
     "Pos": "PlayerText",
@@ -461,6 +521,8 @@
     "tutorial": "Close_Map"
   },
   {
+    "TextName": "P29",
+    "NextTextName": "P30",
     "character": "Gangyuri",
     "text": "탐색을 해서 얻은 아이템들은 그냥 사용 할 수도 있지만, 쉘터 사람들에게 선물하는 것이 가능해요.",
     "Pos": "PlayerText",
@@ -471,6 +533,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName": "P30",
+    "NextTextName": "P31",
     "character": "Gangyuri",
     "text": "하단에 있는 대화를 누르면 쉘터 사람들을 만날 수 있어요.",
     "Pos": "PlayerText",
@@ -482,6 +546,8 @@
     "tutorial": "Open_Talk"
   },
   {
+    "TextName": "P31",
+    "NextTextName": "P32",
     "character": "Gangyuri",
     "text": "그곳에서 한 장소를 선택하게 되면",
     "Pos": "PlayerText",
@@ -493,6 +559,8 @@
     "tutorial": "Open_Talk2"
   },
   {
+    "TextName" : "P32",
+    "NextTextName" : "P33",
     "character": "Gangyuri",
     "text": "그곳에 있는 사람들을 볼 수 있어요. 여기서 대화하기를 누르면 대화를 하게 되죠. 당장 필요한 이야기는 이정도예요.",
     "Pos": "PlayerText",
@@ -503,6 +571,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName" : "P33",
+    "NextTextName" : "P34",
     "character": "Player",
     "text": "고마워 유리씨.",
     "Pos": "PlayerText",
@@ -513,6 +583,8 @@
     "BackGorund": "Alpahzero"
   },
   {
+    "TextName" : "P34",
+    "NextTextName" : "p35",
     "character": "Gangyuri",
     "text": "네, 다음에 또 봐요 (이름)씨.",
     "Pos": "PlayerText",

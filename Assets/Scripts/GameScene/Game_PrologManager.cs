@@ -26,6 +26,7 @@ public class Game_PrologManager : MonoBehaviour
         public GameObject TutorialObj;
         public UnityEngine.Events.UnityEvent TutorialEvent;
     }
+
     [Serializable]
     public struct Character
     {
@@ -37,11 +38,10 @@ public class Game_PrologManager : MonoBehaviour
         public GameObject Phsyconicobj;
         public GameObject Lovelyobj;
     }
-    
+
     //BackGround 리스트 생성
     public List<BackGround> backGroundList = new List<BackGround>();
-    [Header("캐릭터 그룹")]
-    public List<Character> charactersList = new List<Character>();
+    [Header("캐릭터 그룹")] public List<Character> charactersList = new List<Character>();
     [Header("튜토리얼 그룹")] public List<Tutorial> tutorialGroupList = new List<Tutorial>();
 
     [Header("프롤로그 캔버스 부분 ")] [SerializeField]
@@ -54,19 +54,21 @@ public class Game_PrologManager : MonoBehaviour
 
     [Header("플레이어 상호작용 부분 ")] [SerializeField]
     private TextMeshProUGUI PlayerTextBox;
+
     [SerializeField] GameObject PlayerTextBoxObj;
     [SerializeField] Image PlayerTextBoxImage;
-    [SerializeField]private TextMeshProUGUI PlayerNameBox;
-    [Header("버튼 레이아웃")] 
-    public string Chosebtn1Text;
-     public string Chosebtn2Text;
-     public string Chosebtn3Text;
+    [SerializeField] private TextMeshProUGUI PlayerNameBox;
+    [Header("버튼 레이아웃")] public string Chosebtn1Text;
+    public string Chosebtn2Text;
+    public string Chosebtn3Text;
 
     [Header("플레이어 캐릭터 상태")] [SerializeField]
     private GameObject Player_Panic;
+
     [SerializeField] private GameObject Player_Nomaral;
     [SerializeField] private GameObject Player_Smile;
     [SerializeField] private GameObject Player_phsyconic;
+
     [Header("쉘터지도자 캐릭터 상태")] [SerializeField]
     private GameObject ShealtherLeader_shadow;
 
@@ -75,9 +77,8 @@ public class Game_PrologManager : MonoBehaviour
 
     [SerializeField] private GameObject Gangyuri_Normal;
 
-    [Header(" 캐릭터 리스트")]
-    [SerializeField] private GameObject CharactersList;
-    
+    [Header(" 캐릭터 리스트")] [SerializeField] private GameObject CharactersList;
+
     [Header("게임씬")] [SerializeField] private GameObject gamescene;
     [SerializeField] private GameObject MainPlayer;
     [SerializeField] private GameObject AttendPopUp;
@@ -98,11 +99,18 @@ public class Game_PrologManager : MonoBehaviour
 
     public bool isEnd;
     private bool[] isChapterClear;
-    
+
     public bool isButtonOn;
     private bool isSound;
     private bool IsActiveEvent;
     private bool isCliled;
+
+
+    private string TextName = "Start";
+
+    [Header(" GAmemanager")] [SerializeField]
+    private GameManager _gameManager;
+
     void Start()
     {
         isChapterClear = new bool[6];
@@ -131,29 +139,32 @@ public class Game_PrologManager : MonoBehaviour
     {
         if (jsonFileName == "Travel1")
         {
-            PlayerData.Instance.SetUnlock(1,true);
+            PlayerData.Instance.SetUnlock(1, true);
         }
+
         if (jsonFileName == "Travel2")
         {
-            PlayerData.Instance.SetUnlock(2,true);
+            PlayerData.Instance.SetUnlock(2, true);
         }
+
         if (jsonFileName == "Travel3")
         {
-            PlayerData.Instance.SetUnlock(3,true);
+            PlayerData.Instance.SetUnlock(3, true);
         }
+
         if (jsonFileName == "Travel4")
         {
-            PlayerData.Instance.SetUnlock(4,true);
-        } if (jsonFileName == "Travel5")
-        {
-            PlayerData.Instance.SetUnlock(5,true);
+            PlayerData.Instance.SetUnlock(4, true);
         }
-        
+
+        if (jsonFileName == "Travel5")
+        {
+            PlayerData.Instance.SetUnlock(5, true);
+        }
     }
-    
+
     async UniTask ShowNextDialogueAsyncActiv()
     {
-       
         string nextChapter = GetNextChapter();
         if (!string.IsNullOrEmpty(nextChapter))
         {
@@ -192,7 +203,6 @@ public class Game_PrologManager : MonoBehaviour
 
     async UniTask ShowNextDialogueAsync(string Chapter)
     {
-      
         if (!prologueCanvas.gameObject.activeSelf)
         {
             await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
@@ -209,36 +219,50 @@ public class Game_PrologManager : MonoBehaviour
         }
 
         await UniTask.WaitUntil(() => dialogueList != null);
+
         LoadJson.Dialogue currentDialogueOrigin = dialogueList[currentIndex];
+
         if (currentDialogueOrigin.character == character)
         {
             if (currentIndex < dialogueList.Count + 1)
             {
                 LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
                 // 대사의 일부분만 출력
-                currentText =
-                    currentDialogue.text.Substring(0, Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
+                if (currentDialogue.text == null)
+                {
+                    Debug.Log("강제종료 .");
+                    await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
+                    ShowNextGameDialogueAsyncActiv().Forget();
+                    //함수 정지
+                    return;
+                }
+                else
+                {
+                    currentText =
+                        currentDialogue.text.Substring(0,
+                            Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
+                }
 
                 if (currentDialogue.BackGorund != null)
                 {
-   
                     Background.sprite = backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
                 }
-              
-                if (currentDialogue.isButtonOn =="true")
+
+                if (currentDialogue.isButtonOn == "true")
                 {
                     Chosebtn1Text = currentDialogue.text;
                     Chosebtn2Text = currentDialogue.text2;
                     isButtonOn = true;
                 }
-             
-                
-                if (currentDialogue.tutorial != null&&!IsActiveEvent)
+
+
+                if (currentDialogue.tutorial != null && !IsActiveEvent)
                 {
-                    IsActiveEvent=true;
+                    IsActiveEvent = true;
                     print("튜토리얼 실행");
                     tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
                 }
+
                 if (currentDialogue.Pos.ToLower() == "top" && !string.IsNullOrEmpty(topTextMeshPro.text))
                 {
                     topTextMeshPro.gameObject.SetActive(true);
@@ -258,19 +282,17 @@ public class Game_PrologManager : MonoBehaviour
                     lowTextMeshProUGUI.alpha = 1.0f; // 알파값을 1로 설정하여 텍스트 표시
                 }
 
-            
-             
+
                 // isButtonOn 이 false 가 될때까지 대기한다.
 
-               
-                
+
                 if (currentText.Length < currentDialogue.text.Length)
                 {
                     // 아직 대사 출력이 완료되지 않은 경우
                     await UniTask.Delay((int)(TypingSpeed * 1000)); // 타이핑 속도만큼 대기
                     try
-                    { 
-                         await ShowNextDialogueAsyncActiv(); // 현재 대사를 계속 출력
+                    {
+                        await ShowNextDialogueAsyncActiv(); // 현재 대사를 계속 출력
                     }
                     catch
                     {
@@ -284,13 +306,12 @@ public class Game_PrologManager : MonoBehaviour
                     if (!isButtonOn)
                     {
                         await UniTask.Delay((int)(WaitTimeInSeconds * 1000)); // 대기 시간(밀리초) 만큼 대기
-
                     }
-                    
-                  
+
+
                     //print(currentDialogue);
                     // 대사 출력이 완료된 경우
-                   currentText = ""; // 현재 텍스트 초기화
+                    currentText = ""; // 현재 텍스트 초기화
 
                     // 텍스트 페이드 아웃 효과 추가
                     await FadeOutTextAsync(topTextMeshPro);
@@ -307,6 +328,11 @@ public class Game_PrologManager : MonoBehaviour
         else
         {
             Debug.Log("대사 끝.");
+
+            if (TextName == "Startprol")
+            {
+                TextName = "P12";
+            }
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
             ShowNextGameDialogueAsyncActiv().Forget();
         }
@@ -316,10 +342,10 @@ public class Game_PrologManager : MonoBehaviour
     async UniTask ShowNextGameDialogueAsync(string Chapter)
     {
         await UniTask.WaitUntil(() => dialogueList != null);
-        LoadJson.Dialogue currentDialogueOrigin = dialogueList[currentIndex];
-        //playerdialogcount = dialogueList.FindAll(x => x.character == "Player"|| x.character == "prolog").Count + 1;
-        //playerdialogcount 에 dialogueList.count를 저장하는 데 조건은 character가 Player 와 prolog 이고 prolog2의 전 개수만 카운트한다.
 
+        await UniTask.WaitUntil(() => TextName != null);
+        LoadJson.Dialogue currentDialogueOrigin = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+        print(currentDialogueOrigin);
 
         string character = "prolog";
 
@@ -340,13 +366,55 @@ public class Game_PrologManager : MonoBehaviour
                 .Count();
         }
 
+        if (TextName == "Startprol")
+        {
+            await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
+            if (Chapter == "Chapter1")
+            {
+                isChapterClear[1] = true;
+            }
+            else if (Chapter == "Chapter2")
+            {
+                isChapterClear[2] = true;
+            }
+
+            ShowNextDialogueAsyncActiv().Forget();
+            
+          
+            return;
+        }
+        
+        
+        if (currentDialogueOrigin == null)
+        {
+            if (isEnd)
+            {
+                if (SceneManager.GetActiveScene().name != "MainScene")
+                {
+                    isEnd = false; // 현재 씬이 게임 씬인 경우 메인 씬으로 로드
+                    SceneLoader.Instace.LoadScene("MainScene");
+                    return;
+                }
+                else
+                {
+                    MainPlayer.SetActive(true);
+                    gamescene.SetActive(false);
+                    TweenEffect.OpenPopup(AttendPopUp);
+                }
+            }
+        }
+
         if (currentDialogueOrigin.character != character || currentDialogueOrigin.character != character)
         {
             print("dialogcount :" + playerdialogcount);
             if (currentIndex < dialogueList.Count + 1)
             {
                 //currentDialogueOrigin.character != "prolog" 조건의 dialogueList 카운트를 dialogcount 에 저장한다
-                LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+                //LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+
+
+                LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+
                 //currentDialogue.text 중에 "(이름)" 이라는 텍스트가있다면  PlayerData.Instance.PlayerName 으로 바꾼다 
                 currentDialogue.text = currentDialogue.text.Replace("(이름)", PlayerData.Instance.PlayerName);
                 // 대사의 일부분만 출력
@@ -355,9 +423,7 @@ public class Game_PrologManager : MonoBehaviour
                 currentText =
                     currentDialogue.text.Substring(0, Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
 
-               
-               
-                
+
                 if (currentDialogue.BackGorund != null)
                 {
                     if (currentDialogue.BackGorund == "Alpahzero")
@@ -366,31 +432,26 @@ public class Game_PrologManager : MonoBehaviour
                         PlayerTextBoxImage.color = new Color(1, 1, 1, 0);
                     }
                     else
-                    {  
+                    {
                         if (SceneManager.GetActiveScene().name == "Travel5")
                         {
                             if (currentDialogue.BackGorund == "MindControl")
                             {
-                               // PlayerTextBoxObj.SetActive(false);
+                                // PlayerTextBoxObj.SetActive(false);
                                 CharactersList.SetActive(false);
                             }
                             else
                             {
-                               // PlayerTextBoxObj.SetActive(true);
+                                // PlayerTextBoxObj.SetActive(true);
                                 CharactersList.SetActive(true);
                             }
                         }
+
                         PlayerTextBoxImage.color = new Color(1, 1, 1, 1);
                         PlayerTextBoxImage.sprite =
                             backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
-                        
-                        
-                        
                     }
-
-                  
                 }
-
 
 
                 if (!isButtonOn)
@@ -402,28 +463,32 @@ public class Game_PrologManager : MonoBehaviour
                             Chosebtn1Text = currentDialogue.text;
                             Chosebtn2Text = currentDialogue.text2;
                             Chosebtn3Text = currentDialogue.text3;
-                            print(currentDialogue.text3);
+                            // print(currentDialogue.text);
+                            // print(currentDialogue.text2);
+                            // print(currentDialogue.text3);
                             isButtonOn = true;
                             PlayerTextBoxObj.SetActive(false);
                         }
-
                     }
                     else if (!isButtonOn)
                     {
                         PlayerTextBoxObj.SetActive(true);
-                        characterState(currentDialogue.character, currentDialogue.State);
-
+                        characterState(currentDialogue.character, currentDialogue.characterName, currentDialogue.State);
                     }
                 }
 
 
-                if (currentDialogue.tutorial != null&&!IsActiveEvent)
+                if (currentDialogue.tutorial != null && !IsActiveEvent)
                 {
                     IsActiveEvent = true;
                     //tutorialGroupList.name 과 currentDialogue.tutorial 이 동일한 게임 오브젝트를 활성화한다.
                     //tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialObj.SetActive(true);
-                    tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
+                    SetNextTextName(currentDialogue, currentDialogue.btnop1, currentDialogue.btnop2,
+                        currentDialogue.btnop3);
+
+                    //tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
                 }
+
                 if (currentDialogue.IsEnd == "true")
                 {
                     isEnd = true;
@@ -432,14 +497,14 @@ public class Game_PrologManager : MonoBehaviour
                 {
                     isEnd = false;
                 }
-               
+
 
                 if (currentDialogue.Pos == "PlayerText" && !string.IsNullOrEmpty(PlayerTextBox.text))
                 {
                     PlayerTextBox.gameObject.SetActive(true);
                     PlayerTextBox.text = currentText;
                     PlayerTextBox.alpha = 1.0f; // 알파값을 1로 설정하여 텍스트 표시
-                    if (SoundManager.Instance != null&&!isSound)
+                    if (SoundManager.Instance != null && !isSound)
                     {
                         isSound = true;
                         if (currentDialogue.Sound.ToString() == "OneBreath")
@@ -447,16 +512,14 @@ public class Game_PrologManager : MonoBehaviour
                             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.OneBreath);
                         }
 
-                        if (currentDialogue.Sound=="WomanLaugh")
+                        if (currentDialogue.Sound == "WomanLaugh")
                         {
                             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.WomanLaugh);
-
                         }
 
-                        if (currentDialogue.Sound=="Walk")
+                        if (currentDialogue.Sound == "Walk")
                         {
                             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
-
                         }
                     }
 
@@ -483,7 +546,12 @@ public class Game_PrologManager : MonoBehaviour
                     //
                     // currentIndex++;
                     // await ShowNextDialogueAsync(); // 다음 대사 표시
-                    
+                    print(currentDialogue.NextTextName);
+                    if (currentDialogue.NextTextName != null)
+                    {
+                        TextName = currentDialogue.NextTextName;
+                    }
+
                     isCliled = false;
                 }
             }
@@ -505,7 +573,7 @@ public class Game_PrologManager : MonoBehaviour
         }
     }
 
-    private void characterState(string character, string state)
+    private void characterState(string character, string characterName, string state)
     {
         Player_Nomaral.gameObject.SetActive(false);
         Player_Panic.gameObject.SetActive(false);
@@ -517,15 +585,19 @@ public class Game_PrologManager : MonoBehaviour
             Player_Smile.gameObject.SetActive(false);
         }
 
-        if (Player_phsyconic != null)
+        if (characterName == "(이름)")
         {
-            Player_phsyconic.gameObject.SetActive(false);
+            PlayerNameBox.text = PlayerData.Instance.PlayerName;
+        }
+        else
+        {
+            PlayerNameBox.text = characterName;
         }
 
         switch (character)
         {
             case "Player":
-                PlayerNameBox.text = PlayerData.Instance.PlayerName;
+                PlayerNameBox.text = character;
                 if (state == "Normal")
                     Player_Nomaral.gameObject.SetActive(true);
                 else if (state == "Panic")
@@ -564,105 +636,78 @@ public class Game_PrologManager : MonoBehaviour
                 Debug.LogWarning("Unknown character: " + character);
                 break;
         }
+        
 
-        string lowerCaseState = state; 
+        if (Player_phsyconic != null)
+        {
+            Player_phsyconic.gameObject.SetActive(false);
+        }
+        string lowerCaseState = state;
 
         if (lowerCaseState == "Normal" || lowerCaseState == "Panic" || lowerCaseState == "shadow" ||
-            lowerCaseState == "smile" || lowerCaseState == "phsyconic"|| lowerCaseState == "Lovely")
+            lowerCaseState == "smile" || lowerCaseState == "phsyconic" || lowerCaseState == "Lovely")
         {
             // 상태에 따라 해당 오브젝트를 활성화
             var characterObject = charactersList.Find(x => x.name == character);
-            if (characterObject.name == "Cure")
-            {
-                if (lowerCaseState == "shadow")
-                {
-                    if (SceneManager.GetActiveScene().name == "Travel1")
-                    {
-                        PlayerNameBox.text = "??";
-                    }
-                    else
-                    {
-                        PlayerNameBox.text = "(이단치료사)";
-                    }
-                }
-                else
-                {
-                    
-                    PlayerNameBox.text = "(이단치료사)";
-                }
-
-            }
-            else if (characterObject.name == "GangMin")
-            {
-                PlayerNameBox.text = "(파수꾼)";
-            }
-            else if(characterObject.name == "Kid")
-            {
-                PlayerNameBox.text = "(아이)";
-            }
-            else if(characterObject.name == "MinGi")
-            {
-                PlayerNameBox.text = "(생산꾼)";
-            }
-            
-                // 모든 상태에 대해 오브젝트를 비활성화
-                foreach (var obj in charactersList)
-                {
-                    obj.Normalobj.SetActive(false);
-                    obj.Panicobj.SetActive(false);
-                    obj.Shadowobj.SetActive(false);
-                    obj.Smileobj.SetActive(false);
-                    obj.Phsyconicobj.SetActive(false);
-                    if ( obj.Lovelyobj!= null)
-                    {
-                        obj.Lovelyobj.SetActive(false);
-                    }
-                }
 
 
-                if (lowerCaseState == "Normal")
+            // 모든 상태에 대해 오브젝트를 비활성화
+            foreach (var obj in charactersList)
+            {
+                obj.Normalobj.SetActive(false);
+                obj.Panicobj.SetActive(false);
+                obj.Shadowobj.SetActive(false);
+                obj.Smileobj.SetActive(false);
+                obj.Phsyconicobj.SetActive(false);
+                if (obj.Lovelyobj != null)
                 {
-                    if (characterObject.Normalobj != null)
-                    {
-                        characterObject.Normalobj.SetActive(true);
-                    }
+                    obj.Lovelyobj.SetActive(false);
                 }
-                else if (lowerCaseState == "Panic")
-                {
-                    if (characterObject.Panicobj != null)
-                    {
-                        characterObject.Panicobj.SetActive(true);
-                    }
-                }
-                else if (lowerCaseState == "shadow")
-                {
-                    if (characterObject.Shadowobj != null)
-                    {
-                        characterObject.Shadowobj.SetActive(true);
-                    }
-                }
-                else if (lowerCaseState == "smile")
-                {
-                    if (characterObject.Smileobj != null)
-                    {
-                        characterObject.Smileobj.SetActive(true);
-                    }
-                }
-                else if (lowerCaseState == "phsyconic")
-                {
-                    if (characterObject.Phsyconicobj != null)
-                    {
-                        characterObject.Phsyconicobj.SetActive(true);
-                    }
-                }
-                else if (lowerCaseState == "Lovely")
-                {
-                    if (characterObject.Lovelyobj != null)
-                    {
-                        characterObject.Lovelyobj.SetActive(true);
-                    }
-                }
+            }
 
+
+            if (lowerCaseState == "Normal")
+            {
+                if (characterObject.Normalobj != null)
+                {
+                    characterObject.Normalobj.SetActive(true);
+                }
+            }
+            else if (lowerCaseState == "Panic")
+            {
+                if (characterObject.Panicobj != null)
+                {
+                    characterObject.Panicobj.SetActive(true);
+                }
+            }
+            else if (lowerCaseState == "shadow")
+            {
+                if (characterObject.Shadowobj != null)
+                {
+                    characterObject.Shadowobj.SetActive(true);
+                }
+            }
+            else if (lowerCaseState == "smile")
+            {
+                if (characterObject.Smileobj != null)
+                {
+                    characterObject.Smileobj.SetActive(true);
+                }
+            }
+            else if (lowerCaseState == "phsyconic")
+            {
+                if (characterObject.Phsyconicobj != null)
+                {
+                    characterObject.Phsyconicobj.SetActive(true);
+                }
+            }
+            else if (lowerCaseState == "Lovely")
+            {
+                if (characterObject.Lovelyobj != null)
+                {
+                    characterObject.Lovelyobj.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -672,7 +717,7 @@ public class Game_PrologManager : MonoBehaviour
 
     public void Func_skipText()
     {
-        if (!isCliled&&!isButtonOn)
+        if (!isCliled && !isButtonOn)
         {
             if (isTyping)
             {
@@ -687,7 +732,6 @@ public class Game_PrologManager : MonoBehaviour
                 currentText = ""; // 현재 텍스트 초기화
                 currentIndex++; // 넘어감
                 ShowNextGameDialogueAsyncActiv().Forget();
-
             }
             //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
             else
@@ -703,6 +747,7 @@ public class Game_PrologManager : MonoBehaviour
         }
         else
         {
+            print("qqq");
             StartTypingEffect();
         }
     }
@@ -732,9 +777,8 @@ public class Game_PrologManager : MonoBehaviour
     {
 #if UNITY_EDITOR
 
-        if (Input.GetKeyDown(KeyCode.Space)&&!isButtonOn)
+        if (Input.GetKeyDown(KeyCode.Space) && !isButtonOn)
         {
-            print("press Space");
             if (prologueCanvas.gameObject.activeSelf)
             {
                 if (isTyping)
@@ -814,12 +858,22 @@ public class Game_PrologManager : MonoBehaviour
     void StartTypingEffect()
     {
         isTyping = true;
-        if (currentIndex < dialogueList.Count)
+        // if (currentIndex < dialogueList.Count)
+        //  {
+        // 현재 대사를 전부 출력
+        //LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+        print("TextName: " + TextName);
+        LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+        if (currentDialogue == null)
         {
-            // 현재 대사를 전부 출력
-            LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+            print("currentDialogue null .");
+        }
+        else
+        {
+            
             currentText = currentDialogue.text;
         }
+        //  }
     }
 
     // 타이핑 효과 정지 메서드
@@ -867,7 +921,7 @@ public class Game_PrologManager : MonoBehaviour
         isCliled = true;
         currentIndex++;
 
-        if (currentIndex < playerdialogcount)
+        if (string.IsNullOrEmpty(currentText))
         {
             // 새로운 대사 출력을 시작
             ShowNextGameDialogueAsyncActiv().Forget();
@@ -894,14 +948,13 @@ public class Game_PrologManager : MonoBehaviour
             {
                 if (SceneManager.GetActiveScene().name != "MainScene")
                 {
-                    isEnd = false;// 현재 씬이 게임 씬인 경우 메인 씬으로 로드
-                    SceneLoader.Instace.LoadScene("MainScene"); 
-                   
+                    isEnd = false; // 현재 씬이 게임 씬인 경우 메인 씬으로 로드
+                    SceneLoader.Instace.LoadScene("MainScene");
                 }
                 else
                 {
                     MainPlayer.SetActive(true);
-                    gamescene.SetActive(false); 
+                    gamescene.SetActive(false);
                     TweenEffect.OpenPopup(AttendPopUp);
                 }
             }
@@ -909,8 +962,43 @@ public class Game_PrologManager : MonoBehaviour
             {
                 ShowNextDialogueAsyncActiv().Forget();
             }
-         
+
             //  playerdialogcount
         }
+    }
+
+    public void SetNextTextName(LoadJson.Dialogue dialogue, string op1, string op2, string op3)
+    {
+        // print(op1);
+        // print(op2);
+        // print(op3);
+        //
+        //      TextName = textName;
+        if (_gameManager == null)
+        {
+        }
+        else
+        {
+            _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1.onClick.AddListener(() =>
+            {
+                TextName = op1;
+            });
+            _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn2.onClick.AddListener(() =>
+            {
+                TextName = op2;
+            });
+            if (string.IsNullOrEmpty(dialogue.btnop3))
+            {
+                _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn3.gameObject
+                    .SetActive(false);
+            }
+            else
+            {
+                _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn3.onClick
+                    .AddListener(() => { TextName = op3; });
+            }
+        }
+
+        tutorialGroupList.Find(x => x.name == dialogue.tutorial).TutorialEvent.Invoke();
     }
 }

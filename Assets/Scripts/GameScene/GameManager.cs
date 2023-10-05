@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void ActiveButtonGroup1Player()
     {
-        if (ButtonGroupList[1].GroupName == "Group1Player")
+        if (ButtonGroupList[1].GroupName == "EnableBtnPlayGroup1")
         {
             ButtonGroupList[1].ButtonGroup1.SetActive(true);
             ButtonGroupList[1].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;

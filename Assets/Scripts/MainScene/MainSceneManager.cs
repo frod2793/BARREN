@@ -71,6 +71,7 @@ public class MainSceneManager : MonoBehaviour
         if (  PlayerData.Instance.IsTutorial)
         {
             prologueCanvas.gameObject.SetActive(false);
+            firstSetting();
         }
         else
         {
@@ -79,6 +80,15 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
+    private void firstSetting()
+    {//todo : 여기 미싱남 고칭것 
+        PlayerData.Instance.CharacterData_List[0].CharacterCard.SetActive(true);
+        PlayerData.Instance.CharacterData_List[0].CharacterName.text = "??";
+        PlayerData.Instance.CharacterData_List[0].CharacterSlider.value = 0;
+        PlayerData.Instance.CharacterData_List[0].characterImage.color = new Color(1,1,1);
+       
+    }
+    
     async UniTask ShowNextDialogueAsync()
     {
         await UniTask.WaitUntil(() => dialogueList != null);
@@ -373,11 +383,20 @@ public class MainSceneManager : MonoBehaviour
     public void EnableCharacterProssePopUp()
     {
         TweenEffect.OpenPopup(CharacterProsessPopUp);
+        TweenEffect.OpenPopup(SageSelect_PopUp);
     }
     public void disnbleStageSelect_PopUp()
-    {
+    {  
+        TweenEffect.ClosePopup(SageSelect_PopUp);
         TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
+
+    public void EnableTalk_Popup()
+    {
+        TweenEffect.OpenPopup(SageSelect_PopUp);
+        TweenEffect.OpenPopup(CharacterProsessPopUp);
+    }
+    
     public void CloseEveryPopup()
     {
         TweenEffect.ClosePopup(attanacePopUp);

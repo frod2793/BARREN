@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerData : MonoBehaviour
 {
     // Singleton instance
     private static PlayerData instance;
+
+    public List<CharacterDataList.CharacterData> CharacterData_List = new List<CharacterDataList.CharacterData>();
 
     private int experience = 0;
     private string playerName = string.Empty;
