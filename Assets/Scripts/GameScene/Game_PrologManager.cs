@@ -403,17 +403,36 @@ public class Game_PrologManager : MonoBehaviour
                 }
             }
         }
+//todo 호감도 비교 후 출력 (INT 로 변환 필요)
+//TODO  처음 로딩시 대상 캐릭터 정보 불러올 필요 있음 
+float likegage = PlayerData.Instance.GetLikeGage(character);
 
-        if (currentDialogueOrigin.character != character || currentDialogueOrigin.character != character)
+        if (currentDialogueOrigin.character != character )
         {
             print("dialogcount :" + playerdialogcount);
             if (currentIndex < dialogueList.Count + 1)
             {
                 //currentDialogueOrigin.character != "prolog" 조건의 dialogueList 카운트를 dialogcount 에 저장한다
                 //LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
-
-
+               
                 LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+                try
+                {
+                    if (float.Parse(currentDialogueOrigin.LikeGage) <= likegage)
+                    {
+                        currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName && float.Parse(dialogue.LikeGage) <=  likegage);
+                    }
+                    else
+                    {
+                        currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName&& float.Parse(dialogue.LikeGage) >  likegage);
+                    }
+                }
+                catch 
+                {
+                    
+                }
+             
+              
 
                 //currentDialogue.text 중에 "(이름)" 이라는 텍스트가있다면  PlayerData.Instance.PlayerName 으로 바꾼다 
                 currentDialogue.text = currentDialogue.text.Replace("(이름)", PlayerData.Instance.PlayerName);
@@ -548,7 +567,8 @@ public class Game_PrologManager : MonoBehaviour
                     // await ShowNextDialogueAsync(); // 다음 대사 표시
                     print(currentDialogue.NextTextName);
                     if (currentDialogue.NextTextName != null)
-                    {
+                    { 
+                        print("insert: "+currentDialogue.NextTextName);
                         TextName = currentDialogue.NextTextName;
                     }
 
@@ -778,9 +798,10 @@ public class Game_PrologManager : MonoBehaviour
 #if UNITY_EDITOR
 
         if (Input.GetKeyDown(KeyCode.Space) && !isButtonOn)
-        {
+        {  print("1");
             if (prologueCanvas.gameObject.activeSelf)
             {
+                print("1");
                 if (isTyping)
                 {
                     // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
@@ -790,7 +811,7 @@ public class Game_PrologManager : MonoBehaviour
                 {
                     // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
                     if (cancelFadeOut)
-                    {
+                    { print("1");
                         cancelFadeOut = false; // 페이드 아웃 취소
                         topTextMeshPro.alpha = 1.0f;
                         middleTextMeshPro.alpha = 1.0f;
@@ -802,19 +823,19 @@ public class Game_PrologManager : MonoBehaviour
                         ShowNextDialogueAsyncActiv().Forget(); // 대사 표시
                     }
                     else
-                    {
+                    { print("1");
                         StopFadeOutEffect();
                         ContinueToNextDialogue();
                     }
                 }
                 else
-                {
+                { print("1");
                     //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
                     StartTypingEffect();
                 }
             }
             else
-            {
+            { print("1");
                 Func_skipText();
             }
         }

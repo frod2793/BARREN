@@ -15,6 +15,7 @@ public class LoadJson : MonoBehaviour
         public string NextTextName;
         public string character;
         public string characterName;
+        public string LikeGage;
         public string text;
         public string text2;
         public string text3;

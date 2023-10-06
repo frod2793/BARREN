@@ -93,5 +93,20 @@ public class PlayerData : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    public float GetLikeGage(string character)
+    {
+        try
+        {
+            return CharacterData_List.Find(x => x.CharacterListName == character).CharacterSlider.value;
+
+        }
+        catch
+        {
+            return 0;
+        }
+        
+    }
+    
  
 }
