@@ -1654,7 +1654,13 @@ MonoBehaviour:
     CharacterSlider: 0
     characterImage: {fileID: 0}
     CharacterTalkBtn: {fileID: 0}
-  isTutorial: 1
+  - CharacterListName: MinGi
+    CharacterCard: {fileID: 0}
+    CharacterName: 
+    CharacterSlider: 0
+    characterImage: {fileID: 0}
+    CharacterTalkBtn: {fileID: 0}
+  isTutorial: 0
   isDay: 0000000000
   JsonName: 
   startbtntext: 

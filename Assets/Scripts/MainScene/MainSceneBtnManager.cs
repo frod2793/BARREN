@@ -378,10 +378,9 @@ public class MainSceneBtnManager : MonoBehaviour
             _manager.EnableCharacterProssePopUp1btn();
             SceneName = "Prolouge";
 
-            if (PlayerData.Instance.startbtntext == "Day4Start")
-            {
+            
                 SetCharactersBtn(true, false, false, false, "4", true);
-            }
+           
 
             if (PlayerData.Instance.startbtntext == "StartDay5")
             {
@@ -402,9 +401,11 @@ public class MainSceneBtnManager : MonoBehaviour
             if (PlayerData.Instance.startbtntext == "Day5end")
             {
                 //todo 다섯번째이후
+                SetCharactersBtn(true, false, false, false, "4", false);
 
                 SetCharactersBtn(false, false, true, false, "5", true);
             }
+        
         }));
 
         shealterPopUpExit.onClick.AddListener((() =>
@@ -426,7 +427,7 @@ public class MainSceneBtnManager : MonoBehaviour
             character.CharacterCard.SetActive(false);
         }
 
-        if (isMinGi) SetupCharacterButton("Mingi", day, "Travel1", istalk);
+        if (isMinGi) SetupCharacterButton("MinGi", day, "Travel1", istalk);
         if (isGangMin) SetupCharacterButton("GangMin", day, "Travel1", istalk);
         if (isCure) SetupCharacterButton("Cure", day, "Travel1", istalk);
         if (isKid) SetupCharacterButton("Kid", day, "Travel1", istalk);

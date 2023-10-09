@@ -309,7 +309,7 @@
     "NextTextName": "",
     "character": "Button",
     "characterName": "???",
-    "text": "1.만나는게좋을것같다고말한다.",
+    "text": "1.만나는 게 좋을것 같다고 말한다.",
     "text2": "2. 만나지 않는 게 좋을 것 같다고 말한다.",
     "btnop1": "C1",
     "btnop2": "C2",
@@ -505,7 +505,7 @@
   },
   {
     "TextName": "C1-12",
-    "NextTextName": "C1-13",
+    "NextTextName": "C1-14",
     "character": "Cure",
     "characterName": "이단치료사",
     "text": "생각보다 도움 되는 말을 하네, 너.",
@@ -517,20 +517,7 @@
     "State": "smile",
     "IsEnd": "false"
   },
-  {
-    "TextName": "C1-13",
-    "NextTextName": "C1-14",
-    "character": "Cure",
-    "characterName": "이단치료사",
-    "text": "그래 맞아. 이런 상태로 가봤자 정신 놓고 다니다가 황천길이나 건너겠지.",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "smile",
-    "IsEnd": "false"
-  },
+ 
   {
     "TextName": "C1-14",
     "NextTextName": "C1-15",
@@ -1023,8 +1010,8 @@
     "IsEnd": "false"
   },
   {
-    "TextName": "P12-5",
-    "NextTextName": "P12-6",
+    "TextName": "P12-6",
+    "NextTextName": "P12-7",
     "character": "Player",
     "characterName": "(이름)",
     "text": "(아더갓의 힘은 서로에게 상극이기 때문에, 다른 아더갓의 축복을 받았다면 그 사람의 세뇌는 불가능했다.)",
@@ -1261,8 +1248,8 @@
     "IsEnd": "false"
   },
   {
-    "TextName": "P12-22",
-    "NextTextName": "P12-23",
+    "TextName": "P12-23",
+    "NextTextName": "P12-24",
     "character": "Player",
     "characterName": "(이름)",
     "text": "(주술사가 지도자로 있는 쉘터, 동작구 쉘터로 간다.)",

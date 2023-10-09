@@ -141,9 +141,9 @@
   {
     "TextName": "C2",
     "NextTextName": "",
-    "character": "MinGi",
-    "characterName": "민지애",
-    "text": "",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "....",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -151,39 +151,6 @@
     "Selectnumber": "Day4Start",
     "State": "Normal",
     "IsEnd": "true"
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
-  },
-  {
-    
   },
   {
     "character": "prolog2",

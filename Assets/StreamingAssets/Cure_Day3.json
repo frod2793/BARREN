@@ -88,7 +88,7 @@
   },
   {
     "TextName": "D1",
-    "NextTextName": "D1-1",
+    "NextTextName": "D1-2",
     "character": "Player",
     "characterName": "(이름)",
     "text": "광신도들이 아이를 ‘제물’로 쓰기 위해 노리는 것 같습니다만,바깥의 놈들이 아이를 노리고 쉘터로 들어온다면 저희는 광신도를 막을 수 없습니다.",
@@ -100,20 +100,7 @@
     "State": "Normal",
     "IsEnd": "false"
   },
-  {
-    "TextName": "D1-1",
-    "NextTextName": "D1-2",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "아이를 구하기 위해서 광신도가 잠잠해 질 때 까지는 남아주실\n수 없으십니까?",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
-  },
+  
   {
     "TextName": "D1-2",
     "NextTextName": "D1-3",

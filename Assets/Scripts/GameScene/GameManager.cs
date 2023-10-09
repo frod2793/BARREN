@@ -278,6 +278,8 @@ public class GameManager : MonoBehaviour
     public async void EndingEffect()
     {
         _gamePrologManager.isButtonOn = await TweenEffect.EndingEffect(EndingEffectObj);
+        _gamePrologManager.TextName = "P122-1";
+        _gamePrologManager.Func_skipText();
     }
 
     public IEnumerator co_Delaybool()
