@@ -1,0 +1,139 @@
+[ {
+  "character": "prolog",
+  "text": "이시간대의 이 지하상가는 늘 사람으로 북적이는 장소였을 것입니다.",
+  "text2": "",
+  "Pos": "Middle",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+
+  "IsEnd": "false"
+},
+  {
+    "character": "prolog",
+    "text": "하지만 지금 이곳에는 아무도 없으며, 전등은 반이 나가있어 꽤나 어둡고, 대부분의 상가는 셔터가 내려와 있습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "길 곳곳에는 이계의 존재나 사교도들에게서 도망치지 못했던 사람들의 검붉은 핏자국이 아직 남아있고 무언가 부서진 파편으로 가득합니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "어느 곳을 조사할까요?",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "1. 서점",
+    "text2": "",
+    "Pos": "BtnText",
+    "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "tutorial": "EnableBtnGroup1",
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "도착한 서점의 책장에는 책이 빼곡하게 꽂혀있습니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "사람들은 알고 있을까요? 이런 장소야 말로 은밀하게 숨어있는 주술책을 찾기 쉬운 장소라는 것을요.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "물론 알지 못하기 때문에 이 장소가 이렇게 깨끗한 것이겠죠.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+
+    "IsEnd": "false"
+  },
+  {
+    "character": "prolog",
+    "text": "하면 ‘주술 – 인식개변’과 이단치료사의 호감도 아이템(소모품_1 아이템)(호감도 +20)을 획득 합니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+
+  },
+  {
+    "character": "prolog",
+    "text": "주술 – 인식개변을 얻으면 이단치료사의 호감도가 0가 되며, 이후부터 본격적인 이단치료사 호감도 작이 가능해집니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "Day1Start",
+    "State": "Normal",
+    "IsEnd": "true"
+  },
+  {
+    "character": "prolog2",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  },
+  {
+    "character": "SelectBtn",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  }
+]

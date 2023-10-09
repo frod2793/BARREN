@@ -58,6 +58,9 @@ public class Game_PrologManager : MonoBehaviour
     [SerializeField] GameObject PlayerTextBoxObj;
     [SerializeField] Image PlayerTextBoxImage;
     [SerializeField] private TextMeshProUGUI PlayerNameBox;
+    [SerializeField] private Text loctionText;
+    
+    
     [Header("버튼 레이아웃")] public string Chosebtn1Text;
     public string Chosebtn2Text;
     public string Chosebtn3Text;
@@ -106,7 +109,7 @@ public class Game_PrologManager : MonoBehaviour
     private bool isCliled;
 
 
-    private string TextName = "Start";
+    private string TextName = "Start1";
 
     [Header(" GAmemanager")] [SerializeField]
     private GameManager _gameManager;
@@ -114,6 +117,17 @@ public class Game_PrologManager : MonoBehaviour
     void Start()
     {
         isChapterClear = new bool[6];
+        if (PlayerData.Instance.JsonName != null)
+        {
+            jsonFileName = PlayerData.Instance.JsonName;
+            print(jsonFileName);
+        }
+
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            jsonFileName = "yongdeangpo";
+        }
+
         if (jsonFileName == "yongdeangpo")
         {
             PlayerData.Instance.IsTutorial = true;
@@ -122,7 +136,7 @@ public class Game_PrologManager : MonoBehaviour
         {
             if (SoundManager.Instance != null)
             {
-                if (SceneManager.GetActiveScene().name == "GameScene")
+                if (SceneManager.GetActiveScene().name != "MainScene")
                 {
                     SoundManager.Instance.Func_BGMLoop(AudioDefine.Tamsa_Bgm);
                 }
@@ -130,24 +144,30 @@ public class Game_PrologManager : MonoBehaviour
         }
 
         DataStageTrangister();
+
+
         dialogueList = LoadJson.LoadScriptFromJSON(jsonFileName);
+
+
         isChapterClear[0] = true;
         ShowNextDialogueAsyncActiv().Forget();
     }
 
     private void DataStageTrangister()
     {
-        if (jsonFileName == "Travel1")
+        if (jsonFileName == "Prol_Day1")
         {
             PlayerData.Instance.SetUnlock(1, true);
+
+            PlayerData.Instance.isDay[1] = true;
         }
 
-        if (jsonFileName == "Travel2")
+        if (jsonFileName == "Prol_Day2")
         {
             PlayerData.Instance.SetUnlock(2, true);
         }
 
-        if (jsonFileName == "Travel3")
+        if (jsonFileName == "Prol_Day3")
         {
             PlayerData.Instance.SetUnlock(3, true);
         }
@@ -160,6 +180,11 @@ public class Game_PrologManager : MonoBehaviour
         if (jsonFileName == "Travel5")
         {
             PlayerData.Instance.SetUnlock(5, true);
+        }
+
+        if (jsonFileName == "Cure_Day0")
+        {
+            PlayerData.Instance.isDay[0] = true;
         }
     }
 
@@ -177,6 +202,13 @@ public class Game_PrologManager : MonoBehaviour
         string nextChapter = GetNextChapter();
         if (!string.IsNullOrEmpty(nextChapter))
         {
+            if (TextName=="Start1")
+            {
+                TextName = "Start";
+                
+                await UniTask.WaitUntil(() => TextName =="Start");
+
+            }
             ShowNextGameDialogueAsync(nextChapter).Forget();
         }
     }
@@ -211,6 +243,7 @@ public class Game_PrologManager : MonoBehaviour
         string character = null;
         if (Chapter == "Chapter1")
         {
+            print("챕터1");
             character = "prolog";
         }
         else if (Chapter == "Chapter2")
@@ -228,6 +261,18 @@ public class Game_PrologManager : MonoBehaviour
             {
                 LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
                 // 대사의 일부분만 출력
+
+                print("배경이름 :"+currentDialogueOrigin.BackGorund);
+                if (currentDialogue.BackGorund != null)
+                {
+                    print("배경있음 ");
+                    Background.sprite = backGroundList.Find(x => x.name == currentDialogueOrigin.BackGorund).image;
+                }
+                else
+                {
+                    print("배경없음 ");
+                }
+
                 if (currentDialogue.text == null)
                 {
                     Debug.Log("강제종료 .");
@@ -243,10 +288,20 @@ public class Game_PrologManager : MonoBehaviour
                             Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
                 }
 
-                if (currentDialogue.BackGorund != null)
+
+                PlayerData.Instance.startbtntext = currentDialogue.Selectnumber;
+
+
+                if (currentDialogue.IsEnd == "true")
                 {
-                    Background.sprite = backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
+                    isEnd = true;
                 }
+                else
+                {
+                    isEnd = false;
+                }
+
+             
 
                 if (currentDialogue.isButtonOn == "true")
                 {
@@ -333,7 +388,21 @@ public class Game_PrologManager : MonoBehaviour
             {
                 TextName = "P12";
             }
+
+       
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
+            if (isEnd)
+            {
+                if (SceneManager.GetActiveScene().name != "MainScene")
+                {
+                    isEnd = false; // 현재 씬이 게임 씬인 경우 메인 씬으로 로드
+                    SceneLoader.Instace.LoadScene("MainScene");
+                    return;
+                }
+            }
+            
+            
+            await UniTask.WaitUntil(() => TextName == "Start");
             ShowNextGameDialogueAsyncActiv().Forget();
         }
     }
@@ -344,13 +413,14 @@ public class Game_PrologManager : MonoBehaviour
         await UniTask.WaitUntil(() => dialogueList != null);
 
         await UniTask.WaitUntil(() => TextName != null);
+        print("find :"+TextName);
         LoadJson.Dialogue currentDialogueOrigin = dialogueList.Find(dialogue => dialogue.TextName == TextName);
-        print(currentDialogueOrigin);
-
+ 
         string character = "prolog";
-
+        print("다이얼로그: "+currentDialogueOrigin);
         if (Chapter == "Chapter1")
         {
+            print("챕터1");
             character = "prolog";
 
             playerdialogcount = dialogueList
@@ -358,7 +428,7 @@ public class Game_PrologManager : MonoBehaviour
                 .Count();
         }
         else if (Chapter == "Chapter2")
-        {
+        {  print("챕터2");
             character = "prolog2";
 
             playerdialogcount = dialogueList
@@ -371,20 +441,21 @@ public class Game_PrologManager : MonoBehaviour
             await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
             if (Chapter == "Chapter1")
             {
+                print("챕터1");
                 isChapterClear[1] = true;
             }
             else if (Chapter == "Chapter2")
-            {
+            {  print("챕터2");
                 isChapterClear[2] = true;
             }
 
             ShowNextDialogueAsyncActiv().Forget();
-            
-          
+
+
             return;
         }
-        
-        
+
+
         if (currentDialogueOrigin == null)
         {
             if (isEnd)
@@ -403,36 +474,54 @@ public class Game_PrologManager : MonoBehaviour
                 }
             }
         }
-//todo 호감도 비교 후 출력 (INT 로 변환 필요)
-//TODO  처음 로딩시 대상 캐릭터 정보 불러올 필요 있음 
-float likegage = PlayerData.Instance.GetLikeGage(character);
 
-        if (currentDialogueOrigin.character != character )
+        float likegage = 0;
+        likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
+
+        print("호감도 :" + likegage);
+   //     print("호감도데상 :" + currentDialogueOrigin.character);
+        if (currentDialogueOrigin.character != character)
         {
             print("dialogcount :" + playerdialogcount);
-            if (currentIndex < dialogueList.Count + 1)
-            {
+            // if (currentIndex < dialogueList.Count + 1)
+            // {
                 //currentDialogueOrigin.character != "prolog" 조건의 dialogueList 카운트를 dialogcount 에 저장한다
                 //LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
-               
+
                 LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
-                try
-                {
-                    if (float.Parse(currentDialogueOrigin.LikeGage) <= likegage)
+               
+                    if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
                     {
-                        currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName && float.Parse(dialogue.LikeGage) <=  likegage);
+                        if (float.Parse(currentDialogueOrigin.LikeGage) <= likegage)
+                        {
+                            print("호감도 비교");
+
+                            print("호감도 비교true:" + float.Parse(currentDialogueOrigin.LikeGage));
+                            currentDialogue = dialogueList.Find(dialogue =>
+                                dialogue.TextName == TextName && dialogue.isLike == "true");
+                        }
+                        else
+                        {
+                            print("호감도 비교");
+                            print("호감도 비교false:" + float.Parse(currentDialogueOrigin.LikeGage));
+                            currentDialogue = dialogueList.Find(dialogue =>
+                                dialogue.TextName == TextName && dialogue.isLike == "false");
+                        }
                     }
                     else
                     {
-                        currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName&& float.Parse(dialogue.LikeGage) >  likegage);
+                        print("dial Null");
                     }
-                }
-                catch 
-                {
-                    
-                }
-             
+               
+
+                    if (!string.IsNullOrEmpty(currentDialogue.Selectnumber))
+                    {
+                        PlayerData.Instance.startbtntext = currentDialogue.Selectnumber;
+                    }
+                
               
+     
+
 
                 //currentDialogue.text 중에 "(이름)" 이라는 텍스트가있다면  PlayerData.Instance.PlayerName 으로 바꾼다 
                 currentDialogue.text = currentDialogue.text.Replace("(이름)", PlayerData.Instance.PlayerName);
@@ -469,6 +558,23 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                         PlayerTextBoxImage.color = new Color(1, 1, 1, 1);
                         PlayerTextBoxImage.sprite =
                             backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
+                        if (loctionText !=null)
+                        {
+                            if (currentDialogue.BackGorund == "shelter")
+                            {
+                                loctionText.text = "영등포 쉘터 내부";
+                            }
+                            else  if (currentDialogue.BackGorund == "shelterOutside")
+                            {
+                                loctionText.text = "영등포 쉘터 외부";
+                            } else  if (currentDialogue.BackGorund == "HomeGround")
+                            {
+                                loctionText.text = "영등포 쉘터 탐색꾼 쉘터";
+                            }
+
+                        }    
+                    
+
                     }
                 }
 
@@ -500,12 +606,20 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                 if (currentDialogue.tutorial != null && !IsActiveEvent)
                 {
                     IsActiveEvent = true;
+
                     //tutorialGroupList.name 과 currentDialogue.tutorial 이 동일한 게임 오브젝트를 활성화한다.
                     //tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialObj.SetActive(true);
-                    SetNextTextName(currentDialogue, currentDialogue.btnop1, currentDialogue.btnop2,
-                        currentDialogue.btnop3);
-
-                    //tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
+                    if (currentDialogue.tutorial == "EnableEndingScene")
+                    {
+                        tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
+                    }
+                    else
+                    {
+                        SetNextTextName(currentDialogue, currentDialogue.btnop1, currentDialogue.btnop2,
+                            currentDialogue.btnop3, currentDialogue.characterName);
+                    }
+                    
+                  
                 }
 
                 if (currentDialogue.IsEnd == "true")
@@ -540,6 +654,11 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                         {
                             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
                         }
+
+                        if (currentDialogue.Sound == "bagsound")
+                        {
+                            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.bagsearch);
+                        }
                     }
 
                     //todo: currentDialogue.isButtonOn 이 true 이면 선택권 오브젝트를 띄운다. 버튼으로 선택한 번호와 currentDialogue.Selectnumber 가 같은 currentDialogue.text를 재생한다  
@@ -567,20 +686,20 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                     // await ShowNextDialogueAsync(); // 다음 대사 표시
                     print(currentDialogue.NextTextName);
                     if (currentDialogue.NextTextName != null)
-                    { 
-                        print("insert: "+currentDialogue.NextTextName);
+                    {
+                        print("insert: " + currentDialogue.NextTextName);
                         TextName = currentDialogue.NextTextName;
                     }
 
                     isCliled = false;
                 }
-            }
+            //}
         }
         else
         {
             Debug.Log("대사 끝.");
             await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
-            if (Chapter == "Chapter1")
+            if (Chapter == "Ending")
             {
                 isChapterClear[1] = true;
             }
@@ -600,11 +719,11 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         ShealtherLeader_shadow.gameObject.SetActive(false);
         Gangyuri_Normal.gameObject.SetActive(false);
         Gangyuri_shadow.gameObject.SetActive(false);
-        if (Player_Smile != null)
-        {
             Player_Smile.gameObject.SetActive(false);
-        }
-
+        Player_phsyconic.gameObject.SetActive(false);
+        
+        
+        
         if (characterName == "(이름)")
         {
             PlayerNameBox.text = PlayerData.Instance.PlayerName;
@@ -624,17 +743,11 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                     Player_Panic.gameObject.SetActive(true);
                 else if (state == "smile")
                 {
-                    if (Player_Smile != null)
-                    {
-                        Player_Smile.gameObject.SetActive(true);
-                    }
+                    Player_Smile.gameObject.SetActive(true);
                 }
                 else if (state == "phsyconic")
                 {
-                    if (Player_phsyconic != null)
-                    {
-                        Player_phsyconic.gameObject.SetActive(true);
-                    }
+                    Player_phsyconic.gameObject.SetActive(true);
                 }
 
                 break;
@@ -656,12 +769,9 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                 Debug.LogWarning("Unknown character: " + character);
                 break;
         }
-        
 
-        if (Player_phsyconic != null)
-        {
-            Player_phsyconic.gameObject.SetActive(false);
-        }
+
+      
         string lowerCaseState = state;
 
         if (lowerCaseState == "Normal" || lowerCaseState == "Panic" || lowerCaseState == "shadow" ||
@@ -767,7 +877,7 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         }
         else
         {
-            print("qqq");
+       //     print("qqq");
             StartTypingEffect();
         }
     }
@@ -798,10 +908,10 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
 #if UNITY_EDITOR
 
         if (Input.GetKeyDown(KeyCode.Space) && !isButtonOn)
-        {  print("1");
+        {
             if (prologueCanvas.gameObject.activeSelf)
             {
-                print("1");
+              //  print("1");
                 if (isTyping)
                 {
                     // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
@@ -811,7 +921,8 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                 {
                     // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
                     if (cancelFadeOut)
-                    { print("1");
+                    {
+                        print("1");
                         cancelFadeOut = false; // 페이드 아웃 취소
                         topTextMeshPro.alpha = 1.0f;
                         middleTextMeshPro.alpha = 1.0f;
@@ -823,19 +934,22 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
                         ShowNextDialogueAsyncActiv().Forget(); // 대사 표시
                     }
                     else
-                    { print("1");
+                    {
+                        print("1");
                         StopFadeOutEffect();
                         ContinueToNextDialogue();
                     }
                 }
                 else
-                { print("1");
+                {
+                  //  print("1");
                     //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
                     StartTypingEffect();
                 }
             }
             else
-            { print("1");
+            {
+             //   print("1");
                 Func_skipText();
             }
         }
@@ -891,7 +1005,6 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         }
         else
         {
-            
             currentText = currentDialogue.text;
         }
         //  }
@@ -933,6 +1046,21 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         {
             // 대사 끝
             Debug.Log("대사 끝.");
+            if (isEnd)
+            {
+                if (SceneManager.GetActiveScene().name != "MainScene")
+                {
+                    isEnd = false; // 현재 씬이 게임 씬인 경우 메인 씬으로 로드
+                    SceneLoader.Instace.LoadScene("MainScene");
+                }
+                else
+                {
+                    MainPlayer.SetActive(true);
+                    gamescene.SetActive(false);
+                    TweenEffect.OpenPopup(AttendPopUp);
+                }
+            }
+
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
         }
     }
@@ -988,13 +1116,30 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         }
     }
 
-    public void SetNextTextName(LoadJson.Dialogue dialogue, string op1, string op2, string op3)
+    public void SetNextTextName(LoadJson.Dialogue dialogue, string op1, string op2, string op3, string characterName)
     {
         // print(op1);
         // print(op2);
         // print(op3);
         //
         //      TextName = textName;
+        string name = null;
+        if (jsonFileName.Contains("Cure"))
+        {
+            name = "Cure";
+            print(name);
+        }
+        else if (jsonFileName.Contains("Kid"))
+        {
+            name = "Kid";
+        }
+        else
+        if (jsonFileName.Contains("GangMin"))
+        {
+            name = "GangMin";
+        }
+
+
         if (_gameManager == null)
         {
         }
@@ -1002,19 +1147,33 @@ float likegage = PlayerData.Instance.GetLikeGage(character);
         {
             _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1.onClick.AddListener(() =>
             {
+                if (dialogue.text.Contains("선물"))
+                {
+                    print("호감도 추가");
+                    PlayerData.Instance.SetLikeGage(name, 20);
+                }
+
                 TextName = op1;
             });
             _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn2.onClick.AddListener(() =>
             {
+                if (dialogue.text2.Contains("선물"))
+                {
+                    print("호감도 추가");
+                    PlayerData.Instance.SetLikeGage(name, 20);
+                }
+
                 TextName = op2;
             });
-            if (string.IsNullOrEmpty(dialogue.btnop3))
+            if (string.IsNullOrEmpty(dialogue.text3))
             {
                 _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn3.gameObject
                     .SetActive(false);
             }
             else
             {
+                _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn3.gameObject
+                    .SetActive(true);
                 _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn3.onClick
                     .AddListener(() => { TextName = op3; });
             }

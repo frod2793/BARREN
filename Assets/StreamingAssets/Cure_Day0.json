@@ -66,7 +66,7 @@
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0",
+    "Selectnumber": "Day1Start",
     "State": "Normal",
     "IsEnd": "false"
   },
@@ -79,7 +79,7 @@
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "1",
+    "Selectnumber": "Day1Start",
     "State": "Normal",
     "IsEnd": "true"
   },
@@ -135,7 +135,7 @@
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0",
+    "Selectnumber": "Day1Start",
     "State": "shadow",
     "IsEnd": "false"
   },
@@ -149,26 +149,13 @@
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0",
+    "Selectnumber": "Day1Start",
     "State": "Normal",
     "IsEnd": "true"
   },
+  
   {
     "TextName": "P3",
-    "NextTextName": "P3-1",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "(피부로 느껴질 정도의 강한 적대감이 느껴진다. 일단은 물러나는 게 좋겠어) 죄송합니다.",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
-  },
-  {
-    "TextName": "P3-1",
     "NextTextName": "P3-2",
     "character": "Player",
     "characterName": "(이름)",
@@ -191,7 +178,7 @@
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0",
+    "Selectnumber": "Day1Start",
     "State": "Normal",
     "IsEnd": "false"
   },
@@ -200,12 +187,12 @@
     "NextTextName": "P3-4",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "",
+    "text": "....",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0",
+    "Selectnumber": "Day1Start",
     "State": "Normal",
     "IsEnd": "true"
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Dynamic;
+using UnityEngine;
 
     #region 열거형
 
@@ -209,6 +210,7 @@
         public const string OneBreath = "womanOneBreath";
         public const string WomanLaugh = "WomanLaugh";
         public const string Walk = "Walk";
+        public const string bagsearch = "bagsearch";
         #endregion
 
         #region Chef

@@ -6,14 +6,26 @@ public class PlayerData : MonoBehaviour
 {
     // Singleton instance
     private static PlayerData instance;
-
-    public List<CharacterDataList.CharacterData> CharacterData_List = new List<CharacterDataList.CharacterData>();
+    [Serializable]
+    public struct CharacterData
+    {
+        public string CharacterListName;
+        public GameObject CharacterCard;
+        public string CharacterName;
+        public float CharacterSlider;
+        public Image characterImage;
+        public Button CharacterTalkBtn;
+    }
+    public List<CharacterData> CharacterData_List = new List<CharacterData>();
 
     private int experience = 0;
     private string playerName = string.Empty;
     private string gender = string.Empty;
-    private bool isTutorial = false;
+    public bool isTutorial = false;
     private bool[] isUnlock = new bool[5];
+    public bool[] isDay = new bool[5];
+    public string JsonName;
+    public string startbtntext;
     public int Experience
     {
         get => experience;
@@ -95,10 +107,25 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
 
     public float GetLikeGage(string character)
-    {
+    { string name = null;
+        if (character.Contains("Cure"))
+        {
+            name = "Cure";
+            print(name);
+        }
+        else if (character.Contains("Kid"))
+        {
+            name = "Kid";
+        }
+        else
+        if (character.Contains("GangMin"))
+        {
+            name = "GangMin";
+        }
+
         try
         {
-            return CharacterData_List.Find(x => x.CharacterListName == character).CharacterSlider.value;
+            return CharacterData_List.Find(x => x.CharacterListName == name).CharacterSlider;
 
         }
         catch
@@ -107,6 +134,17 @@ public class PlayerData : MonoBehaviour
         }
         
     }
+    public void SetLikeGage(string character,float value)
+    {
+        print("이름 : "+character);
+      //CharacterData_List 에 CharacterData_List.CharacterListName 가 character와 같은 것을 찾아 CharacterData_List.CharacterSlider를 value로 바꾼다
+        var tempCharacter = CharacterData_List.Find(x => x.CharacterListName == character);
+     
+        float temp = tempCharacter.CharacterSlider +value;
+        tempCharacter.CharacterSlider = temp;
+        CharacterData_List[CharacterData_List.FindIndex(x => x.CharacterListName == character)] = tempCharacter;
+    }
+    
     
  
 }

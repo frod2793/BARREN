@@ -3,129 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.BARREN",
-        "processId": 6046,
+        "processId": 4371,
         "exited": false
     },
-    "m_SelectedPriority": 0,
+    "m_SelectedPriority": 4,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 15721,
+            "processId": 5694,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 16097,
+            "processId": 9433,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 16295,
+            "processId": 10216,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 16470,
+            "processId": 4361,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 16786,
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 1215,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 16989,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 17154,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 17347,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 17508,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 17696,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 18290,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 21446,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 21682,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 21838,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 22670,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 6109,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 6045,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 4580,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 6681,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 6046,
+            "processId": 4371,
             "exited": false
         },
         {

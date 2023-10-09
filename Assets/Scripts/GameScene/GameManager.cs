@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     [Header("버튼 그룹 1")] private Game_PrologManager _gamePrologManager;
 
+    public Image EndingEffectObj;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -271,6 +273,11 @@ public class GameManager : MonoBehaviour
                 }));
             }
         }
+    }
+
+    public async void EndingEffect()
+    {
+        _gamePrologManager.isButtonOn = await TweenEffect.EndingEffect(EndingEffectObj);
     }
 
     public IEnumerator co_Delaybool()

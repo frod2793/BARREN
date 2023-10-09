@@ -67,11 +67,12 @@ public class MainSceneManager : MonoBehaviour
     [Header("플레이어")] public GameObject player;
     void Start()
     {
+        Application.runInBackground = true;
         dialogueList = LoadJson.LoadScriptFromJSON("prolog");
         if (  PlayerData.Instance.IsTutorial)
         {
             prologueCanvas.gameObject.SetActive(false);
-            firstSetting();
+   
         }
         else
         {
@@ -80,14 +81,7 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
-    private void firstSetting()
-    {//todo : 여기 미싱남 고칭것 
-        PlayerData.Instance.CharacterData_List[0].CharacterCard.SetActive(true);
-        PlayerData.Instance.CharacterData_List[0].CharacterName.text = "??";
-        PlayerData.Instance.CharacterData_List[0].CharacterSlider.value = 0;
-        PlayerData.Instance.CharacterData_List[0].characterImage.color = new Color(1,1,1);
-       
-    }
+   
     
     async UniTask ShowNextDialogueAsync()
     {
@@ -384,6 +378,11 @@ public class MainSceneManager : MonoBehaviour
     {
         TweenEffect.OpenPopup(CharacterProsessPopUp);
         TweenEffect.OpenPopup(SageSelect_PopUp);
+    }
+
+    public void EnableCharacterProssePopUp1btn()
+    {
+        TweenEffect.OpenPopup(CharacterProsessPopUp);
     }
     public void disnbleStageSelect_PopUp()
     {  

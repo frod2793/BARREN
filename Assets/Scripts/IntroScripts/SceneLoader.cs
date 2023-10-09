@@ -54,6 +54,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(string SceneName)
     {
+        print(SceneName);
+        
         gameObject.SetActive(true);
         SceneManager.sceneLoaded += LoadSceneEnd;
         loadSceneName = SceneName;

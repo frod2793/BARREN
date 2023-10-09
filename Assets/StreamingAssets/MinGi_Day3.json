@@ -1,0 +1,208 @@
+[
+  {
+    "character": "prolog",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "Start",
+    "NextTextName": "P1",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "(이름)씨군요. 안녕하세요. 무슨일로 오셨나요?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "BackGorund": "shelter",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "P1",
+    "NextTextName": "",
+    "character": "Button",
+    "characterName": "???",
+    "text": "1. 잡담",
+    "text2": "2. 이단치료사와의 관계를 묻는다.",
+    "btnop1": "C1",
+    "btnop2": "C2",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "true",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "tutorial": "EnableBtnPlayGroup1",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1",
+    "NextTextName": "C1-1",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "(이름)씨는 밖을 많이 나갔다 오시는 분이시죠?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "phsyconic",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-1",
+    "NextTextName": "C1-2",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "그렇죠. 나가는 것이 제 일이니 말입니다.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-2",
+    "NextTextName": "C1-3",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "그럼 혹시 사교도들과 관련된 정보나 물건을 가지고 계신가요?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-3",
+    "NextTextName": "C1-4",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "그런 것은 왜 물어보는 것입니까?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-4",
+    "NextTextName": "C1-5",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "저는 당신 같은 탐색꾼 분들이 가져오는 사교도들에 대한 정보나 물건을 연구하는 사람이니까요.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-5",
+    "NextTextName": "C1-6",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "예전 부터 그런 것에 관심이 많았거든요.\n그런 물건들을 가져와 주시면 저도 (이름)씨가 원하는 것을 들어드릴게요.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C1-6",
+    "NextTextName": "C1-7",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "아, 물론 제가 할 수 있는 한도 내의 부탁만 가능하다는 건 당연한 말이겠죠?",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "Day4Start",
+    "State": "smile",
+    "IsEnd": "true"
+  },
+  {
+    "TextName": "C2",
+    "NextTextName": "",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "Day4Start",
+    "State": "Normal",
+    "IsEnd": "true"
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    
+  },
+  {
+    "character": "prolog2",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  },
+  {
+    "character": "SelectBtn",
+    "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "text2": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",
+    "Pos": "SelectBtn",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Nomal"
+  }
+]
