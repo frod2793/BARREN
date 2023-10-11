@@ -65,10 +65,14 @@ public class MainSceneManager : MonoBehaviour
 
     [Header("게임씬")] [SerializeField] private GameObject gamescene;
     [Header("플레이어")] public GameObject player;
-    void Start()
+    async void  Start()
     {
         Application.runInBackground = true;
-        dialogueList = LoadJson.LoadScriptFromJSON("prolog");
+        // dialogueList = LoadJson.LoadScriptFromJSON("prolog");
+        //
+        List<LoadJson.Dialogue> dialogueList = await LoadJson.LoadScriptFromJSONAsync("prolog");
+        this.dialogueList = dialogueList;
+
         if (  PlayerData.Instance.IsTutorial)
         {
             prologueCanvas.gameObject.SetActive(false);

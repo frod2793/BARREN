@@ -9,7 +9,7 @@ public class MapData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mapDatas = LoadJson.loadScriptFromMapDatasJson(mapDataFileName);
+      //  mapDatas = LoadJson.loadScriptFromMapDatasJson(mapDataFileName);
     }
 
     // Update is called once per frame

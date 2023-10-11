@@ -10,24 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 26250,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 31365,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 968,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
             "name": "com.sec.android.app.launcher",
             "processId": 6062,
             "exited": false
@@ -35,7 +17,25 @@
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 4264,
+            "processId": 31667,
+            "exited": true
+        },
+        {
+            "deviceId": "ce031713a1b4ac590c",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 32636,
+            "exited": true
+        },
+        {
+            "deviceId": "ce031713a1b4ac590c",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 4155,
+            "exited": true
+        },
+        {
+            "deviceId": "ce031713a1b4ac590c",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 10141,
             "exited": true
         }
     ],

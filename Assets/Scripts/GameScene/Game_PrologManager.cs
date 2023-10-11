@@ -114,10 +114,10 @@ public class Game_PrologManager : MonoBehaviour
     [Header(" GAmemanager")] [SerializeField]
     private GameManager _gameManager;
 
-    void Start()
+    async void  Start()
     {
         isChapterClear = new bool[6];
-        
+
         isChapterClear[0] = true;
         if (PlayerData.Instance.JsonName != null)
         {
@@ -148,9 +148,8 @@ public class Game_PrologManager : MonoBehaviour
         DataStageTrangister();
 
 
-        dialogueList = LoadJson.LoadScriptFromJSON(jsonFileName);
-
-
+       dialogueList = await LoadJson.LoadScriptFromJSONAsync(jsonFileName);
+       // this.dialogueList = dialogueList;
         ShowNextDialogueAsyncActiv().Forget();
     }
 
@@ -192,33 +191,13 @@ public class Game_PrologManager : MonoBehaviour
     async UniTask ShowNextDialogueAsyncActiv()
     {
         string nextChapter = GetNextChapter();
+        await  UniTask.WaitUntil(() => nextChapter != null);
         if (!string.IsNullOrEmpty(nextChapter))
         {
             ShowNextDialogueAsync(nextChapter).Forget();
         }
     }
 
-    async UniTask ShowNextGameDialogueAsyncActiv()
-    {
-        string nextChapter = GetNextChapter();
-        print("startlog: "+nextChapter);
-        await UniTask.WaitUntil(() => nextChapter != null);
-   
-        if (!string.IsNullOrEmpty(nextChapter))
-        {
-            print("startlog: "+TextName);
-            if (TextName == "Start1")
-            {
-                TextName = "Start";
-
-           //     await UniTask.WaitUntil(() => TextName == "Start");
-            }
-            ShowNextGameDialogueAsync(nextChapter).Forget();
-           
-
-         
-        }
-    }
 
     private string GetNextChapter()
     {
@@ -259,7 +238,7 @@ public class Game_PrologManager : MonoBehaviour
         }
 
         await UniTask.WaitUntil(() => dialogueList != null);
-
+       // print(dialogueList);
         LoadJson.Dialogue currentDialogueOrigin = dialogueList[currentIndex];
 
         if (currentDialogueOrigin.character == character)
@@ -269,15 +248,15 @@ public class Game_PrologManager : MonoBehaviour
                 LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
                 // 대사의 일부분만 출력
 
-             //   print("배경이름 :" + currentDialogueOrigin.BackGorund);
+                //   print("배경이름 :" + currentDialogueOrigin.BackGorund);
                 if (currentDialogue.BackGorund != null)
                 {
-                  //  print("배경있음 ");
+                    //  print("배경있음 ");
                     Background.sprite = backGroundList.Find(x => x.name == currentDialogueOrigin.BackGorund).image;
                 }
                 else
                 {
-                  //  print("배경없음 ");
+                    //  print("배경없음 ");
                 }
 
                 if (currentDialogue.text == null)
@@ -412,302 +391,283 @@ public class Game_PrologManager : MonoBehaviour
         }
     }
 
+    async UniTask ShowNextGameDialogueAsyncActiv()
+    {
+        string nextChapter = GetNextChapter();
+        print("startlog: " + nextChapter);
+        await UniTask.WaitUntil(() => nextChapter != null);
 
-    async UniTask ShowNextGameDialogueAsync(string Chapter)
+        if (!string.IsNullOrEmpty(nextChapter))
+        {
+            print("startlog: " + TextName);
+            if (TextName == "Start1")
+                TextName = "Start";
+
+            await ShowNextGameDialogueAsync(nextChapter);
+        }
+    }
+
+    async UniTask ShowNextGameDialogueAsync(string chapter)
     {
         await UniTask.WaitUntil(() => dialogueList != null);
 
-     //   await UniTask.WaitUntil(() => TextName != null);
-        print("find :" + TextName);
         LoadJson.Dialogue currentDialogueOrigin = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+        string character = (chapter == "Chapter1") ? "prolog" : "prolog2";
 
-        string character = "prolog";
-        print("다이얼로그: " + currentDialogueOrigin);
-        if (Chapter == "Chapter1")
-        {
-            print("챕터1");
-            character = "prolog";
-
-            playerdialogcount = dialogueList
-                .Where((dialogue, index) => index < dialogueList.FindIndex(d => d.character == "prolog2"))
-                .Count();
-        }
-        else if (Chapter == "Chapter2")
-        {
-            print("챕터2");
-            character = "prolog2";
-
-            playerdialogcount = dialogueList
-                .Where((dialogue, index) => index < dialogueList.FindIndex(d => d.character == "SelectBtn"))
-                .Count();
-        }
+        if (chapter == "Chapter1")
+            playerdialogcount = dialogueList.TakeWhile(dialogue => dialogue.character != "prolog2").Count();
+        else if (chapter == "Chapter2")
+            playerdialogcount = dialogueList.TakeWhile(dialogue => dialogue.character != "SelectBtn").Count();
 
         if (TextName == "Startprol")
         {
-            await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
-            if (Chapter == "Chapter1")
-            {
-                print("챕터1");
-                isChapterClear[1] = true;
-            }
-            else if (Chapter == "Chapter2")
-            {
-                print("챕터2");
-                isChapterClear[2] = true;
-            }
-
-            ShowNextDialogueAsyncActiv().Forget();
-
-
+            await HandleStartprol(chapter);
             return;
         }
-
 
         if (currentDialogueOrigin == null)
         {
             if (isEnd)
             {
-                if (SceneManager.GetActiveScene().name != "MainScene")
-                {
-                    isEnd = false; // 현재 씬이 게임 씬인 경우 메인 씬으로 로드
-                    SceneLoader.Instace.LoadScene("MainScene");
-                    return;
-                }
-                else
-                {
-                    MainPlayer.SetActive(true);
-                    gamescene.SetActive(false);
-                    TweenEffect.OpenPopup(AttendPopUp);
-                }
+                await HandleEndScene(chapter);
+                return;
             }
         }
 
-        float likegage = 0;
-        likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
-
+        float likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
         print("호감도 :" + likegage);
-        //     print("호감도데상 :" + currentDialogueOrigin.character);
-        if (currentDialogueOrigin.character != character)
+
+        LoadJson.Dialogue currentDialogue = await FindNextDialogueAsync(chapter, character, likegage);
+
+
+        if (currentDialogue != null)
         {
-            print("dialogcount :" + playerdialogcount);
+            await DisplayNextDialogue(currentDialogue, currentDialogue.character, chapter);
+        }
+    }
 
-            LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+    private async UniTask HandleStartprol(string chapter)
+    {
+        await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
 
-            if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
-            {
-                if (float.Parse(currentDialogue.LikeGage) <= likegage)
-                {
-                    print("호감도 비교");
+        if (chapter == "Chapter1")
+            isChapterClear[1] = true;
+        else if (chapter == "Chapter2")
+            isChapterClear[2] = true;
 
-                    print("호감도 비교true:" + float.Parse(currentDialogue.LikeGage));
-                    currentDialogue = dialogueList.Find(dialogue =>
-                        dialogue.TextName == TextName && dialogue.isLike == "true");
-                }
-                else
-                {
-                    print("호감도 비교");
-                    print("호감도 비교false:" + float.Parse(currentDialogue.LikeGage));
-                    currentDialogue = dialogueList.Find(dialogue =>
-                        dialogue.TextName == TextName && dialogue.isLike == "false");
-                }
-            }
-            else
-            {
-                print("dial Null");
-            }
+        ShowNextDialogueAsyncActiv().Forget();
+    }
 
-
-            if (!string.IsNullOrEmpty(currentDialogue.Selectnumber))
-            {
-                PlayerData.Instance.startbtntext = currentDialogue.Selectnumber;
-            }
-
-
-            print(" 출력할 땍스트: " + currentDialogue.text);
-            //currentDialogue.text 중에 "(이름)" 이라는 텍스트가있다면  PlayerData.Instance.PlayerName 으로 바꾼다 
-            currentDialogue.text = currentDialogue.text.Replace("(이름)", PlayerData.Instance.PlayerName);
-            // 대사의 일부분만 출력
-
-
-            currentText =
-                currentDialogue.text.Substring(0, Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
-
-
-            if (currentDialogue.BackGorund != null)
-            {
-                if (currentDialogue.BackGorund == "Alpahzero")
-                {
-                    //PlayerTextBoxImage 의 알파 값을 0으로 한다.
-                    PlayerTextBoxImage.color = new Color(1, 1, 1, 0);
-                }
-                else
-                {
-                    if (SceneManager.GetActiveScene().name == "Travel5")
-                    {
-                        if (currentDialogue.BackGorund == "MindControl")
-                        {
-                            // PlayerTextBoxObj.SetActive(false);
-                            CharactersList.SetActive(false);
-                        }
-                        else
-                        {
-                            // PlayerTextBoxObj.SetActive(true);
-                            CharactersList.SetActive(true);
-                        }
-                    }
-
-                    PlayerTextBoxImage.color = new Color(1, 1, 1, 1);
-                    PlayerTextBoxImage.sprite =
-                        backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
-                    if (loctionText != null)
-                    {
-                        if (currentDialogue.BackGorund == "shelter")
-                        {
-                            loctionText.text = "영등포 쉘터 내부";
-                        }
-                        else if (currentDialogue.BackGorund == "shelterOutside")
-                        {
-                            loctionText.text = "영등포 쉘터 외부";
-                        }
-                        else if (currentDialogue.BackGorund == "HomeGround")
-                        {
-                            loctionText.text = "영등포 쉘터 탐색꾼 숙소";
-                        }
-                    }
-                }
-            }
-
-
-            if (!isButtonOn)
-            {
-                if (currentDialogue.character == "Button")
-                {
-                    if (currentDialogue.isButtonOn == "true")
-                    {
-                        Chosebtn1Text = currentDialogue.text;
-                        Chosebtn2Text = currentDialogue.text2;
-                        Chosebtn3Text = currentDialogue.text3;
-                        // print(currentDialogue.text);
-                        // print(currentDialogue.text2);
-                        // print(currentDialogue.text3);
-                        isButtonOn = true;
-                        PlayerTextBoxObj.SetActive(false);
-                    }
-                }
-                else if (!isButtonOn)
-                {
-                    PlayerTextBoxObj.SetActive(true);
-                    characterState(currentDialogue.character, currentDialogue.characterName, currentDialogue.State);
-                }
-            }
-
-
-            if (currentDialogue.tutorial != null && !IsActiveEvent)
-            {
-                IsActiveEvent = true;
-
-                //tutorialGroupList.name 과 currentDialogue.tutorial 이 동일한 게임 오브젝트를 활성화한다.
-                //tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialObj.SetActive(true);
-                if (currentDialogue.tutorial == "EnableEndingScene")
-                {
-                    tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
-                }
-                else
-                {
-                    SetNextTextName(currentDialogue, currentDialogue.btnop1, currentDialogue.btnop2,
-                        currentDialogue.btnop3, currentDialogue.characterName);
-                }
-            }
-
-            if (currentDialogue.IsEnd == "true")
-            {
-                isEnd = true;
-            }
-            else
-            {
-                isEnd = false;
-            }
-
-
-            if (currentDialogue.Pos == "PlayerText" && !string.IsNullOrEmpty(PlayerTextBox.text))
-            {
-                PlayerTextBox.gameObject.SetActive(true);
-                PlayerTextBox.text = currentText;
-                PlayerTextBox.alpha = 1.0f; // 알파값을 1로 설정하여 텍스트 표시
-                if (SoundManager.Instance != null && !isSound)
-                {
-                    isSound = true;
-                    if (currentDialogue.Sound.ToString() == "OneBreath")
-                    {
-                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.OneBreath);
-                    }
-
-                    if (currentDialogue.Sound == "WomanLaugh")
-                    {
-                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.WomanLaugh);
-                    }
-
-                    if (currentDialogue.Sound == "Walk")
-                    {
-                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
-                    }
-
-                    if (currentDialogue.Sound == "bagsound")
-                    {
-                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.bagsearch);
-                    }
-                }
-
-                //todo: currentDialogue.isButtonOn 이 true 이면 선택권 오브젝트를 띄운다. 버튼으로 선택한 번호와 currentDialogue.Selectnumber 가 같은 currentDialogue.text를 재생한다  
-            }
-
-
-            if (currentText.Length < currentDialogue.text.Length)
-            {
-                // 아직 대사 출력이 완료되지 않은 경우
-                await UniTask.Delay((int)(TypingSpeed * 1000)); // 타이핑 속도만큼 대기
-                await ShowNextGameDialogueAsyncActiv(); // 현재 대사를 계속 출력
-            }
-            else
-            {
-                // 대사 출력이 완료된 경우
-                //  await UniTask.Delay((int)(WaitTimeInSeconds * 1000)); // 대기 시간(밀리초) 만큼 대기
-                // currentText = ""; // 현재 텍스트 초기화
-                //
-                // // 텍스트 페이드 아웃 효과 추가
-                // await FadeOutTextAsync(topTextMeshPro);
-                // await FadeOutTextAsync(middleTextMeshPro);
-                // await FadeOutTextAsync(lowTextMeshProUGUI);
-                //
-                // currentIndex++;
-                // await ShowNextDialogueAsync(); // 다음 대사 표시
-                print(currentDialogue.NextTextName);
-                if (currentDialogue.NextTextName != null)
-                {
-                    print("insert: " + currentDialogue.NextTextName);
-                    TextName = currentDialogue.NextTextName;
-                }
-
-                isCliled = false;
-            }
-            //}
+    private async UniTask HandleEndScene(string chapter)
+    {
+        if (SceneManager.GetActiveScene().name != "MainScene")
+        {
+            isEnd = false;
+            SceneLoader.Instace.LoadScene("MainScene");
         }
         else
         {
-            Debug.Log("대사 끝.");
-            await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
-            if (Chapter == "Chapter1")
-            {
-                isChapterClear[1] = true;
-            }
-            else if (Chapter == "Chapter2")
-            {
-                isChapterClear[2] = true;
-            }
-
-            ShowNextDialogueAsyncActiv().Forget();
+            MainPlayer.SetActive(true);
+            gamescene.SetActive(false);
+            TweenEffect.OpenPopup(AttendPopUp);
         }
     }
+    private async UniTask<LoadJson.Dialogue> FindNextDialogueAsync(string chapter, string character, float likeGage)
+    {
+        LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+    
+        // 대화가 null인지 확인하고, null이 아니면 대기합니다.
+        while (currentDialogue == null)
+        {
+            // 대화가 null이 아닐 때까지 대기
+            await UniTask.WaitUntil(() => currentDialogue != null);
+            currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+        }
+    
+        if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
+        {
+            bool isLike = float.Parse(currentDialogue.LikeGage) <= likeGage;
+            currentDialogue = dialogueList.Find(dialogue =>
+                dialogue.TextName == TextName && dialogue.isLike == isLike.ToString());
+        }
+        else
+        {
+            print("dial Null");
+        }
+
+        return currentDialogue;
+    }
+    // private  LoadJson.Dialogue FindNextDialogue(string chapter, string character, float likeGage)
+    // {
+    //     LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+    //     
+    //     //currentDialogue 이 null 이 아닐때까지 대기
+    //     if (currentDialogue == null)
+    //     {
+    //         return null;
+    //     }
+    //     
+    //     
+    //     if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
+    //     {
+    //         bool isLike = float.Parse(currentDialogue.LikeGage) <= likeGage;
+    //         currentDialogue = dialogueList.Find(dialogue =>
+    //             dialogue.TextName == TextName && dialogue.isLike == isLike.ToString());
+    //     }
+    //     else
+    //     {
+    //         print("dial Null");
+    //     }
+    //
+    //     return currentDialogue;
+    // }
+
+    private async UniTask DisplayNextDialogue(LoadJson.Dialogue currentDialogue, string character, string chapter)
+    {
+        
+        
+
+        if (!isButtonOn)
+        {
+            if (currentDialogue.character == "Button" && currentDialogue.isButtonOn == "true")
+            {
+                Chosebtn1Text = currentDialogue.text;
+                Chosebtn2Text = currentDialogue.text2;
+                Chosebtn3Text = currentDialogue.text3;
+                isButtonOn = true;
+                PlayerTextBoxObj.SetActive(false);
+            }
+            else if (!isButtonOn)
+            {
+                PlayerTextBoxObj.SetActive(true);
+                characterState(currentDialogue.character, currentDialogue.characterName, currentDialogue.State);
+            }
+        }
+
+        if (currentDialogue.tutorial != null && !IsActiveEvent)
+        {
+            IsActiveEvent = true;
+            if (currentDialogue.tutorial == "EnableEndingScene")
+            {
+                tutorialGroupList.Find(x => x.name == currentDialogue.tutorial).TutorialEvent.Invoke();
+            }
+            else
+            {
+                SetNextTextName(currentDialogue, currentDialogue.btnop1, currentDialogue.btnop2,
+                    currentDialogue.btnop3, currentDialogue.characterName);
+            }
+        }
+
+        if (currentDialogue.Selectnumber != null && currentDialogue.Selectnumber != "0")
+        {
+            PlayerData.Instance.startbtntext = currentDialogue.Selectnumber;
+        }
+         
+        if (currentDialogue.IsEnd == "true")
+        {
+            isEnd = true;
+        }
+        else
+        {
+            isEnd = false;
+        }
+        // print("플레이어 대사 위치: " + currentDialogue.Pos);
+        // print("플레이어 대사 널: " + !string.IsNullOrEmpty(PlayerTextBox.text));
+        if (currentDialogue.Pos == "PlayerText" )
+        {
+            PlayerTextBox.gameObject.SetActive(true);
+            PlayerTextBox.text = currentText;
+            print("플레이어 대사 출력: " + currentText);
+            PlayerTextBox.alpha = 1.0f;
+
+            if (SoundManager.Instance != null && !isSound)
+            {
+                isSound = true;
+                if (currentDialogue.Sound.ToString() == "OneBreath")
+                {
+                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.OneBreath);
+                }
+
+                if (currentDialogue.Sound == "WomanLaugh")
+                {
+                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.WomanLaugh);
+                }
+
+                if (currentDialogue.Sound == "Walk")
+                {
+                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
+                }
+
+                if (currentDialogue.Sound == "bagsound")
+                {
+                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.bagsearch);
+                }
+            }
+        }
+
+        currentDialogue.text = currentDialogue.text.Replace("(이름)", PlayerData.Instance.PlayerName);
+        currentText = currentDialogue.text.Substring(0, Mathf.Min(currentText.Length + 1, currentDialogue.text.Length));
+
+        if (currentDialogue.BackGorund != null)
+        {
+            if (currentDialogue.BackGorund == "Alpahzero")
+            {
+                PlayerTextBoxImage.color = new Color(1, 1, 1, 0);
+            }
+            else
+            {
+                if (SceneManager.GetActiveScene().name == "Travel5")
+                {
+                    if (currentDialogue.BackGorund == "MindControl")
+                    {
+                        CharactersList.SetActive(false);
+                    }
+                    else
+                    {
+                        CharactersList.SetActive(true);
+                    }
+                }
+
+                PlayerTextBoxImage.color = new Color(1, 1, 1, 1);
+                PlayerTextBoxImage.sprite = backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
+
+                if (loctionText != null)
+                {
+                    if (currentDialogue.BackGorund == "shelter")
+                    {
+                        loctionText.text = "영등포 쉘터 내부";
+                    }
+                    else if (currentDialogue.BackGorund == "shelterOutside")
+                    {
+                        loctionText.text = "영등포 쉘터 외부";
+                    }
+                    else if (currentDialogue.BackGorund == "HomeGround")
+                    {
+                        loctionText.text = "영등포 쉘터 탐색꾼 숙소";
+                    }
+                }
+            }
+        }
+
+        if (currentText.Length < currentDialogue.text.Length)
+        {
+            await UniTask.Delay((int)(TypingSpeed * 1000));
+            
+            await DisplayNextDialogue(currentDialogue, character, chapter);
+        }
+        else if (!isButtonOn)
+        {
+            print(currentDialogue.NextTextName);
+            if (currentDialogue.NextTextName != null)
+            {
+                print("insert: " + currentDialogue.NextTextName);
+                TextName = currentDialogue.NextTextName;
+            }
+
+            isCliled = false;
+        }
+    }
+
 
     private void characterState(string character, string characterName, string state)
     {
@@ -871,7 +831,6 @@ public class Game_PrologManager : MonoBehaviour
         }
         else
         {
-            //     print("qqq");
             StartTypingEffect();
         }
     }
@@ -900,108 +859,98 @@ public class Game_PrologManager : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
+        HandleInput();
+#elif UNITY_ANDROID
+    HandleTouchInput();
+#endif
+    }
 
+    void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && !isButtonOn)
         {
             if (prologueCanvas.gameObject.activeSelf)
             {
-                //  print("1");
                 if (isTyping)
-                {
-                    // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
                     StopTypingEffect();
-                }
                 else if (isFadingOutInProgress)
-                {
-                    // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
-                    if (cancelFadeOut)
-                    {
-                        print("1");
-                        cancelFadeOut = false; // 페이드 아웃 취소
-                        topTextMeshPro.alpha = 1.0f;
-                        middleTextMeshPro.alpha = 1.0f;
-                        lowTextMeshProUGUI.alpha = 1.0f;
-                        topTextMeshPro.gameObject.SetActive(false);
-                        middleTextMeshPro.gameObject.SetActive(false);
-                        lowTextMeshProUGUI.gameObject.SetActive(false);
-                        currentIndex++; // 넘어감
-                        ShowNextDialogueAsyncActiv().Forget(); // 대사 표시
-                    }
-                    else
-                    {
-                        print("1");
-                        StopFadeOutEffect();
-                        ContinueToNextDialogue();
-                    }
-                }
+                    HandleFadingInProgress();
                 else
-                {
-                    //  print("1");
-                    //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
                     StartTypingEffect();
-                }
             }
             else
-            {
-                //   print("1");
                 Func_skipText();
-            }
         }
-
-#elif UNITY_ANDROID
-        if (Input.touchCount > 0&&!isButtonOn)
-        {
-              if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began&&!isButtonOn)
-            {       
-                Touch touch = Input.GetTouch(0);
-                if (prologueCanvas.gameObject.activeSelf)
-                {
-                    if (isTyping)
-                    {
-                        // 타이핑 효과가 진행 중이라면 타이핑 효과를 정지하고 해당 문단을 전체 출력
-                        StopTypingEffect();
-                    }
-                    else if (isFadingOutInProgress)
-                    {
-                        // 페이드 아웃 효과가 진행 중이라면 페이드 아웃 효과를 정지하고 다음 문단으로 넘어감
-                        StopFadeOutEffect();
-                        ContinueToNextDialogue();
-                    }
-                    else
-                    {
-                        //타이핑 및 페이드 아웃 효과가 진행 중이 아니면 타이핑 효과 시작
-                        StartTypingEffect();
-                    }
-                }
-                else
-                {
-                    Func_skipText();
-                }
-            }
-        }
-#endif
     }
+
+    void HandleTouchInput()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !isButtonOn)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (prologueCanvas.gameObject.activeSelf)
+            {
+                if (isTyping)
+                    StopTypingEffect();
+                else if (isFadingOutInProgress)
+                    HandleFadingInProgress();
+                else
+                    StartTypingEffect();
+            }
+            else
+                Func_skipText();
+        }
+    }
+
+    void HandleFadingInProgress()
+    {
+        if (cancelFadeOut)
+        {
+            cancelFadeOut = false;
+            topTextMeshPro.alpha = 1.0f;
+            middleTextMeshPro.alpha = 1.0f;
+            lowTextMeshProUGUI.alpha = 1.0f;
+            topTextMeshPro.gameObject.SetActive(false);
+            middleTextMeshPro.gameObject.SetActive(false);
+            lowTextMeshProUGUI.gameObject.SetActive(false);
+            currentIndex++;
+            ShowNextDialogueAsyncActiv().Forget();
+        }
+        else
+        {
+            StopFadeOutEffect();
+            ContinueToNextDialogue();
+        }
+    }
+
 
 
     // 타이핑 효과 시작 메서드
     void StartTypingEffect()
     {
         isTyping = true;
-        // if (currentIndex < dialogueList.Count)
-        //  {
-        // 현재 대사를 전부 출력
-        //LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
-        print("TextName: " + TextName);
-        LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
-        if (currentDialogue == null)
+        try
         {
-            print("currentDialogue null .");
+            print("TextName: " + TextName);
+            LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+            if (currentDialogue == null)
+            {
+                print("currentDialogue null .");
+                currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+                currentText = currentDialogue.text;
+            }
+            else
+            {
+                currentText = currentDialogue.text;
+                print("currentText: " + currentText);
+                isCliled = false;
+            }
         }
-        else
+        catch (Exception e)
         {
-            currentText = currentDialogue.text;
+         print(e);
         }
-        //  }
+       
     }
 
     // 타이핑 효과 정지 메서드

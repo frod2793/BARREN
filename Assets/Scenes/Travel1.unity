@@ -6155,7 +6155,7 @@ MonoBehaviour:
   PlayerTextBoxObj: {fileID: 1617590706}
   PlayerTextBoxImage: {fileID: 1214751074}
   PlayerNameBox: {fileID: 457086006}
-  loctionText: {fileID: 0}
+  loctionText: {fileID: 1900721969}
   Chosebtn1Text: 
   Chosebtn2Text: 
   Chosebtn3Text: 
@@ -6173,9 +6173,10 @@ MonoBehaviour:
   WaitTimeInSeconds: 1
   TypingSpeed: 0.05
   FadeOutSpeed: 0.5
-  jsonFileName: Cure_Day5
+  jsonFileName: Cure_Day0
   isEnd: 0
   isButtonOn: 0
+  TextName: Start1
   _gameManager: {fileID: 685760881}
 --- !u!1 &1205654065
 GameObject:
