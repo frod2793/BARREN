@@ -6173,7 +6173,7 @@ MonoBehaviour:
   WaitTimeInSeconds: 1
   TypingSpeed: 0.05
   FadeOutSpeed: 0.5
-  jsonFileName: Cure_Day0
+  jsonFileName: Cure_Day1
   isEnd: 0
   isButtonOn: 0
   TextName: Start1

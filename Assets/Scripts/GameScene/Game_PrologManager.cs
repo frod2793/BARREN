@@ -435,7 +435,7 @@ public class Game_PrologManager : MonoBehaviour
         }
 
         float likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
-        print("호감도 :" + likegage);
+          print("호감도 :" + likegage);
 
         LoadJson.Dialogue currentDialogue = await FindNextDialogueAsync(chapter, character, likegage);
 
@@ -497,30 +497,7 @@ public class Game_PrologManager : MonoBehaviour
 
         return currentDialogue;
     }
-    // private  LoadJson.Dialogue FindNextDialogue(string chapter, string character, float likeGage)
-    // {
-    //     LoadJson.Dialogue currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
-    //     
-    //     //currentDialogue 이 null 이 아닐때까지 대기
-    //     if (currentDialogue == null)
-    //     {
-    //         return null;
-    //     }
-    //     
-    //     
-    //     if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
-    //     {
-    //         bool isLike = float.Parse(currentDialogue.LikeGage) <= likeGage;
-    //         currentDialogue = dialogueList.Find(dialogue =>
-    //             dialogue.TextName == TextName && dialogue.isLike == isLike.ToString());
-    //     }
-    //     else
-    //     {
-    //         print("dial Null");
-    //     }
-    //
-    //     return currentDialogue;
-    // }
+   
 
     private async UniTask DisplayNextDialogue(LoadJson.Dialogue currentDialogue, string character, string chapter)
     {
@@ -665,6 +642,14 @@ public class Game_PrologManager : MonoBehaviour
             }
 
             isCliled = false;
+        }
+        else
+        {
+            if (currentDialogue.NextTextName == TextName)
+            {
+                isButtonOn = false;
+
+            }
         }
     }
 
