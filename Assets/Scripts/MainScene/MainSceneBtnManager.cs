@@ -57,6 +57,10 @@ public class MainSceneBtnManager : MonoBehaviour
 
     [SerializeField] private Button shealterPopUpExit;
     private bool isEventToggleOn = false; // 상태 변수
+    
+    [Header("인벤토리 팝업")]
+    [SerializeField] private GameObject inventoryPopup;
+
 
     private bool isContinueToggleOn = false; // 상태 변수
     public string SceneName;
@@ -199,6 +203,14 @@ public class MainSceneBtnManager : MonoBehaviour
             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
             TweenEffect.ClosePopup(chacracterPopup);
         });
+        
+        inventori_Btn.onClick.AddListener((() =>
+        {
+            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+            TweenEffect.OpenPopup(inventoryPopup);
+        }));
+        
+      
     }
 
     private void buttons_Init()

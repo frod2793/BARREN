@@ -1,15 +1,15 @@
-[ {
-  "character": "prolog",
-  "text": "이시간대의 이 지하상가는 늘 사람으로 북적이는 장소였을 것입니다.",
-  "text2": "",
-  "Pos": "Middle",
-  "Sound": "None",
-  "isButtonOn": "false",
-  "Selectnumber": "0",
-  "State": "Normal",
-
-  "IsEnd": "false"
-},
+[
+  {
+    "character": "prolog",
+    "text": "이시간대의 이 지하상가는 늘 사람으로 북적이는 장소였을 것입니다.",
+    "text2": "",
+    "Pos": "Middle",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
+    "IsEnd": "false"
+  },
   {
     "character": "prolog",
     "text": "하지만 지금 이곳에는 아무도 없으며, 전등은 반이 나가있어 꽤나 어둡고, 대부분의 상가는 셔터가 내려와 있습니다.",
@@ -19,7 +19,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -31,7 +30,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -43,7 +41,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -67,7 +64,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -79,7 +75,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -91,7 +86,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
-
     "IsEnd": "false"
   },
   {
@@ -103,7 +97,6 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal"
-
   },
   {
     "character": "prolog",

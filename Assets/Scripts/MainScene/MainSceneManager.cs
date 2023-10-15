@@ -5,6 +5,7 @@ using System.IO;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ToggleInfo
@@ -73,6 +74,14 @@ public class MainSceneManager : MonoBehaviour
         List<LoadJson.Dialogue> dialogueList = await LoadJson.LoadScriptFromJSONAsync("prolog");
         this.dialogueList = dialogueList;
 
+        
+        if (SoundManager.Instance != null)
+        {
+            if (SceneManager.GetActiveScene().name == "MainScene")
+            {
+                SoundManager.Instance.Func_BGMLoop(AudioDefine.Main_Bgm);
+            }
+        }
         if (  PlayerData.Instance.IsTutorial)
         {
             prologueCanvas.gameObject.SetActive(false);

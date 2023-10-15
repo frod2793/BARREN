@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PlayerData : MonoBehaviour
+public class PlayerData : MonoBehaviour,IobjectItem
 {
     // Singleton instance
     private static PlayerData instance;
@@ -26,6 +26,9 @@ public class PlayerData : MonoBehaviour
     public bool[] isDay = new bool[5];
     public string JsonName;
     public string startbtntext;
+    
+    [Header("아이템")]
+    public Item[] item;
     public int Experience
     {
         get => experience;
@@ -49,7 +52,9 @@ public class PlayerData : MonoBehaviour
         get => isTutorial;
         set => isTutorial = value;
     }
-
+    public Item ClickItem(int index) {
+        return item[index];
+    }
     public bool IsUnlock(int index)
     {
         if (index >= 0 && index < isUnlock.Length)

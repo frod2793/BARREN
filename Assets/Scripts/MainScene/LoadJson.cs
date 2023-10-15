@@ -163,7 +163,16 @@ public class LoadJson : MonoBehaviour
         else
         {
             string jsonString = www.downloadHandler.text;
-            dialogueList = ParseJson(jsonString);
+            jsonString = "{\"data\":" + jsonString + "}"; // JSON 배열을 객체로 감싸주기
+            Wrapper wrapper = JsonUtility.FromJson<Wrapper>(jsonString);
+            if (wrapper != null && wrapper.data != null)
+            {
+                dialogueList = wrapper.data;
+            }
+            else
+            {
+                Debug.LogError("Failed to parse JSON data.");
+            }
         }
 
         return dialogueList;

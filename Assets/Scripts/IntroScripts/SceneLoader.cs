@@ -55,7 +55,11 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string SceneName)
     {
         print(SceneName);
-        
+        //여러번 호출되면 무시 
+        if (gameObject.activeSelf)
+        {
+            return;
+        }
         gameObject.SetActive(true);
         SceneManager.sceneLoaded += LoadSceneEnd;
         loadSceneName = SceneName;

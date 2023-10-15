@@ -29,21 +29,28 @@ public class GameManager : MonoBehaviour
 
     public Image EndingEffectObj;
     
+    [Header("인벤토리 버튼")] [SerializeField] private Button Inventory_Btn;
+    [SerializeField] private GameObject inventoryObjPrefab;
+    [SerializeField] private GameObject inventoryObjaprent;
     // Start is called before the first frame update
     void Start()
     {
         _gamePrologManager = FindObjectOfType<Game_PrologManager>();
+        GameObject gameObject =  Instantiate(inventoryObjPrefab, inventoryObjaprent.transform);
 
-        skipTextBtn.onClick.AddListener((() =>
+        Inventory_Btn.onClick.AddListener((() =>
         {
-            //  _gamePrologManager.Func_skipText();
+            //todo: 인벤토리 버튼 누르면 인벤토리 창 띄우기
+            TweenEffect.OpenPopup(gameObject);
         }));
+        
     }
 
     public void ActiveButtonGroup1()
     {
         //ButtonGroupList 중 name이 Group1 인 오브젝트를 활성화 시킨다 
 
+        skipTextBtn.gameObject.SetActive(false);
         if (ButtonGroupList[0].GroupName == "Group1")
         {
             ButtonGroupList[0].ButtonGroup1.SetActive(true);
@@ -59,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void ActiveButtonGroup1Player()
     {
+        skipTextBtn.gameObject.SetActive(false);
         if (ButtonGroupList[1].GroupName == "EnableBtnPlayGroup1")
         {
             ButtonGroupList[1].ButtonGroup1.SetActive(true);
@@ -102,7 +110,8 @@ public class GameManager : MonoBehaviour
 
     public void ActiveButtonGroup2Player()
     {
-        if (ButtonGroupList[2].GroupName == "Group2Player")
+        skipTextBtn.gameObject.SetActive(false);
+        if (ButtonGroupList[2].GroupName == "EnableBtnPlayGroup2")
         {
             ButtonGroupList[2].ButtonGroup1.SetActive(true);
             ButtonGroupList[2].Chosebtn1Text.text = _gamePrologManager.Chosebtn1Text;
@@ -284,7 +293,16 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator co_Delaybool()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         _gamePrologManager.isButtonOn = false;
+        
+        print(  "_gamePrologManager.isButtonOn = false: "+  _gamePrologManager.isButtonOn);
+        yield return new WaitForSeconds(0.5f);
+        skipTextBtn.gameObject.SetActive(true);
+        
+        
+        yield return new WaitForSeconds(0.4f);
+        _gamePrologManager.isButtonOn = false;
+        
     }
 }

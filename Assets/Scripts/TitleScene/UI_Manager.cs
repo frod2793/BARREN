@@ -13,13 +13,11 @@ public class UI_Manager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     private void Func_MainTitleLoad()
-    {
+    {   
+        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
         SceneLoader.Instace.LoadScene("MainTitleScene");
     }
     

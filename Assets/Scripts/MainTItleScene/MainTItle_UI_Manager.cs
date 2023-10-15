@@ -33,6 +33,8 @@ public class MainTItle_UI_Manager : MonoBehaviour
     private void Func_NewGameBtn()
     {
         TweenEffect.OpenPopup(playerSettingPopUp);    
+        
+        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
     }
 
     private void Func_ComfromBtn()
@@ -41,10 +43,14 @@ public class MainTItle_UI_Manager : MonoBehaviour
         
         if (maleToggle)
         {
+            
+            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
             PlayerData.Instance.Gender = "male";
         }
         else
         { 
+            
+            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
             PlayerData.Instance.Gender = "fmale";
         }
    

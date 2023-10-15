@@ -87,22 +87,6 @@
     "IsEnd": "false"
   },
   {
-    "TextName": "C1-1",
-    "NextTextName": "C1-2",
-    "character": "Player",
-    "characterName": "(이름)",
-    "LikeGage": "20",
-    "isLike": "true",
-    "text": "혹시 당신이 데려온 아이입니까?",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
-  },
-  {
     "TextName": "C1-2",
     "NextTextName": "C1-3",
     "character": "Cure",

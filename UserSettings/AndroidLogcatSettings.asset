@@ -6,7 +6,7 @@
         "processId": 0,
         "exited": false
     },
-    "m_SelectedPriority": 4,
+    "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "ce031713a1b4ac590c",
@@ -17,26 +17,38 @@
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 31667,
+            "processId": 22653,
             "exited": true
         },
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 32636,
+            "processId": 23571,
             "exited": true
         },
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 4155,
+            "processId": 3817,
             "exited": true
         },
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 10141,
+            "processId": 6938,
             "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 5217,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 5684,
+            "exited": false
         }
     ],
     "m_Tags": {
