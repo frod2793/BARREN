@@ -113,7 +113,9 @@ public class Game_PrologManager : MonoBehaviour
     
     [Header(" GAmemanager")] [SerializeField]
     private GameManager _gameManager;
-
+    
+    
+    
     async void Start()
     {
         Application.targetFrameRate = 60;
@@ -1199,6 +1201,8 @@ public class Game_PrologManager : MonoBehaviour
                 if (dialogue.text.Contains("선물"))
                 {
                     print("호감도 추가");
+                    TweenEffect.FadeOutAndMoveUp(_gameManager.LikeEffectObj,_gameManager.LikeText.gameObject,2f,200f).Forget();
+                    
                     PlayerData.Instance.SetLikeGage(name, 20);
                 }
 
@@ -1209,6 +1213,8 @@ public class Game_PrologManager : MonoBehaviour
                 if (dialogue.text2.Contains("선물"))
                 {
                     print("호감도 추가");
+                    TweenEffect.FadeOutAndMoveUp(_gameManager.LikeEffectObj,_gameManager.LikeText.gameObject,2f,200f).Forget();
+
                     PlayerData.Instance.SetLikeGage(name, 20);
                 }
 

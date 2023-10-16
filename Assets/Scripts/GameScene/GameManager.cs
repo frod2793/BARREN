@@ -29,21 +29,35 @@ public class GameManager : MonoBehaviour
 
     public Image EndingEffectObj;
     
+    public GameObject LikeEffectObj;
+    public GameObject DisLikeEffectObj;
+    public Text LikeText;
+    public Text DisLikeText;
     [Header("인벤토리 버튼")] [SerializeField] private Button Inventory_Btn;
     [SerializeField] private GameObject inventoryObjPrefab;
     [SerializeField] private GameObject inventoryObjaprent;
+
     // Start is called before the first frame update
     void Start()
     {
         _gamePrologManager = FindObjectOfType<Game_PrologManager>();
-        GameObject gameObject =  Instantiate(inventoryObjPrefab, inventoryObjaprent.transform);
-
-        Inventory_Btn.onClick.AddListener((() =>
+        try
         {
-            //todo: 인벤토리 버튼 누르면 인벤토리 창 띄우기
-            TweenEffect.OpenPopup(gameObject);
-        }));
-        
+            GameObject gameObject =  Instantiate(inventoryObjPrefab, inventoryObjaprent.transform);
+           
+            Inventory_Btn.onClick.AddListener((() =>
+            {
+                //todo: 인벤토리 버튼 누르면 인벤토리 창 띄우기
+                TweenEffect.OpenPopup(gameObject);
+            }));
+
+        }
+        catch 
+        {
+    
+        }
+       
+       
     }
 
     public void ActiveButtonGroup1()

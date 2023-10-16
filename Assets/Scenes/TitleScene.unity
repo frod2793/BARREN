@@ -1664,6 +1664,13 @@ MonoBehaviour:
   isDay: 0000000000
   JsonName: 
   startbtntext: 
+  item:
+  - {fileID: 11400000, guid: 1e18eb49774cd49d9a9ca5b50a62905e, type: 2}
+  - {fileID: 11400000, guid: 6e2fa696796c54c3db9648741a6d3777, type: 2}
+  - {fileID: 11400000, guid: 8e6e437c0f4574cbd83d86bee9860f7c, type: 2}
+  - {fileID: 11400000, guid: 1d8014add3307420b93bbeeff76325c9, type: 2}
+  - {fileID: 11400000, guid: 7a1de740516e94901b579ae79bd23a4a, type: 2}
+  - {fileID: 11400000, guid: bce55450c273042139653b44ba0a1784, type: 2}
 --- !u!4 &1603438111
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
@@ -28,7 +29,7 @@ public class TweenEffect : MonoBehaviour
             .OnComplete(() => popUoObj.SetActive(false));
     }
 
-    
+
     public static async UniTask FadeOutPrologueCanvas(CanvasGroup canvasGroup)
     {
         if (isFadingOutInProgress)
@@ -44,6 +45,7 @@ public class TweenEffect : MonoBehaviour
             isFadingOutInProgress = false;
         });
     }
+
     public static async UniTask FadeInPrologueCanvas(CanvasGroup canvasGroup)
     {
         if (isFadingOutInProgress)
@@ -57,12 +59,8 @@ public class TweenEffect : MonoBehaviour
         canvasGroup.gameObject.SetActive(true);
         canvasGroup.alpha = 0.0f;
 
-        canvasGroup.DOFade(1.0f, FadeOutSpeed*2f).OnComplete(() =>
-        {
-            isFadingOutInProgress = false;
-        });
+        canvasGroup.DOFade(1.0f, FadeOutSpeed * 2f).OnComplete(() => { isFadingOutInProgress = false; });
     }
-
 
 
     public static async UniTask<bool> EndingEffect(Image image)
@@ -72,6 +70,7 @@ public class TweenEffect : MonoBehaviour
             Debug.LogWarning("Image component is not assigned!");
             return false;
         }
+
         image.gameObject.SetActive(true);
         // 페이드 인
         await image.DOFade(1f, 1f).AsyncWaitForCompletion();
@@ -85,4 +84,37 @@ public class TweenEffect : MonoBehaviour
         // 페이드 아웃이 완료되면 false 반환
         return false;
     }
+
+
+    public static async UniTask FadeOutAndMoveUp(GameObject obj,GameObject Textobj, float fadeOutDuration, float moveUpDistance)
+    {
+        // Set initial position (reset position)
+        obj.transform.localPosition = Vector3.zero;
+
+        // Activate the object
+        obj.SetActive(true);
+        
+        Textobj.SetActive(true);
+
+        // Check if Image component exists
+        Image image = obj.GetComponent<Image>();
+        if (image != null)
+        {
+            Text text = Textobj.GetComponent<Text>();
+            if (text != null)
+            {
+                text.DOFade(0, fadeOutDuration);
+            }
+            var fadeTask = image.DOFade(0, fadeOutDuration).AsyncWaitForCompletion();
+            var moveTask = obj.transform.DOMoveY(obj.transform.position.y + moveUpDistance, fadeOutDuration).AsyncWaitForCompletion();
+            await Task.WhenAll(fadeTask, moveTask);
+        }
+
+        // Check if Text component exists
+      
+        Textobj.SetActive(false);
+        obj.SetActive(false);
+    }
+
+
 }
