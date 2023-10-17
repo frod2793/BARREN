@@ -37,18 +37,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject inventoryObjPrefab;
     [SerializeField] private GameObject inventoryObjaprent;
 
+    private GameObject inventoryObj;
     // Start is called before the first frame update
     void Start()
     {
         _gamePrologManager = FindObjectOfType<Game_PrologManager>();
         try
         {
-            GameObject gameObject =  Instantiate(inventoryObjPrefab, inventoryObjaprent.transform);
+             inventoryObj =  Instantiate(inventoryObjPrefab, inventoryObjaprent.transform);
            
             Inventory_Btn.onClick.AddListener((() =>
             {
                 //todo: 인벤토리 버튼 누르면 인벤토리 창 띄우기
-                TweenEffect.OpenPopup(gameObject);
+                TweenEffect.OpenPopup(inventoryObj);
             }));
 
         }
@@ -60,6 +61,10 @@ public class GameManager : MonoBehaviour
        
     }
 
+    public void OpenInventory()
+    {
+        TweenEffect.OpenPopup(inventoryObj);
+    }
     public void ActiveButtonGroup1()
     {
         //ButtonGroupList 중 name이 Group1 인 오브젝트를 활성화 시킨다 
@@ -97,7 +102,14 @@ public class GameManager : MonoBehaviour
                 ButtonGroupList[1].ButtonGroup1.SetActive(false);
 
                 _gamePrologManager.Func_skipText();
-                StartCoroutine(co_Delaybool());
+                if ( ButtonGroupList[1].Chosebtn1Text.text.Contains("선물"))
+                {
+                  
+                }
+                else
+                {
+                    StartCoroutine(co_Delaybool());
+                }
             }));
             ButtonGroupList[1].Chosebtn2.onClick.AddListener((() =>
             {
@@ -105,7 +117,14 @@ public class GameManager : MonoBehaviour
                 ButtonGroupList[1].ButtonGroup1.SetActive(false);
 
                 _gamePrologManager.Func_skipText();
-                StartCoroutine(co_Delaybool());
+                if ( ButtonGroupList[1].Chosebtn2Text.text.Contains("선물"))
+                {
+                  
+                }
+                else
+                {
+                    StartCoroutine(co_Delaybool());
+                }
             }));
             if (ButtonGroupList[1].Chosebtn3 != null)
             {
@@ -317,6 +336,10 @@ public class GameManager : MonoBehaviour
         
         yield return new WaitForSeconds(0.4f);
         _gamePrologManager.isButtonOn = false;
+        print("sdasdasdas" +_gamePrologManager.isButtonOn);
         
+        skipTextBtn.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        print("sdasdasdas" +_gamePrologManager.isButtonOn);
     }
 }

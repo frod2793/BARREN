@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UsePopUp : MonoBehaviour
+public class UsePopUp : MonoBehaviour,IobjectItem
 { 
     public List<Item> items; [SerializeField]
     private Transform slotParent;
@@ -15,11 +15,17 @@ public class UsePopUp : MonoBehaviour
     private Button closeBtn;
     [SerializeField]
     private GameObject itemUseobj;
-    
-    
+    [SerializeField]
+    private Button itemUseBtn;
     
     [SerializeField]
-    private ToggleGroup toggleGroup;
+    private Button itemcancelBtn;
+    [SerializeField]
+    private Inventory Inventory;
+    
+    public delegate void Game_PrologManager();
+    public static event Game_PrologManager OnPrologManagerAction;
+    public static event Game_PrologManager justCloseAction;
     // Start is called before the first frame update
 #if UNITY_EDITOR
     private void OnValidate() {
@@ -27,13 +33,31 @@ public class UsePopUp : MonoBehaviour
     }
 #endif
 
-    void Awake() {
-       
+    void Awake() {;
         closeBtn.onClick.AddListener(() => {
             TweenEffect.ClosePopup(itemUseobj);
             items.Clear();
+            FreshSlot();
+            justCloseAction?.Invoke();
         });
-    }
+        itemcancelBtn.onClick.AddListener(() => {
+            TweenEffect.ClosePopup(itemUseobj);
+            items.Clear();
+            FreshSlot();
+            justCloseAction?.Invoke();
+        });
+        
+        itemUseBtn.onClick.AddListener((() =>
+        { 
+            TweenEffect.ClosePopup(itemUseobj);
+            UseItem();
+            Inventory.FreshSlot();
+            Inventory.Closeinventoy();
+            FreshSlot();
+        }));
+
+
+       }
 
     private void OnEnable()
     {
@@ -61,5 +85,25 @@ public class UsePopUp : MonoBehaviour
         } else {
             print("슬롯이 가득 차 있습니다.");
         }
+    }
+
+
+    public void UseItem()
+    {
+        // 선택된 아이템들을 PlayerData.Instance.items에서 삭제
+        foreach (Item selectedItem in items)
+        {
+            PlayerData.Instance.items.Remove(selectedItem);
+        }
+
+        // 선택된 아이템들을 UsePopUp.items에서 제거
+       items.Clear();
+       FreshSlot();
+
+       
+           OnPrologManagerAction?.Invoke();
+      
+      
+       
     }
 }

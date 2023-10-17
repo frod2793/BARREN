@@ -49,7 +49,8 @@ public class Inventory : MonoBehaviour
        
         });
         CancelBtn.onClick.AddListener(() => {
-            TweenEffect.ClosePopup(usePopUp);
+            TweenEffect.ClosePopup(usePopUp); 
+            FreshSlot();
         });
     }
 
@@ -73,16 +74,25 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void Closeinventoy()
+    {
+        TweenEffect.ClosePopup(itemPrefab);
+    }
     public void FreshSlot()
     {
         
         items = PlayerData.Instance.items;
+        
         int i = 0;
         for (; i < items.Count && i < slots.Length; i++) {
             slots[i].item = items[i];
+            slots[i].GetComponent<Toggle>().isOn = false;
+            slots[i].GetComponent<Toggle>().interactable = true;
         }
         for (; i < slots.Length; i++) {
             slots[i].item = null;
+            slots[i].GetComponent<Toggle>().isOn = false;
+            slots[i].GetComponent<Toggle>().interactable = false;
         }
     }
 

@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IobjectItem 
 {
-    Item ClickItem(int index);
+
+    void UseItem();
+
 }

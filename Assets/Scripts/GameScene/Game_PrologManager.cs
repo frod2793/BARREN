@@ -4,10 +4,11 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Game_PrologManager : MonoBehaviour
+public class Game_PrologManager : MonoBehaviour,IobjectItem
 {
     //이미지와 이미지의 이름을 갖고있는 구조체생성
     [Serializable]
@@ -158,6 +159,14 @@ public class Game_PrologManager : MonoBehaviour
         // this.dialogueList = dialogueList;
         ShowNextDialogueAsyncActiv().Forget();
         // ShowNextGameDialogueAsyncActiv().Forget();
+        UsePopUp.OnPrologManagerAction += UseItem;
+        UsePopUp.justCloseAction += closeItem;
+    }
+
+    void OnDisable()
+    {
+        UsePopUp.OnPrologManagerAction -= UseItem;
+        UsePopUp.justCloseAction -= closeItem;
     }
 
     private void DataStageTrangister()
@@ -1190,7 +1199,7 @@ public class Game_PrologManager : MonoBehaviour
             name = "GangMin";
         }
 
-
+    
         if (_gameManager == null)
         {
         }
@@ -1200,10 +1209,9 @@ public class Game_PrologManager : MonoBehaviour
             {
                 if (dialogue.text.Contains("선물"))
                 {
-                    print("호감도 추가");
-                    TweenEffect.FadeOutAndMoveUp(_gameManager.LikeEffectObj,_gameManager.LikeText.gameObject,2f,200f).Forget();
-                    
-                    PlayerData.Instance.SetLikeGage(name, 20);
+                    _gameManager.OpenInventory();
+                    print("호감도 선물");
+                
                 }
 
                 TextName = op1;
@@ -1212,10 +1220,8 @@ public class Game_PrologManager : MonoBehaviour
             {
                 if (dialogue.text2.Contains("선물"))
                 {
-                    print("호감도 추가");
-                    TweenEffect.FadeOutAndMoveUp(_gameManager.LikeEffectObj,_gameManager.LikeText.gameObject,2f,200f).Forget();
-
-                    PlayerData.Instance.SetLikeGage(name, 20);
+                    _gameManager.OpenInventory();
+                    print("호감도 선물");
                 }
 
                 TextName = op2;
@@ -1244,5 +1250,34 @@ public class Game_PrologManager : MonoBehaviour
         }
 
         tutorialGroupList.Find(x => x.name == dialogue.tutorial).TutorialEvent.Invoke();
+    }
+
+    public void UseItem()
+    {
+        string name = null;
+        if (jsonFileName.Contains("Cure"))
+        {
+            name = "Cure";
+            print(name);
+        }
+        else if (jsonFileName.Contains("Kid"))
+        {
+            name = "Kid";
+        }
+        else if (jsonFileName.Contains("GangMin"))
+        {
+            name = "GangMin";
+        }
+        TweenEffect.FadeOutAndMoveUp(_gameManager.LikeEffectObj,_gameManager.LikeText.gameObject,2f,200f).Forget();
+
+        PlayerData.Instance.SetLikeGage(name, 20);
+             StartCoroutine(_gameManager.co_Delaybool());
+             print("호감도 추가");
+             isButtonOn = false;
+    }
+
+    public void closeItem()
+    { isButtonOn = false;
+        StartCoroutine(_gameManager.co_Delaybool());
     }
 }
