@@ -117,9 +117,9 @@ public class GameManager : MonoBehaviour
                 ButtonGroupList[1].ButtonGroup1.SetActive(false);
 
                 _gamePrologManager.Func_skipText();
-                if ( ButtonGroupList[1].Chosebtn2Text.text.Contains("선물"))
+                if (ButtonGroupList[1].Chosebtn2Text.text.Contains("선물"))
                 {
-                  
+                  print("선물: "+ButtonGroupList[1].Chosebtn2Text.text);
                 }
                 else
                 {

@@ -3182,6 +3182,7 @@ MonoBehaviour:
   closeBtn: {fileID: 2818945699913404777}
   itemUseobj: {fileID: 2818945699311727314}
   itemUseBtn: {fileID: 2818945699378793481}
+  itemcancelBtn: {fileID: 2818945700185105784}
   Inventory: {fileID: 2708473474111062373}
 --- !u!1 &2818945699414113558
 GameObject:

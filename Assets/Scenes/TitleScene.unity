@@ -1660,10 +1660,11 @@ MonoBehaviour:
     CharacterSlider: 0
     characterImage: {fileID: 0}
     CharacterTalkBtn: {fileID: 0}
-  isTutorial: 1
+  isTutorial: 0
   isDay: 0000000000
   JsonName: 
   startbtntext: 
+  items: []
   item:
   - {fileID: 11400000, guid: 1e18eb49774cd49d9a9ca5b50a62905e, type: 2}
   - {fileID: 11400000, guid: 6e2fa696796c54c3db9648741a6d3777, type: 2}

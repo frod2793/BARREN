@@ -552,7 +552,7 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
             currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
         }
 
-        if (!string.IsNullOrEmpty(currentDialogue.LikeGage))
+        if (!string.IsNullOrEmpty(currentDialogue.isLike))
         {
             bool isLike = float.Parse(currentDialogue.LikeGage) <= likeGage;
             print("sadsd: " + isLike.ToString().ToLower());
@@ -1015,10 +1015,32 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
             if (currentDialogue == null)
             {
                 currentDialogue = dialogueList.Find(dialogue => dialogue.TextName == TextName);
+                if (!string.IsNullOrEmpty(currentDialogue.isLike))
+                {  
+                    float likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
+                    bool isLike = float.Parse(currentDialogue.LikeGage) <= likegage;
+                    print("sadsd: " + isLike.ToString().ToLower());
+
+                    currentDialogue = dialogueList.Find(dialogue =>
+                        dialogue.TextName == TextName && dialogue.isLike.ToString().ToLower() == isLike.ToString().ToLower());
+                    print("sadsd: " + isLike.ToString().ToLower());
+            
+                }
                 currentText = currentDialogue.text;
             }
             else
             {
+                if (!string.IsNullOrEmpty(currentDialogue.isLike))
+                {  
+                    float likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
+                    bool isLike = float.Parse(currentDialogue.LikeGage) <= likegage;
+                    print("sadsd: " + isLike.ToString().ToLower());
+
+                    currentDialogue = dialogueList.Find(dialogue =>
+                        dialogue.TextName == TextName && dialogue.isLike.ToString().ToLower() == isLike.ToString().ToLower());
+                    print("sadsd: " + isLike.ToString().ToLower());
+            
+                }
                 currentText = currentDialogue.text;
                 isCliled = false;
             }
@@ -1039,7 +1061,17 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
             if (prologueCanvas.gameObject.activeSelf)
             {
                 LoadJson.Dialogue currentDialogue = dialogueList[currentIndex];
+                if (!string.IsNullOrEmpty(currentDialogue.isLike))
+                {  
+                    float likegage = PlayerData.Instance?.GetLikeGage(jsonFileName) ?? 0;
+                    bool isLike = float.Parse(currentDialogue.LikeGage) <= likegage;
+                    print("sadsd: " + isLike.ToString().ToLower());
 
+                    currentDialogue = dialogueList.Find(dialogue =>
+                        dialogue.TextName == TextName && dialogue.isLike.ToString().ToLower() == isLike.ToString().ToLower());
+                    print("sadsd: " + isLike.ToString().ToLower());
+            
+                }
                 currentText = currentDialogue.text;
 
                 isTyping = false;
@@ -1207,7 +1239,7 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
         {
             _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1.onClick.AddListener(() =>
             {
-                if (dialogue.text.Contains("선물"))
+                if (_gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1Text.text.Contains("선물"))
                 {
                     _gameManager.OpenInventory();
                     print("호감도 선물");
@@ -1218,10 +1250,12 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
             });
             _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn2.onClick.AddListener(() =>
             {
-                if (dialogue.text2.Contains("선물"))
+                if (_gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn2Text.text.Contains("선물"))
                 {
                     _gameManager.OpenInventory();
-                    print("호감도 선물");
+                    
+                    print("호감도 선물: "+dialogue.text2 );
+                    print("호감도 선물: "+dialogue.text );
                 }
 
                 TextName = op2;

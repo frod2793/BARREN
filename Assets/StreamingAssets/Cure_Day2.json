@@ -263,7 +263,6 @@
   {
     "TextName": "D2-2",
     "NextTextName": "D2-3",
-    "character": "Cure",
     "character": "Player",
     "text": "(정보가 아직 부족하다. 더 캐낼 수 있으면 좋을 텐데...)",
     "characterName": "(이름)",
