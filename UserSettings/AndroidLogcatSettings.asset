@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "ce031713a1b4ac590c",
     "m_SelectedPackage": {
-        "deviceId": "ce031713a1b4ac590c",
-        "name": "com.DefaultCompany.BARREN",
-        "processId": 32671,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,24 +17,6 @@
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
-            "processId": 22653,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 23571,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
-            "processId": 3817,
-            "exited": true
-        },
-        {
-            "deviceId": "ce031713a1b4ac590c",
-            "name": "com.DefaultCompany.BARREN",
             "processId": 6938,
             "exited": true
         },
@@ -42,13 +24,19 @@
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
             "processId": 29922,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "ce031713a1b4ac590c",
             "name": "com.DefaultCompany.BARREN",
             "processId": 32671,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "ce031713a1b4ac590c",
+            "name": "com.DefaultCompany.BARREN",
+            "processId": 14272,
+            "exited": true
         },
         {
             "deviceId": "emulator-5554",

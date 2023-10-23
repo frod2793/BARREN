@@ -70,7 +70,8 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
     [SerializeField] private GameObject Player_Nomaral;
     [SerializeField] private GameObject Player_Smile;
     [SerializeField] private GameObject Player_phsyconic;
-
+    [SerializeField] private GameObject Player_Search;
+    [SerializeField] private GameObject Player_Donmin;
     [Header("쉘터지도자 캐릭터 상태")] [SerializeField]
     private GameObject ShealtherLeader_shadow;
 
@@ -262,7 +263,9 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
         await UniTask.WaitUntil(() => dialogueList != null);
         // print(dialogueList);
         LoadJson.Dialogue currentDialogueOrigin = dialogueList[currentIndex];
-
+Debug.LogWarning("currentDialogueOrigin: "+ currentDialogueOrigin.text);
+Debug.LogWarning("currentDialogueOrigincharacter: "+ currentDialogueOrigin.character);
+Debug.LogWarning("currentIndex: "+ currentIndex);
         if (currentDialogueOrigin.character == character)
         {
             if (currentIndex < dialogueList.Count + 1)
@@ -463,8 +466,10 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
 
         if (TextName == "Startprol")
         {
+            print("chapter: "+ chapter);
             await HandleStartprol(chapter);
             return;
+            throw new OperationCanceledException();
         }
 
         if (currentDialogueOrigin == null)
@@ -515,7 +520,7 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
 
     private async UniTask HandleStartprol(string chapter)
     {
-        await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
+      //  await TweenEffect.FadeInPrologueCanvas(prologueCanvas);
 
         if (chapter == "Chapter1")
             isChapterClear[1] = true;
@@ -725,7 +730,7 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
                 }
             }
         }
-
+        await UniTask.WaitUntil(() => PlayerTextBox != null);
         if (PlayerTextBox.text.Length < currentDialogue.text.Length)
         {
             await UniTask.Delay((int)(TypingSpeed * 1000));
@@ -771,6 +776,8 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
         Gangyuri_Normal.gameObject.SetActive(false);
         Gangyuri_shadow.gameObject.SetActive(false);
         Player_Smile.gameObject.SetActive(false);
+        Player_Search.gameObject.SetActive(false);
+        Player_Donmin.gameObject.SetActive(false);
         Player_phsyconic.gameObject.SetActive(false);
 
 
@@ -798,6 +805,14 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
                 {
                     Player_phsyconic.gameObject.SetActive(true);
                 }
+                else if (state == "Search")
+                {
+                    Player_Search.gameObject.SetActive(true);
+                } else if (state == "Donmin")
+                {
+                    Player_Donmin.gameObject.SetActive(true);
+                }
+
 
                 break;
 
@@ -823,7 +838,7 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
         string lowerCaseState = state;
 
         if (lowerCaseState == "Normal" || lowerCaseState == "Panic" || lowerCaseState == "shadow" ||
-            lowerCaseState == "smile" || lowerCaseState == "phsyconic" || lowerCaseState == "Lovely")
+            lowerCaseState == "smile" || lowerCaseState == "phsyconic" || lowerCaseState == "Lovely"|| lowerCaseState == "Donmin"|| lowerCaseState == "Search")
         {
             // 상태에 따라 해당 오브젝트를 활성화
             var characterObject = charactersList.Find(x => x.name == character);
@@ -1237,6 +1252,10 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
         }
         else
         {
+            try
+            {
+
+          
             _gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1.onClick.AddListener(() =>
             {
                 if (_gameManager.ButtonGroupList.Find(x => x.GroupName == dialogue.tutorial).Chosebtn1Text.text.Contains("선물"))
@@ -1281,6 +1300,11 @@ public class Game_PrologManager : MonoBehaviour,IobjectItem
             //         print("버튼생성");
             //     }
             // }
+            }
+            catch (Exception e)
+            {
+         
+            }
         }
 
         tutorialGroupList.Find(x => x.name == dialogue.tutorial).TutorialEvent.Invoke();

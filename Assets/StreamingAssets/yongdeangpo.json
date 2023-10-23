@@ -1,49 +1,69 @@
 [
+ 
   {
-    "character": "prolog",
+    "TextName": "Start",
+    "NextTextName": "P1",
+    "character": "Player",
+    "characterName": "(이름)",
     "text": "괴물들이 나타난 이후로 6개월 정도가 흘렀다.",
-    "Pos": "Middle",
+    "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "BackGorund": "Yongdungpo_In"
+    "BackGorund": "Yongdungpo_In",
+    "State": "Normal"
   },
   {
-    "character": "prolog",
+    "TextName": "P1",
+    "NextTextName": "P1-1",
+    "character": "Player",
+    "characterName": "(이름)",
     "text": "거리를 돌아다니는 이상한 생명체로 인해 집으로 돌아가지 못하고 이곳저곳에 숨어 있던 나는 어느 편의점에서 생존자를 만나고, 그들이 피신해 있다는 어느 교회의 지하 쉘터로 갈 수 있었다.",
-    "Pos": "Middle",
+    "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0"
+    "Selectnumber": "0",
+    "State": "Normal"
   },
   {
-    "character": "prolog",
+    "TextName": "P1-1",
+    "NextTextName": "P1-2",
+    "character": "Player",
+    "characterName": "(이름)",
     "text": "이 쉘터의 지도자라는 사람은 어째서 이런 사태가 발생했는지 나에게 말해 주었고, 쉴 장소와 식량을 나누어 주었다.",
-    "Pos": "Middle",
+    "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0"
+    "Selectnumber": "0",
+    "State": "Normal"
   },
   {
-    "character": "prolog",
+    "TextName": "P1-2",
+    "NextTextName": "P1-3",
+    "character": "Player",
+    "characterName": "(이름)",
     "text": "도움에 보답을 하기 위해 쉘터 주변을 돌아다니며 자원을 모으는 ‘탐색꾼’역할에 자원했고, 사람이 많아지면서 자연스럽게 리더의 역할 또한 받게 되었다.",
-    "Pos": "Middle",
+    "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0"
+    "Selectnumber": "0",
+    "State": "Normal"
   },
   {
-    "character": "prolog",
+    "TextName": "P1-3",
+    "NextTextName": "P1-4",
+    "character": "Player",
+    "characterName": "(이름)",
     "text": "오늘은 영등포역 내부로 탐사를 오게 되었는데...",
-    "Pos": "Middle",
+    "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
-    "Selectnumber": "0"
+    "Selectnumber": "0",
+    "State": "Normal"
   },
   {
-
-    "TextName": "Start",
-    "NextTextName": "P1",
+    "TextName": "P1-4",
+    "NextTextName": "P1-5",
     "character": "Player",
     "characterName": "(이름)",
     "text": "역시... 길을 잃은 것 같군...",
@@ -54,8 +74,8 @@
     "State": "Panic"
   },
   {
-    "TextName": "P1",
-    "NextTextName": "P2",
+    "TextName": "P1-5",
+    "NextTextName": "P1-6",
     "character": "Player",
     "characterName": "(이름)",
     "text": "‘이전에는 대부분 자가용을 타고 다녔으니까... 괜히 더 깊은 곳까지 오지 말고 평소 다니던 루트로 갈 껄 그랬나...’",
@@ -63,35 +83,47 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
-  },
-  { 
-    "TextName": "P2",
-    "NextTextName": "P3",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "(내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.)",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Panic"
-  },
-  {    
-    "TextName": "P3",
-    "NextTextName": "P4",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "(눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때)“...?”",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Panic"
+    "State": "Normal"
   },
   {
-    "TextName": "P4",
-    "NextTextName": "P5",
+    "TextName": "P1-6",
+    "NextTextName": "P1-7",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "내부 지도는 다 훼손되어 현재 위치가 어디인지 알 수 없었다.",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "TextName": "P1-7",
+    "NextTextName": "P1-8",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "눈앞에 보이는 갈림길에서 오른쪽으로 꺾으며 훼손되지 않은 지도를 찾기 위해 두리번거리던 그 때",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "TextName": "P1-8",
+    "NextTextName": "P1-9",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "...?",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Search"
+  },
+  {
+    "TextName": "P1-9",
+    "NextTextName": "P1-10",
     "character": "Player",
     "characterName": "(이름)",
     "text": "(어느 가게 안에서 반짝이는 무언가를 본 것 같았다.)",
@@ -99,10 +131,10 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
+    "State": "Search"
   },
   {
-    "TextName": "P5",
+    "TextName": "P1-10",
     "NextTextName": "P6",
     "character": "Player",
     "characterName": "(이름)",
@@ -111,7 +143,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
+    "State": "Search"
   },
   {
     "TextName": "P6",
@@ -148,7 +180,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0"
   },
-  { 
+  {
     "TextName": "P9",
     "NextTextName": "P10",
     "character": "Player",
@@ -158,9 +190,9 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
+    "State": "smile"
   },
-  { 
+  {
     "TextName": "P10",
     "NextTextName": "P11",
     "character": "Player",
@@ -170,7 +202,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
+    "State": "smile"
   },
   {
     "TextName": "P11",
@@ -182,7 +214,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Panic"
+    "State": "smile"
   },
   {
     "character": "prolog2",
@@ -298,44 +330,56 @@
     "Selectnumber": "0"
   },
   {
-    "character": "prolog2",
-    "text": "(다시 눈을 뜨자마자 든 생각은 ‘그녀를 다시 만나고 싶다’)",
-    "Pos": "Middle",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal"
-  },
-  {
-    "character": "prolog2",
-    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
-    "Pos": "Middle",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal"
-  },
-  {
-    "character": "prolog2",
-    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
-    "Pos": "Middle",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal"
-  },
-  {
-    "character": "prolog2",
-    "text": "(시작은 내가 있던 영등포 쉘터다.)",
-    "Pos": "Middle",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal"
-  },
-  {
     "TextName": "P12",
-    "NextTextName": "P13",
+    "NextTextName": "P13-1",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "(다시 눈을 뜨자마자 든 생각은 ‘그녀를 다시 만나고 싶다’)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal"
+  },
+  {
+    "TextName": "P13-1",
+    "NextTextName": "P13-2",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile"
+  },
+  {
+    "TextName": "P13-2",
+    "NextTextName": "P13-3",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "(그녀는 더 많은 존재를 가지고 싶어한다. 그녀의 바람을 이루어주면 그녀와 다시\n만날 수 있을 것이다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile"
+  },
+  {
+    "TextName": "P13-3",
+    "NextTextName": "P13-4",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "(시작은 내가 있던 영등포 쉘터다.)",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile"
+  },
+  {
+    "TextName": "P13-4",
+    "NextTextName": "P13-5",
     "character": "Gangyuri",
     "text": "안녕하세요. (이름)씨! 살아서 다시 만나게 되어서 기쁘네요.",
     "Pos": "PlayerText",
@@ -345,7 +389,7 @@
     "State": "shadow"
   },
   {
-    "TextName": "P13",
+    "TextName": "P13-5",
     "NextTextName": "P14",
     "character": "Gangyuri",
     "text": "일주일간 연락도, 소식도 없어서 다시는 못 만나게 되는 줄 알았어요...",
@@ -495,7 +539,6 @@
     "BackGorund": "Alpahzero"
   },
   {
-
     "TextName": "P26",
     "NextTextName": "P27",
     "character": "Gangyuri",
@@ -571,8 +614,8 @@
     "tutorial": "Open_Talk2"
   },
   {
-    "TextName" : "P32",
-    "NextTextName" : "P33",
+    "TextName": "P32",
+    "NextTextName": "P33",
     "character": "Gangyuri",
     "text": "그곳에 있는 사람들을 볼 수 있어요. 여기서 대화하기를 누르면 대화를 하게 되죠. 당장 필요한 이야기는 이정도예요.",
     "Pos": "PlayerText",
@@ -583,8 +626,8 @@
     "BackGorund": "Alpahzero"
   },
   {
-    "TextName" : "P33",
-    "NextTextName" : "P34",
+    "TextName": "P33",
+    "NextTextName": "P34",
     "character": "Player",
     "characterName": "(이름)",
     "text": "고마워 유리씨.",
@@ -596,8 +639,8 @@
     "BackGorund": "Alpahzero"
   },
   {
-    "TextName" : "P34",
-    "NextTextName" : "p35",
+    "TextName": "P34",
+    "NextTextName": "p35",
     "character": "Gangyuri",
     "text": "네, 다음에 또 봐요 (이름)씨.",
     "Pos": "PlayerText",
@@ -620,3 +663,4 @@
     "State": "Nomal"
   }
 ]
+
