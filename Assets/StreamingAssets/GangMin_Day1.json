@@ -20,7 +20,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "BackGorund": "shelter",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
@@ -243,7 +243,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -303,7 +303,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
@@ -359,8 +359,8 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
+    "State": "smile",
+    "IsEnd": "true"
   },
   {
     "TextName": "end",

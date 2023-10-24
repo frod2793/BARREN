@@ -33,7 +33,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -64,7 +64,7 @@
     "Sound": "bagsound",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "true"
   },
   {
@@ -223,7 +223,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -285,7 +285,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -306,18 +306,50 @@
   },
   {
     "TextName": "C2-4",
-    "NextTextName": "end",
+    "NextTextName": "C2-5",
     "character": "Player",
     "characterName": "(이름)",
     "LikeGage": "20",
     "isLike": "true",
-    "text": " (주술사...? 신도들이 쓰는 것 같은 힘을 쓰는 사람들이었지...대부분의 주술사들은 이미 다른 아더갓의 신도가 되었다는 것으로 알고 있었는데 남은 사람이 있었나보군. 이곳에서의 볼일이 끝난다면 그곳으로 가 보는 것도 나쁘진 않겠어.)",
+    "text": " 주술사...? 신도들이 쓰는 것 같은 힘을 쓰는 사람들이었지...",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Search",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C2-5",
+    "NextTextName": "C2-6",
+    "character": "Player",
+    "characterName": "(이름)",
+    "LikeGage": "20",
+    "isLike": "true",
+    "text": "대부분의 주술사들은 이미 다른 아더갓의 신도가 되었다는 것으로 알고 있었는데 남은 사람이 있었나보군. 이곳에서의 볼일이 끝난다면 그곳으로 가 보는 것도 나쁘진 않겠어.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
     "State": "Normal",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C2-6",
+    "NextTextName": "end",
+    "character": "Player",
+    "characterName": "(이름)",
+    "LikeGage": "20",
+    "isLike": "true",
+    "text": "이곳에서의 볼일이 끝난다면 그곳으로 가 보는 것도 나쁘진 않겠어.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -413,7 +445,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -429,7 +461,6 @@
     "Selectnumber": "0",
     "State": "Normal",
     "IsEnd": "false"
-   
   },
   {
     "TextName": "C3",
@@ -475,7 +506,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "EnableGangMin",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "true"
   },
   {

@@ -23,7 +23,6 @@
     "State": "Normal",
     "IsEnd": "false"
   },
- 
   {
     "TextName": "P1",
     "NextTextName": "P1-1",
@@ -56,7 +55,6 @@
     "State": "smile",
     "IsEnd": "false"
   },
-  
   {
     "TextName": "P1-2",
     "NextTextName": "P1-3",
@@ -70,7 +68,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -91,18 +89,34 @@
   },
   {
     "TextName": "P1-1",
-    "NextTextName": "P1-2",
+    "NextTextName": "P1-11",
     "character": "MinGi",
     "characterName": "민지애",
     "LikeGage": "20",
     "isLike": "true",
-    "text": "음... 그에 관해서는 말해주기 조금 곤란하네요... 부탁을 하나 들어주신다면 말해주도록 할게요.",
+    "text": "음... 그에 관해서는 말해주기 조금 곤란하네요...",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "phsyconic",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "P1-11",
+    "NextTextName": "P1-2",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "LikeGage": "20",
+    "isLike": "true",
+    "text": "부탁을 하나 들어주신다면 말해주도록 할게요.",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "Normal",
     "IsEnd": "true"
   },
   {
@@ -133,7 +147,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {
@@ -141,13 +155,13 @@
     "NextTextName": "C1-2",
     "character": "MinGi",
     "characterName": "민지애",
-    "text": "이단치료사씨요! 생각보다 속이 물렁한 사람이더라고요.",
+    "text": "이단치료사씨요! 생각보다 속이 물렁한 사람이더라고요.\n이단치료사치고는 흔치않은 성격이죠.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -155,13 +169,13 @@
     "NextTextName": "C1-3",
     "character": "MinGi",
     "characterName": "민지애",
-    "text": "이단치료사치고는 흔치않은 성격이죠. 아직 치료사가 된 지 얼마 되지 않았다던데, 그래서 그런 것일까요?",
+    "text": "아직 치료사가 된 지 얼마 되지 않았다던데, 그래서 그런 것일까요?",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -169,13 +183,13 @@
     "NextTextName": "C1-4",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(저게 유순한 편 인거라니... 다른 이단치료사를 만나게 된다면 신도로 만드는 것은 불가능하다고 생각해야겠군.)",
+    "text": "'저게 유순한 편 인거라니... 다른 이단치료사를 만나게 된다면 신도로 만드는 것은 불가능하다고 생각해야겠군.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "StartDay5",
-    "State": "Panic",
+    "State": "Donmin",
     "IsEnd": "true"
   },
   {
@@ -189,7 +203,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -236,10 +250,24 @@
   },
   {
     "TextName": "C2-4",
+    "NextTextName": "C2-44",
+    "character": "MinGi",
+    "characterName": "민지애",
+    "text": "네. 지금은 만날 수 없는 모양이지만요...",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "phsyconic",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C2-44",
     "NextTextName": "C2-5",
     "character": "MinGi",
     "characterName": "민지애",
-    "text": "네. 지금은 만날 수 없는 모양이지만요... 자세한 이야기는\n직접 듣는 편이 좋을 거예요.",
+    "text": "자세한 이야기는 직접 듣는 편이 좋을 거예요.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -253,15 +281,28 @@
     "NextTextName": "C2-6",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(내 감이 맞다면 이 이야기야 말로 이단치료사의 경계를 꺼뜨릴 수 있는 결정적인 기회인 것 같다. 충분한 준비 이후 말을 걸도록 하자.)",
+    "text": "'내 감이 맞다면 이 이야기야 말로 이단치료사의 경계를 꺼뜨릴 수 있는 결정적인 기회인 것 같다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "StartDay5",
-    "State": "Normal",
-    "IsEnd": "true"
-  },
+    "State": "Search",
+    "IsEnd": "false"
+  },{
+  "TextName": "C2-6",
+  "NextTextName": "C2-7",
+  "character": "Player",
+  "characterName": "(이름)",
+  "text": "'충분한 준비 이후 말을 걸도록 하자.'",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "StartDay5",
+  "State": "smile",
+  "IsEnd": "true"
+},
   {
     "character": "prolog2",
     "text": "어느 정도까지 기억을 하시는지, 잊었는지는 잘 모르니 처음부터 설명을 해 드릴게요.",

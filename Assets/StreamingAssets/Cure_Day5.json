@@ -35,7 +35,7 @@
     "isButtonOn": "false",
     "Selectnumber": "0",
     "BackGorund": "shelterOutside",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -63,7 +63,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -77,7 +77,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -105,7 +105,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
@@ -133,7 +133,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {
@@ -161,7 +161,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -231,7 +231,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -245,7 +245,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "phsyconic",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -301,7 +301,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -346,7 +346,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {
@@ -374,7 +374,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -402,25 +402,11 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
     "TextName": "C1-5",
-    "NextTextName": "C1-6",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "이대로 아무 말도 없이 떠난다면 잊기는커녕,\n아이생각을 하다가 죽게 될 모습밖에 떠오르지 않습니다.",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
-  },
-  {
-    "TextName": "C1-6",
     "NextTextName": "C1-7",
     "character": "Player",
     "characterName": "(이름)",
@@ -430,7 +416,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -472,7 +458,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {
@@ -529,7 +515,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -565,7 +551,7 @@
     "NextTextName": "C1-18",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(이단치료사가 나에게 완전히 마음을 연 것 같은 기분이 든다)",
+    "text": "'이단치료사가 나에게 완전히 마음을 연 것 같은 기분이 든다'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -599,7 +585,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -649,7 +635,7 @@
     "NextTextName": "C1-24",
     "character": "Player",
     "characterName": "(이름)",
-    "text": " (그 말이 들려온 뒤 쿡쿡 웃는 웃음소리가 들려왔다.\n그 웃음소리가 사그러질 때 쯤 백아진을 바라보자 백아진은 잠들어 있었다.)",
+    "text": "'그 말이 들려온 뒤 쿡쿡 웃는 웃음소리가 들려왔다.\n그 웃음소리가 사그러질 때 쯤 백아진을 바라보자 백아진은 잠들어 있었다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -663,7 +649,7 @@
     "NextTextName": "P12",
     "character": "Player",
     "characterName": "(이름)",
-    "text": " (고민하던 문제가 해결이 되어 긴장이 풀린 탓에 잠에 든 것이겠지 이단치료사는 나에게 대단한 신뢰를 보이며 무방비 상태이다. 절호의 기회가 찾아온 것이다.)",
+    "text": "'고민하던 문제가 해결이 되어 긴장이 풀린 탓에 잠에 든 것이겠지 이단치료사는 나에게 대단한 신뢰를 보이며 무방비 상태이다. 절호의 기회가 찾아온 것이다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -711,7 +697,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -739,7 +725,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -753,7 +739,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {
@@ -767,7 +753,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -795,7 +781,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -859,7 +845,7 @@
     "NextTextName": "C2-13",
     "character": "Player",
     "characterName": "(이름)",
-    "text": " (이단치료사는 그렇게 한참을 혼자 중얼거렸다)",
+    "text": "'이단치료사는 그렇게 한참을 혼자 중얼거렸다'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -873,7 +859,7 @@
     "NextTextName": "C2-14",
     "character": "Player",
     "characterName": "(이름)",
-    "text": " (그 소리가 들리지 않을 때 쯤 이단치료사를 바라보자\n이단치료사는 잠들어 있었다. )",
+    "text": "'그 소리가 들리지 않을 때 쯤 이단치료사를 바라보자\n이단치료사는 잠들어 있었다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -887,21 +873,35 @@
     "NextTextName": "C2-15",
     "character": "Player",
     "characterName": "(이름)",
-    "text": " (눈 밑이 거뭇한걸 보아 이 문제로 잠을 설쳤던 것이 아닐까?)",
+    "text": "'눈 밑이 거뭇한걸 보아 이 문제로 잠을 설쳤던 것이 아닐까?'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "phsyconic",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
     "TextName": "C2-15",
+    "NextTextName": "C2-155",
+    "character": "Player",
+    "characterName": "(이름)",
+    "text": "이단치료사는 나에게 신뢰를 보이며 그의 정신력은 바닥을 보이는 상태다. 거기다 지금은 무방비 상태이기 까지...",
+    "text2": "",
+    "Pos": "PlayerText",
+    "Sound": "None",
+    "isButtonOn": "false",
+    "Selectnumber": "0",
+    "State": "smile",
+    "IsEnd": "false"
+  },
+  {
+    "TextName": "C2-155",
     "NextTextName": "P12",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(이단치료사는 나에게 신뢰를 보이며 그의 정신력은 바닥을 보이는 상태다. 거기다 지금은 무방비 상태이기 까지...\n절호의 기회가 찾아온 것이다.)",
+    "text": "절호의 기회가 찾아온 것이다.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -930,7 +930,7 @@
     "NextTextName": "P12-1",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(드디어 이단치료사를 세뇌하는 데 성공했다.)",
+    "text": "'드디어 이단치료사를 세뇌하는 데 성공했다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -944,7 +944,7 @@
     "NextTextName": "P12-2",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(그녀를 성공적으로 세뇌시킨 뒤, 다음 목표인 쉘터지도자를 세뇌시키기 위해\n쉘터 사람들의 신뢰를 쌓기 시작했다.)",
+    "text": "'그녀를 성공적으로 세뇌시킨 뒤, 다음 목표인 쉘터지도자를 세뇌시키기 위해\n쉘터 사람들의 신뢰를 쌓기 시작했다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -958,13 +958,13 @@
     "NextTextName": "P12-3",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(꽤 오래 걸렸다. 일주일간의 실종으로 날 의심하기 시작한 쉘터지도자가 내린 나를 감시하고 정보를 통제하라고 한 지시 탓에 사람들은 날 경계하고 있었기 때문이다.)",
+    "text": "'꽤 오래 걸렸다. 일주일간의 실종으로 날 의심하기 시작한 쉘터지도자가 내린 나를 감시하고 정보를 통제하라고 한 지시 탓에 사람들은 날 경계하고 있었기 때문이다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -986,13 +986,13 @@
     "NextTextName": "P12-5",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(그에 따라 쉘터 지도자의 경계도 차츰 누그러졌고, 나는 그에게 다가가기 쉬워졌다.)",
+    "text": "'그에 따라 쉘터 지도자의 경계도 차츰 누그러졌고, 나는 그에게 다가가기 쉬워졌다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Search",
     "IsEnd": "false"
   },
   {
@@ -1000,13 +1000,13 @@
     "NextTextName": "P12-6",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(어느날, 그가 방심한 틈에 신접촉 주술로 세뇌를 시도했으나, 쉘터 지도자는 이미 다른 아더갓의 축복을 받을 상태였다.)",
+    "text": "'어느날, 그가 방심한 틈에 신접촉 주술로 세뇌를 시도했으나, 쉘터 지도자는 이미 다른 아더갓의 축복을 받을 상태였다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
@@ -1014,13 +1014,13 @@
     "NextTextName": "P12-7",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(아더갓의 힘은 서로에게 상극이기 때문에, 다른 아더갓의 축복을 받았다면 그 사람의 세뇌는 불가능했다.)",
+    "text": "'아더갓의 힘은 서로에게 상극이기 때문에, 다른 아더갓의 축복을 받았다면 그 사람의 세뇌는 불가능했다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "smile",
+    "State": "Normal",
     "IsEnd": "false"
   },
   {
@@ -1042,7 +1042,7 @@
     "NextTextName": "P12-9",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(망했다. 현재 상황을 이 단어가 아닌 다른 단어로는 설명을 불가능 할 정도로 제대로 망했다.)",
+    "text": "'망했다. 현재 상황을 이 단어가 아닌 다른 단어로는 설명을 불가능 할 정도로 제대로 망했다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1056,7 +1056,7 @@
     "NextTextName": "P12-10",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(방금의 시도로 쉘터 지도자는 내가 자신에게 아더갓과 관련된 무언가를 했다는 것을 알아차렸을 것이다.)",
+    "text": "'방금의 시도로 쉘터 지도자는 내가 자신에게 아더갓과 관련된 무언가를 했다는 것을 알아차렸을 것이다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1070,7 +1070,7 @@
     "NextTextName": "P12-11",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(그리고 쉘터 사람들이라는 예비 교단원이자 제물들을 독차지하기 위해서 쫒겨 나거나 심하면 살해를 당할지도 모른다.)",
+    "text": "'그리고 쉘터 사람들이라는 예비 교단원이자 제물들을 독차지하기 위해서 쫒겨 나거나 심하면 살해를 당할지도 모른다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1084,7 +1084,7 @@
     "NextTextName": "P12-12",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(쉘터 지도자의 성격상 쫒겨 나겠지만 지도자를 세뇌한 놈의 성격은 어떤지 알 수 없다.)",
+    "text": "'쉘터 지도자의 성격상 쫒겨 나겠지만 지도자를 세뇌한 놈의 성격은 어떤지 알 수 없다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1098,7 +1098,7 @@
     "NextTextName": "P12-13",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(나는 쉘터 지도자가 깨어나기 전에 당장 짐을 싸 이단치료사와 함께 쉘터를 나섰다.)",
+    "text": "'나는 쉘터 지도자가 깨어나기 전에 당장 짐을 싸 이단치료사와 함께 쉘터를 나섰다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "Walk",
@@ -1140,7 +1140,7 @@
     "NextTextName": "P12-16",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "니요, 굳이 둘이 같이 다닐 필요는 없죠. 당신이나 나나 무력적인 면에서는 충분하고, 따로 행동하는 편이 효율이 좋을 테니까요. ",
+    "text": "아니요, 굳이 둘이 같이 다닐 필요는 없죠. 당신이나 나나 무력적인 면에서는 충분하고, 따로 행동하는 편이 효율이 좋을 테니까요.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1174,7 +1174,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -1188,7 +1188,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Lovely",
     "IsEnd": "false"
   },
   {
@@ -1202,7 +1202,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -1216,7 +1216,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -1224,7 +1224,7 @@
     "NextTextName": "P12-22",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(우리는 그렇게 서로 헤어졌다.)",
+    "text": "'우리는 그렇게 서로 헤어졌다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1238,7 +1238,7 @@
     "NextTextName": "P12-23",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(다음 목적지는 어디로 할까 고민을 했으나, 어차피 알고 있는 곳은 한 곳 뿐이다.)",
+    "text": "'다음 목적지는 어디로 할까 고민을 했으나, 어차피 알고 있는 곳은 한 곳 뿐이다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -1252,13 +1252,13 @@
     "NextTextName": "P12-24",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(주술사가 지도자로 있는 쉘터, 동작구 쉘터로 간다.)",
+    "text": "'주술사가 지도자로 있는 쉘터, 동작구 쉘터로 간다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "true"
   },
   {

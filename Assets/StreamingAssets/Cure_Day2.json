@@ -243,7 +243,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -264,7 +264,7 @@
     "TextName": "D2-2",
     "NextTextName": "D2-3",
     "character": "Player",
-    "text": "(정보가 아직 부족하다. 더 캐낼 수 있으면 좋을 텐데...)",
+    "text": "정보가 아직 부족하다. 더 캐낼 수 있으면 좋을 텐데...",
     "characterName": "(이름)",
     "text2": "",
     "Pos": "PlayerText",

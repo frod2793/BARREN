@@ -97,7 +97,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   
@@ -112,7 +112,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -126,23 +126,36 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
     "TextName": "D1-4",
-    "NextTextName": "D1-5",
+    "NextTextName": "D1-41",
     "character": "Cure",
     "characterName": "이단치료사",
-    "text": "안 그래도 신경 쓰이던 차였으니까.\n애초에... 일이 이렇게 된 것도 내 오지랖 때문이니까.",
+    "text": "안 그래도 신경 쓰이던 차였으니까.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "phsyconic",
     "IsEnd": "false"
-  },
+  },{
+  "TextName": "D1-41",
+  "NextTextName": "D1-5",
+  "character": "Cure",
+  "characterName": "이단치료사",
+  "text": "애초에... 일이 이렇게 된 것도 내 오지랖 때문이니까.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+  "IsEnd": "false"
+},
   {
     "TextName": "D1-5",
     "NextTextName": "end",
@@ -154,7 +167,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Lovely",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -162,35 +175,21 @@
     "NextTextName": "end-1",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(이것으로 이단치료사가 쉘터를 떠나는 것은 막았다.)",
+    "text": "'이것으로 이단치료사가 쉘터를 떠나는 것은 막았다.'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
     "TextName": "end-1",
-    "NextTextName": "end-2",
-    "character": "Player",
-    "characterName": "(이름)",
-    "text": "(이단치료사의 호감을 어느 정도 쌓는 것도 성공했지만 아직 이정도로는 부족할 것 같은데, 이단치료사에 대한 정보를 더 수집할 수 있는 방법은 없을까?)",
-    "text2": "",
-    "Pos": "PlayerText",
-    "Sound": "None",
-    "isButtonOn": "false",
-    "Selectnumber": "0",
-    "State": "Normal",
-    "IsEnd": "false"
-  },
-  {
-    "TextName": "end-2",
     "NextTextName": "end-3",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(이단치료사의 호감을 어느 정도 쌓는 것도 성공했지만 아직 이정도로는 부족할 것 같은데, 이단치료사에 대한 정보를 더 수집할 수 있는 방법은 없을까?)",
+    "text": "'이단치료사의 호감을 어느 정도 쌓는 것도 성공했지만 아직 이정도로는 부족할 것 같은데, 이단치료사에 대한 정보를 더 수집할 수 있는 방법은 없을까?'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -210,7 +209,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "EnableMingi",
-    "State": "Normal",
+    "State": "Search",
     "IsEnd": "true"
   },
   {
@@ -238,7 +237,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "smile",
     "IsEnd": "false"
   },
   {
@@ -280,7 +279,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "phsyconic",
+    "State": "shadow",
     "IsEnd": "false"
   },
   {
@@ -294,7 +293,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "phsyconic",
+    "State": "shadow",
     "IsEnd": "false"
   },
   {
@@ -302,21 +301,21 @@
     "NextTextName": "end",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(이단치료사가 떠나지 않게된 것은 좋지만 기분이 좀 상한 것 같다. 한동안은 사리는 편이 좋겠어)",
+    "text": "'이단치료사가 떠나지 않게된 것은 좋지만 기분이 좀 상한 것 같다. 한동안은 사리는 편이 좋겠어'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "EnableMingi",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
     "TextName": "D3",
-    "NextTextName": "D3-1",
+    "NextTextName": "D3-11",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "당신이 데려온 그 아이는 광신도들의 ‘제물’이었고, 그 때문에 쉘터가 계속 위협받고 있습니다. 괜한 짐을 떠넘긴 상태에서 멋대로 버리고 갈 생각은 마시고 광신도퇴치를 도와주시죠.",
+    "text": "당신이 데려온 그 아이는 광신도들의 ‘제물’이었고, 그 때문에 쉘터가 계속 위협받고 있습니다.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -324,7 +323,20 @@
     "Selectnumber": "0",
     "State": "Normal",
     "IsEnd": "false"
-  },
+  }, {
+  "TextName": "D3-11",
+  "NextTextName": "D3-1",
+  "character": "Player",
+  "characterName": "(이름)",
+  "text": "괜한 짐을 떠넘긴 상태에서 멋대로 버리고 갈 생각은 마시고 광신도퇴치를 도와주시죠.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "smile",
+  "IsEnd": "false"
+},
   {
     "TextName": "D3-1",
     "NextTextName": "D3-2",
@@ -336,7 +348,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "shadow",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -350,7 +362,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "shadow",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -364,7 +376,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "shadow",
+    "State": "phsyconic",
     "IsEnd": "false"
   },
   {
@@ -392,7 +404,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "EnableMingi",
-    "State": "shadow",
+    "State": "Panic",
     "IsEnd": "false"
   },
   {

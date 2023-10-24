@@ -93,7 +93,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "0",
-    "State": "Normal",
+    "State": "Donmin",
     "IsEnd": "false"
   },
   {
@@ -112,10 +112,10 @@
   },
   {
     "TextName": "C1-5",
-    "NextTextName": "C1-6",
+    "NextTextName": "C1-55",
     "character": "MinGi",
     "characterName": "민지애",
-    "text": "예전 부터 그런 것에 관심이 많았거든요.\n그런 물건들을 가져와 주시면 저도 (이름)씨가 원하는 것을 들어드릴게요.",
+    "text": "예전 부터 그런 것에 관심이 많았거든요.",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
@@ -123,7 +123,20 @@
     "Selectnumber": "0",
     "State": "smile",
     "IsEnd": "false"
-  },
+  },{
+  "TextName": "C1-55",
+  "NextTextName": "C1-6",
+  "character": "MinGi",
+  "characterName": "민지애",
+  "text": "그런 물건들을 가져와 주시면 저도 (이름)씨가 원하는 것을 들어드릴게요.",
+  "text2": "",
+  "Pos": "PlayerText",
+  "Sound": "None",
+  "isButtonOn": "false",
+  "Selectnumber": "0",
+  "State": "Normal",
+  "IsEnd": "false"
+},
   {
     "TextName": "C1-6",
     "NextTextName": "C1-7",
@@ -135,7 +148,7 @@
     "Sound": "None",
     "isButtonOn": "false",
     "Selectnumber": "Day4Start",
-    "State": "smile",
+    "State": "Lovely",
     "IsEnd": "true"
   },
   {
