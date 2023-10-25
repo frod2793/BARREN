@@ -5823,8 +5823,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD14D\uC2A4\uD2B8 \uCD9C\uB825 \uC790\uB9AC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
-  m_sharedMaterial: {fileID: 7202809025246736398, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef0d3c1afbdd24804a3e95414a5ec55a, type: 2}
+  m_sharedMaterial: {fileID: 3426723310253470739, guid: ef0d3c1afbdd24804a3e95414a5ec55a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

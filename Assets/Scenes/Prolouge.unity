@@ -2684,7 +2684,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC0C1\uB2E8 \uC2A4\uD06C\uB9BD\uD2B8 "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef0d3c1afbdd24804a3e95414a5ec55a, type: 2}
   m_sharedMaterial: {fileID: 7202809025246736398, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2709,8 +2709,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &674792779
@@ -3657,7 +3657,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD558\uB2E8 \uC2A4\uD06C\uB9BD\uD2B8 "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef0d3c1afbdd24804a3e95414a5ec55a, type: 2}
   m_sharedMaterial: {fileID: 7202809025246736398, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3682,8 +3682,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3721,7 +3721,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1042005541
@@ -4468,7 +4468,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC911\uAC04 \uC2A4\uD06C\uB9BD\uD2B8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef0d3c1afbdd24804a3e95414a5ec55a, type: 2}
   m_sharedMaterial: {fileID: 7202809025246736398, guid: fece15cd9b21a465393f6d80700b7b92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4493,8 +4493,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4532,7 +4532,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1170547554
@@ -5603,6 +5603,8 @@ MonoBehaviour:
   Player_Nomaral: {fileID: 613221627}
   Player_Smile: {fileID: 0}
   Player_phsyconic: {fileID: 0}
+  Player_Search: {fileID: 0}
+  Player_Donmin: {fileID: 0}
   ShealtherLeader_shadow: {fileID: 93054239}
   Gangyuri_shadow: {fileID: 1844032284}
   Gangyuri_Normal: {fileID: 526421750}
