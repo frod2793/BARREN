@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.UI;
 public class AttendancePopUp : MonoBehaviour
@@ -11,10 +8,15 @@ public class AttendancePopUp : MonoBehaviour
   private void Start()
   {
     closeBtn.onClick.AddListener(Func_CloseBtn);
+ 
   }
 
   private void Func_CloseBtn()
   {
     TweenEffect.ClosePopup(gameObject);
   }
+
+
+
+  
 }

@@ -64,7 +64,7 @@
     "text": "허, 이런 무기 들고 다니는 거 보면 몰라? 사교도놈들과 너 같은 의심군을 썰고 다니는 이단치료사지.",
     "text2": "",
     "Pos": "PlayerText",
-    "Sound": "None",
+    "Sound": "날카로운휘두르는소리",
     "isButtonOn": "false",
     "Selectnumber": "Day1Start",
     "State": "Normal",

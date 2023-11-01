@@ -284,6 +284,14 @@ Debug.LogWarning("currentIndex: "+ currentIndex);
                     //  print("배경없음 ");
                 }
 
+                if (currentDialogue.Sound != "None" && !isSound && currentDialogue.Sound != null && !isSound)
+                {
+                    print(currentDialogue.Sound );
+                    isSound = true;
+                    SoundManager.Instance.Func_EffectPlayOneShot(currentDialogue.Sound);
+                }
+                
+                
                 if (currentDialogue.text == null)
                 {
                     Debug.Log("강제종료 .");
@@ -650,29 +658,34 @@ Debug.LogWarning("currentIndex: "+ currentIndex);
 
             PlayerTextBox.alpha = 1.0f;
 
-            if (SoundManager.Instance != null && !isSound)
+            if (currentDialogue.Sound != "None" && !isSound && currentDialogue.Sound != null)
             {
                 isSound = true;
-                if (currentDialogue.Sound.ToString() == "OneBreath")
-                {
-                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.OneBreath);
-                }
 
-                if (currentDialogue.Sound == "WomanLaugh")
+                switch (currentDialogue.Sound)
                 {
-                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.WomanLaugh);
-                }
-
-                if (currentDialogue.Sound == "Walk")
-                {
-                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
-                }
-
-                if (currentDialogue.Sound == "bagsound")
-                {
-                    SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.bagsearch);
+                    case "OneBreath":
+                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.OneBreath);
+                        break;
+        
+                    case "WomanLaugh":
+                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.WomanLaugh);
+                        break;
+        
+                    case "Walk":
+                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.Walk);
+                        break;
+        
+                    case "bagsound":
+                        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.bagsearch);
+                        break;
+        
+                    default:
+                        SoundManager.Instance.Func_EffectPlayOneShot(currentDialogue.Sound);
+                        break;
                 }
             }
+
         }
 
 

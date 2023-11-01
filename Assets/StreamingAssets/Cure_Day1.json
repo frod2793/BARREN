@@ -27,7 +27,7 @@
     "NextTextName": "P1-1",
     "character": "Player",
     "characterName": "(이름)",
-    "text": "(주술의 영향으로 나에 대한 경계가 줄어든 것이 느껴진다.)\n(그럼 무슨 말을 해 볼까?)",
+    "text": "주술의 영향으로 나에 대한 경계가 줄어든 것이 느껴진다.\n그럼 무슨 말을 해 볼까?",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,13 @@ public class MainSceneBtnManager : MonoBehaviour
     [SerializeField] private Text diamondText;
     [SerializeField] private Text datText;
     [SerializeField] private Toggle topButtonGroupToggle;
-
+    [SerializeField] private Button treeLineBtn;
+    [Header("접이식 ui")]
+    [SerializeField] private Button HomeBtn;
+    [SerializeField] private Button mapBtn;
+    [SerializeField] private Button missonBtn;
+    [SerializeField] private Button attenBtn;
+    [SerializeField] private Button settingBtn;
     [Header("오른쪽 ui")] [SerializeField] private Button attendBtn;
     [SerializeField] private GameObject toggleMark;
     [SerializeField] private Toggle eventToggle;
@@ -67,6 +74,8 @@ public class MainSceneBtnManager : MonoBehaviour
     [Header("캐릭터 팝업")] [SerializeField] private GameObject chacracterPopup;
     [SerializeField] private Button chacracterPopupCloseBtn;
     [Header("캐릭터 데이터 ")] public CharacterDataList CharacterDataList;
+    [Header("- 팝업 프리펩  목록")] [SerializeField]
+    private GameObject settingPopUp;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +103,16 @@ public class MainSceneBtnManager : MonoBehaviour
             UpdateStageButton(i);
         }
     }
+    public void Func_SettingBtn()
+    {  
+        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
 
+        // settingButton.interactable = false;
+        GameObject settingInstance = Instantiate(settingPopUp, _manager.mainCanvas.transform);
+
+        // 설정 팝업 열기 
+        TweenEffect.OpenPopup(settingInstance);
+    }
     private void UpdateStageButton(int stageIndex)
     {
         Button stageButton = null;
@@ -158,6 +176,20 @@ public class MainSceneBtnManager : MonoBehaviour
     {
         talk_Btn.onClick.AddListener(() => _manager.EnableTalk_Popup());
 
+        HomeBtn.onClick.AddListener(Func_HomeBtn);
+        
+        mapBtn.onClick.AddListener(() =>
+        {
+            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+            _manager.EnableMap_Popup();
+        });
+        
+        attenBtn.onClick.AddListener(() =>
+        {
+            SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+            _manager.EnableAttendpPopup();
+        });
+        
         topButtonGroupToggle.onValueChanged.AddListener((isOn) =>
         {
             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
@@ -165,7 +197,7 @@ public class MainSceneBtnManager : MonoBehaviour
             _manager.OnToggleValueChangedY(isOn, topButtonGroupToggle.gameObject, 796f);
             func_ToggleAction(isOn);
         });
-
+        treeLineBtn.onClick.AddListener(Func_TreeLine_Btn);
         attendBtn.onClick.AddListener(() =>
         {
             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
@@ -465,5 +497,28 @@ public class MainSceneBtnManager : MonoBehaviour
         {
             CharacterDataList.CharacterData_List[i].CharacterTalkBtn.onClick.RemoveAllListeners();
         }
+    }
+
+
+    private void Func_TreeLine_Btn()
+    {
+        if (topButtonGroupToggle.isOn)
+        {
+            topButtonGroupToggle.isOn = false;
+            
+        }
+        else
+        {
+            topButtonGroupToggle.isOn = true;
+        }
+        
+    }
+
+    private void Func_HomeBtn()
+    {
+      _manager.CloseEveryPopup();
+      TweenEffect.ClosePopup(chacracterPopup);
+      SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+
     }
 }

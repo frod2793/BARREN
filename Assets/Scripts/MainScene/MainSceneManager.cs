@@ -15,7 +15,6 @@ public class ToggleInfo
 
 public class MainSceneManager : MonoBehaviour
 {
-    
     //이미지와 이미지의 이름을 갖고있는 구조체생성
     [Serializable]
     public struct BackGround
@@ -23,12 +22,11 @@ public class MainSceneManager : MonoBehaviour
         public string name;
         public Sprite image;
     }
- 
+
     //BackGround 리스트 생성
     public List<BackGround> backGroundList = new List<BackGround>();
 
-    
-    
+
     [Header("프롤로그 캔버스 부분 ")] [SerializeField]
     private CanvasGroup prologueCanvas;
 
@@ -50,7 +48,7 @@ public class MainSceneManager : MonoBehaviour
 
     private bool cancelFadeOut = false; // 페이드 아웃 취소 플래그
 
-    [Header("메인 캔버스")] [SerializeField] private GameObject mainCanvas;
+    [Header("메인 캔버스")] [SerializeField] public GameObject mainCanvas;
 
     [Header("출석 팝업")] [SerializeField] private GameObject attanacePopUp;
 
@@ -63,10 +61,11 @@ public class MainSceneManager : MonoBehaviour
     private bool _isMoved = false;
     private bool _isEventMoved = false;
     private bool _isContinueMoved = false;
-
+    private bool isSound = false;
     [Header("게임씬")] [SerializeField] private GameObject gamescene;
     [Header("플레이어")] public GameObject player;
-    async void  Start()
+
+    async void Start()
     {
         Application.runInBackground = true;
         // dialogueList = LoadJson.LoadScriptFromJSON("prolog");
@@ -74,7 +73,7 @@ public class MainSceneManager : MonoBehaviour
         List<LoadJson.Dialogue> dialogueList = await LoadJson.LoadScriptFromJSONAsync("prolog");
         this.dialogueList = dialogueList;
 
-        
+
         if (SoundManager.Instance != null)
         {
             if (SceneManager.GetActiveScene().name == "MainScene")
@@ -82,20 +81,18 @@ public class MainSceneManager : MonoBehaviour
                 SoundManager.Instance.Func_BGMLoop(AudioDefine.Main_Bgm);
             }
         }
-        if (  PlayerData.Instance.IsTutorial)
+
+        if (PlayerData.Instance.IsTutorial)
         {
             prologueCanvas.gameObject.SetActive(false);
-   
         }
         else
         {
-            
             ShowNextDialogueAsync().Forget();
         }
     }
 
-   
-    
+
     async UniTask ShowNextDialogueAsync()
     {
         await UniTask.WaitUntil(() => dialogueList != null);
@@ -111,7 +108,15 @@ public class MainSceneManager : MonoBehaviour
             {
                 Background.sprite = backGroundList.Find(x => x.name == currentDialogue.BackGorund).image;
             }
-            
+
+            if (currentDialogue.Sound != "None" && !isSound && currentDialogue.Sound != null && !isSound)
+            {
+                print(currentDialogue.Sound );
+                isSound = true;
+                SoundManager.Instance.Func_EffectPlayOneShot(currentDialogue.Sound);
+            }
+
+
             if (currentDialogue.Pos.ToLower() == "top" && !string.IsNullOrEmpty(topTextMeshPro.text))
             {
                 topTextMeshPro.gameObject.SetActive(true);
@@ -154,11 +159,13 @@ public class MainSceneManager : MonoBehaviour
         }
         else
         {
+            isSound = false;
+
             Debug.Log("대사 끝.");
             await TweenEffect.FadeOutPrologueCanvas(prologueCanvas);
             TweenEffect.OpenPopup(map_PopUp);
-           // gamescene.SetActive(true);
-        //    SceneLoader.Instace.LoadScene("GameScene");
+            // gamescene.SetActive(true);
+            //    SceneLoader.Instace.LoadScene("GameScene");
         }
     }
 
@@ -182,7 +189,6 @@ public class MainSceneManager : MonoBehaviour
                 {
                     textMeshPro.gameObject.SetActive(false);
                 }
-     
             }
         }
     }
@@ -259,6 +265,7 @@ public class MainSceneManager : MonoBehaviour
     // 타이핑 효과 시작 메서드
     void StartTypingEffect()
     {
+        isSound = false;
         isTyping = true;
         if (currentIndex < dialogueList.Count)
         {
@@ -337,10 +344,9 @@ public class MainSceneManager : MonoBehaviour
         }
     }
 
-    public void OnToggleValueChangedX(bool isOn, GameObject targetObject, float originalPoint,float movepoint, ToggleInfo toggleInfo)
+    public void OnToggleValueChangedX(bool isOn, GameObject targetObject, float originalPoint, float movepoint,
+        ToggleInfo toggleInfo)
     {
-      
-
         if (targetObject != null)
         {
             RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
@@ -349,11 +355,7 @@ public class MainSceneManager : MonoBehaviour
                 float targetX = isOn ? originalPoint : movepoint;
 
                 // OnComplete에 Action 사용
-                Action onCompleteAction = () =>
-                {
-                    ToggleMoveComplete(isOn, targetObject, toggleInfo);
-
-                };
+                Action onCompleteAction = () => { ToggleMoveComplete(isOn, targetObject, toggleInfo); };
 
                 rectTransform.DOAnchorPosX(targetX, 0.5f)
                     .SetEase(Ease.OutQuad)
@@ -367,21 +369,23 @@ public class MainSceneManager : MonoBehaviour
         // 여기서 toggleInfo를 통해 toggleMoved에 대한 작업을 수행
         toggleInfo.IsMoved = isOn;
     }
-    
-   
+
+
     public void EnableAttendpPopup()
     {
         TweenEffect.OpenPopup(attanacePopUp);
     }
-    
+
     public void EnableMap_Popup()
     {
         TweenEffect.OpenPopup(SageSelect_PopUp);
     }
+
     public void DisableMap_Popup()
     {
         TweenEffect.ClosePopup(SageSelect_PopUp);
     }
+
     public void EnableStageSelect_PopUp()
     {
         //TweenEffect.OpenPopup(SageSelect_PopUp);
@@ -397,8 +401,9 @@ public class MainSceneManager : MonoBehaviour
     {
         TweenEffect.OpenPopup(CharacterProsessPopUp);
     }
+
     public void disnbleStageSelect_PopUp()
-    {  
+    {
         TweenEffect.ClosePopup(SageSelect_PopUp);
         TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
@@ -408,7 +413,7 @@ public class MainSceneManager : MonoBehaviour
         TweenEffect.OpenPopup(SageSelect_PopUp);
         TweenEffect.OpenPopup(CharacterProsessPopUp);
     }
-    
+
     public void CloseEveryPopup()
     {
         TweenEffect.ClosePopup(attanacePopUp);
@@ -416,9 +421,11 @@ public class MainSceneManager : MonoBehaviour
         TweenEffect.ClosePopup(SageSelect_PopUp);
         TweenEffect.ClosePopup(CharacterProsessPopUp);
     }
-    
+
     public void yeongDeungPoBtn()
     {
         gamescene.SetActive(true);
     }
+
+  
 }

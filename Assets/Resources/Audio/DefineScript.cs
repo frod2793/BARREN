@@ -211,6 +211,9 @@ using UnityEngine;
         public const string WomanLaugh = "WomanLaugh";
         public const string Walk = "Walk";
         public const string bagsearch = "bagsearch";
+        public const string Monstersound = "괴물소리1";
+        public const string Monstersound2 = "괴물소리2";
+        public const string Monstersound3 = "괴물소리3";
         #endregion
 
         #region Chef
