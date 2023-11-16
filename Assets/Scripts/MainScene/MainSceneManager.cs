@@ -56,7 +56,15 @@ public class MainSceneManager : MonoBehaviour
 
     [Header("스테이지 선택 팝업")] [SerializeField]
     private GameObject SageSelect_PopUp;
+   
+    [Header("옷장 팝업")] [SerializeField]
+    private GameObject closet_PopUp;
+    [Header("친구 팝업")] [SerializeField]
+    private GameObject friend_PopUp;
 
+    
+    [Header("- 팝업 프리펩  목록")] [SerializeField]
+    private GameObject settingPopUp;
     [SerializeField] private GameObject CharacterProsessPopUp;
     private bool _isMoved = false;
     private bool _isEventMoved = false;
@@ -258,7 +266,9 @@ public class MainSceneManager : MonoBehaviour
                 }
             }
         }
+        
 #endif
+   
     }
 
 
@@ -414,12 +424,35 @@ public class MainSceneManager : MonoBehaviour
         TweenEffect.OpenPopup(CharacterProsessPopUp);
     }
 
+    public void Func_closetPopUp()
+    {
+        TweenEffect.OpenPopup(closet_PopUp);
+    }
+    
+    public void Func_friendPopUp()
+    {
+        TweenEffect.OpenPopup(friend_PopUp);
+    }
+    
+    public void Func_closetPopUpClose()
+    {
+        TweenEffect.ClosePopup(closet_PopUp);
+    }
+    
+    public void Func_friendPopUpClose()
+    {
+        TweenEffect.ClosePopup(friend_PopUp);
+    }
+    
     public void CloseEveryPopup()
     {
         TweenEffect.ClosePopup(attanacePopUp);
         TweenEffect.ClosePopup(map_PopUp);
         TweenEffect.ClosePopup(SageSelect_PopUp);
         TweenEffect.ClosePopup(CharacterProsessPopUp);
+        TweenEffect.ClosePopup(closet_PopUp);
+        TweenEffect.ClosePopup(friend_PopUp);
+        
     }
 
     public void yeongDeungPoBtn()
@@ -427,5 +460,14 @@ public class MainSceneManager : MonoBehaviour
         gamescene.SetActive(true);
     }
 
-  
+    public void Func_SettingBtn()
+    {  
+        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+
+        // settingButton.interactable = false;
+        GameObject settingInstance = Instantiate(settingPopUp, mainCanvas.transform);
+
+        // 설정 팝업 열기 
+        TweenEffect.OpenPopup(settingInstance);
+    }
 }

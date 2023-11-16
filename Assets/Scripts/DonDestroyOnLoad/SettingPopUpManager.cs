@@ -52,6 +52,14 @@ public class SettingPopUpManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { if (Application.platform== RuntimePlatform.Android)
+        {
+           
+                if (Input.GetKey(KeyCode.Escape))
+                {
+                    func_closeButton().Forget();
+                }
+            
+        }
     }
 }

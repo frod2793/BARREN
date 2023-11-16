@@ -74,8 +74,7 @@ public class MainSceneBtnManager : MonoBehaviour
     [Header("캐릭터 팝업")] [SerializeField] private GameObject chacracterPopup;
     [SerializeField] private Button chacracterPopupCloseBtn;
     [Header("캐릭터 데이터 ")] public CharacterDataList CharacterDataList;
-    [Header("- 팝업 프리펩  목록")] [SerializeField]
-    private GameObject settingPopUp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -103,16 +102,7 @@ public class MainSceneBtnManager : MonoBehaviour
             UpdateStageButton(i);
         }
     }
-    public void Func_SettingBtn()
-    {  
-        SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
 
-        // settingButton.interactable = false;
-        GameObject settingInstance = Instantiate(settingPopUp, _manager.mainCanvas.transform);
-
-        // 설정 팝업 열기 
-        TweenEffect.OpenPopup(settingInstance);
-    }
     private void UpdateStageButton(int stageIndex)
     {
         Button stageButton = null;
@@ -175,9 +165,9 @@ public class MainSceneBtnManager : MonoBehaviour
     private void mainBtnSetting()
     {
         talk_Btn.onClick.AddListener(() => _manager.EnableTalk_Popup());
-
+        friend_Btn.onClick.AddListener(() => _manager.Func_friendPopUp());
         HomeBtn.onClick.AddListener(Func_HomeBtn);
-        
+        closet_Btn.onClick.AddListener((() => _manager.Func_closetPopUp()));
         mapBtn.onClick.AddListener(() =>
         {
             SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
@@ -519,6 +509,23 @@ public class MainSceneBtnManager : MonoBehaviour
       _manager.CloseEveryPopup();
       TweenEffect.ClosePopup(chacracterPopup);
       SoundManager.Instance.Func_EffectPlayOneShot(AudioDefine.ButtonClick);
+
+    }
+
+    private void Update()
+    {
+        if (Application.platform== RuntimePlatform.Android)
+        {
+            if (PlayerData.Instance.IsTutorial)
+            {
+                if (Input.GetKey(KeyCode.Escape))
+                {
+                    Func_HomeBtn();
+                }
+            }
+        }
+
+
 
     }
 }

@@ -121,7 +121,7 @@
     "character": "Player",
     "characterName": "(이름)",
     "LikeGage": "",
-    "text": "(아이에 대하여 이단치료사에게 물어볼 수 있을까?)",
+    "text": "'아이에 대하여 이단치료사에게 물어볼 수 있을까?'",
     "text2": "",
     "Pos": "PlayerText",
     "Sound": "None",
